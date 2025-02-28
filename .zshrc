@@ -10,25 +10,6 @@ export EDITOR="nvim"
 # Alias
 alias lg="lazygit"
 
-# Desktop specific
-export PATH=$PATH:$HOME/Documents/Tools/platform-tools
-export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:$HOME/winapps/bin
-export LIBVIRT_DEFAULT_URI='qemu:///system'
-export PYTORCH_ROCM_ARCH="gfx1031"
-export HSA_OVERRIDE_GFX_VERSION=10.3.0
-export HIP_VISIBLE_DEVICES=0
-
-function WIN() {
-    local title=$(sudo grep -i 'windows' /boot/grub2/grub.cfg | cut -d"'" -f2)
-    if [ -n "$title" ]; then
-        sudo grub2-reboot "$title"
-        sudo reboot
-    else
-        echo "Windows entry not found in GRUB configuration."
-    fi
-}
-
 # Make ctrl stuff work
 bindkey '^[[126;5u' backward-kill-word
 bindkey '^?' backward-kill-word
