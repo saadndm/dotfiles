@@ -30,7 +30,7 @@ function WIN() {
 }
 
 # Make ctrl stuff work
-bindkey '^[[127;5u' backward-kill-word
+bindkey '^[[126;5u' backward-kill-word
 bindkey '^?' backward-kill-word
 bindkey '^H' backward-kill-word
 bindkey "^[[1;5C" forward-word
@@ -42,7 +42,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Zsh
-source $HOME/Documents/Tools/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 plugins=(git bun zsh-autosuggestions nvm zsh-shift-select zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
