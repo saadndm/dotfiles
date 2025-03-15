@@ -4,6 +4,7 @@ ENABLE_CORRECTION="true"
 # Env variables
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/bin:$PATH
 export EDITOR="nvim"
 
@@ -21,6 +22,7 @@ bindkey "^[[1;5D" backward-word
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/home/helium/.bun/_bun" ] && source "/home/helium/.bun/_bun"
 
 # Zsh
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
