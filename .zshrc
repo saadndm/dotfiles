@@ -22,7 +22,7 @@ bindkey "^[[1;5D" backward-word
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "/home/helium/.bun/_bun" ] && source "/home/helium/.bun/_bun"
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
 # Zsh
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
