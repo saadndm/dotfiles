@@ -1,0 +1,15 @@
+theme = catppuccin-mocha
+background-opacity = 0.8
+mouse-hide-while-typing = true
+clipboard-read = allow
+maximize = true
+cursor-style = bar
+
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true
+window-padding-color = background
+
+keybind = f11=toggle_fullscreen
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+keybind = ctrl+backspace=text:\x17

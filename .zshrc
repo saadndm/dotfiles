@@ -24,6 +24,19 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
+# Zellij
+if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION" ]] && [[ "$TERM" == "xterm-ghostty" ]]; then
+    if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+        zellij attach -c
+    else
+        zellij -l welcome
+    fi
+
+    if [[ "$ZELLIJ_AUTO_EXIT" == "TRUE" ]]; then
+        exit
+    fi
+fi
+
 # Zsh
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 plugins=(git bun zsh-autosuggestions nvm zsh-shift-select zsh-syntax-highlighting)
