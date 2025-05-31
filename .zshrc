@@ -8,9 +8,6 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=/usr/local/bin:$PATH
 export EDITOR="nvim"
 
-# Alias
-alias lg="lazygit"
-
 # Make ctrl stuff work
 bindkey '^[[126;5u' backward-kill-word
 bindkey '^?' backward-kill-word
@@ -43,3 +40,7 @@ plugins=(git bun zsh-autosuggestions nvm zsh-shift-select zsh-syntax-highlightin
 source $ZSH/oh-my-zsh.sh
 
 eval "$(zoxide init zsh)"
+
+# Alias
+alias lg="lazygit"
+alias ls="eza --icons=auto --group-directories-first"
