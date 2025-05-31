@@ -11,6 +11,15 @@ keybinds clear-defaults=true {
     }
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Alt z" {
+            MessagePlugin "autolock" {payload "disable";};
+            SwitchToMode "Normal";
+        }
+    }
+    shared {
+        bind "Alt z" {
+            MessagePlugin "autolock" {payload "enable";};
+        }
     }
     pane {
         bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
