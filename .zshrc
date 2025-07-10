@@ -1,5 +1,4 @@
 ZSH_THEME="agnoster"
-ENABLE_CORRECTION="true"
 
 # Env variables
 export ZSH="$HOME/.oh-my-zsh"
@@ -35,8 +34,7 @@ if [[ -z "$ZELLIJ" ]] && [[ -z "$SSH_CONNECTION" ]] && [[ "$TERM" == "xterm-ghos
 fi
 
 # Zsh
-source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-plugins=(git bun zsh-autosuggestions nvm zsh-shift-select zsh-syntax-highlighting)
+plugins=(git bun zsh-autosuggestions nvm zsh-shift-select fast-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 eval "$(zoxide init zsh)"
