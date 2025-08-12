@@ -1,3 +1,0 @@
-class = ghostty.wiremix
-x11-instance-name = ghostty.wiremix
-command = wiremix

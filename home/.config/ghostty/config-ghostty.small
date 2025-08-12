@@ -1,3 +1,0 @@
-class               = ghostty.small
-x11-instance-name   = ghostty.small
-command             = /usr/bin/bash -l

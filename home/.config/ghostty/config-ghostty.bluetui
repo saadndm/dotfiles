@@ -1,3 +1,0 @@
-class = ghostty.bluetui
-x11-instance-name = ghostty.bluetui
-command = bluetui
