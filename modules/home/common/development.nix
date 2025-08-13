@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   programs = {
     go.enable = true;
@@ -11,6 +16,7 @@
   };
 
   home.packages = with pkgs; [
+    inputs.agenix.packages.${pkgs.system}.default
     gotools
     gopls
     golangci-lint
