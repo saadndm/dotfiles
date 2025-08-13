@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ config, ... }:
 {
   imports = [
     ./bash.nix
     ./tailscale.nix
+    ./agenix.nix
   ];
 
   nix.settings.experimental-features = [
@@ -28,6 +29,10 @@
     users.bridgesense = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
+      hashedPasswordFile = config.age.secrets.password.path;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPQrUB4qs/uh+ndRKv46p2qc+D//ctznIH8Hg4lnE8P saad29nadeem@gmail.com-boron-linux"
+      ];
     };
   };
 

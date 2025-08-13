@@ -14,8 +14,17 @@
 
   networking.hostName = "carbon";
 
-  users.users.bridgesense.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPQrUB4qs/uh+ndRKv46p2qc+D//ctznIH8Hg4lnE8P saad29nadeem@gmail.com-carbon-nixos"
+  # Enable passwordless sudo.
+  security.sudo.extraRules = [
+    {
+      users = [ "bridgesense" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
   ];
 
   system.stateVersion = "24.11";
