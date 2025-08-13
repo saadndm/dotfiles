@@ -14,18 +14,5 @@
 
   networking.hostName = "carbon";
 
-  # Enable passwordless sudo.
-  security.sudo.extraRules = [
-    {
-      users = [ "bridgesense" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
-
   system.stateVersion = "24.11";
 }
