@@ -1,16 +1,22 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   services.tailscale = {
     enable = true;
+    authKeyFile = config.age.secrets.tailscale.path;
+    openFirewall = true;
+    useRoutingFeatures = "client";
+    extraUpFlags = [
+      "--ssh"
+    ];
     extraDaemonFlags = [
       "--tun=userspace-networking"
-      "--socks5-server=0.0.0.0:1055" # SOCKS5 on port 1055
+      "--socks5-server=0.0.0.0:1055"
     ];
   };
-
   networking.firewall = {
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ 1055 ];
+    trustedInterfaces = [
+      "tailscale0"
+    ];
   };
 }

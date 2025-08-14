@@ -13,7 +13,9 @@
     secrets = {
       password = {
         file = ../../../secrets/password.age;
-        owner = config.users.users.bridgesense.name;
+      };
+      tailscale = {
+        file = ../../../secrets/tailscale.age;
       };
     };
   };
