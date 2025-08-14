@@ -46,7 +46,6 @@
       PermitRootLogin = "no";
       PasswordAuthentication = false;
     };
+    openFirewall = false;
   };
-
-  networking.firewall.allowedTCPPorts = [ 22 ];
 }
