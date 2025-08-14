@@ -20,9 +20,22 @@
       };
     };
     initrd.systemd.enable = true;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # security.sudo.extraRules = [
+  #   {
+  #     users = [ "bridgesense" ];
+  #     commands = [
+  #       {
+  #         command = "ALL";
+  #         options = ["NOPASSWD"];
+  #       }
+  #     ];
+  #   }
+  # ];
 
   users = {
     mutableUsers = false;
@@ -32,6 +45,7 @@
       passwordFile = config.age.secrets.password.path;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPQrUB4qs/uh+ndRKv46p2qc+D//ctznIH8Hg4lnE8P saad29nadeem@gmail.com-boron-linux"
+"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaj9tr/+tlavpoeFeLN2Xbr50wvR4fVNKd59ZxlQIBD bridgesense@fedora"
       ];
     };
   };
