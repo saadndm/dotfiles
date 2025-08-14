@@ -7,6 +7,7 @@
 {
   imports = [
     flake.nixosModules.common
+    flake.nixosModules.class-server
     inputs.disko.nixosModules.default
     ./hardware-configuration.nix
     ./disk-config.nix

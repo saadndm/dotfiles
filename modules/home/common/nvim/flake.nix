@@ -11,17 +11,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
-    fff-nvim = {
-      url = "github:dmtrKovalenko/fff.nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    crane.url = "github:ipetkov/crane";
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -64,12 +53,6 @@
           # add any other flake overlays here.
           inputs.neovim-nightly-overlay.overlays.default
 
-          (import ./overlays/emmylua_ls.nix)
-          (import ./overlays/fff-nvim.nix {
-            inherit inputs;
-            crane = inputs.crane;
-            rust-overlay = inputs.rust-overlay;
-          })
 
           # when other people mess up their overlays by wrapping them with system,
           # you may instead call this function on their overlay.
@@ -104,7 +87,6 @@
           # this includes LSPs
           lspsAndRuntimeDeps = {
             general = with pkgs; [
-              emmylua_ls
 
               nixd
               nixfmt
@@ -137,7 +119,6 @@
               extra = [
                 fzf-lua
                 oil-nvim
-                fff-nvim
                 nvim-web-devicons
               ];
             };
