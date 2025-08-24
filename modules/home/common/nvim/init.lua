@@ -18,7 +18,7 @@ Of course, if you only ever download nvim with nix, this isnt needed.]]
 --[[ function so that it will not throw  ]]
 --[[ an error if not loaded via nixCats  ]]
 --[[ ----------------------------------- ]]
-require('nixCatsUtils').setup {
+require("nixCatsUtils").setup {
   non_nix_value = true,
 }
 --[[
@@ -57,4 +57,4 @@ and the lua/config/non_nix_download.lua file.
 the rest is just example of how to configure nvim making use of various
 features of nixCats and using the plugin lze for lazy loading.
 --]]
-require('config')
+require("config")

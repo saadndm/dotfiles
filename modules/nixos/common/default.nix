@@ -1,15 +1,37 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
     ./bash.nix
     ./tailscale.nix
     ./agenix.nix
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.bridgesense = ../../../hosts/${config.networking.hostName}/users/bridgesense/home-configuration.nix;
+  };
+
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    substituters = [
+      "https://cache.nixos.org/"
+    ];
+    extra-substituters = [ "https://yazi.cachix.org" ];
+    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+  };
+
+  nixpkgs.config.allowUnfree = true;
 
   boot = {
     loader = {

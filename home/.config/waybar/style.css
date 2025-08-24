@@ -1,0 +1,197 @@
+@import 'mocha.css';
+
+/* General */
+tooltip {
+  background-color: rgba(24, 24, 37, 0.9);
+}
+tooltip box {
+  padding: 5px;
+}
+
+menu,
+#workspaces,
+#clock,
+#wireplumber,
+#bluetooth,
+#network,
+#idle_inhibitor,
+#temperature,
+#backlight,
+#upower,
+#memory,
+#cpu,
+#tray,
+#power-profiles-daemon {
+  background-color: rgba(24, 24, 37, 0.9);
+  margin-right: 3px;
+  padding: 0 10px 0 10px;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font Mono";
+  min-height: 14px;
+  font-size: 12px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+  text-shadow: none;
+  background-color: transparent;
+}
+
+/* Pills */
+#temperature,
+#backlight,
+#tray,
+#wireplumber
+#power-profiles-daemon,
+#idle_inhibitor,
+#network,
+#bluetooth {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Workspaces */
+#workspaces {
+  padding: 0;
+  margin-left: 3px;
+}
+
+#workspaces button {
+  padding: 0px 3px;
+  margin: 3px;
+}
+
+#workspaces button.active {
+  transition: background-color 0.2s ease-in-out;
+  min-width: 20px;
+  color: @base;
+  background-color: rgba(137, 180, 250, 0.9);
+  border-radius: 7px;
+}
+
+#workspaces button:hover {
+  color: @subtext0;
+  animation: none;
+}
+
+/* CPU */
+#cpu {
+  color: @text;
+  padding: 0px 5px 0px 10px;
+  border-radius: 10px 0 0 10px;
+  color: @green;
+  margin-right: 0;
+}
+
+#cpu.warning {
+  color: @yellow;
+}
+
+#cpu.critical {
+  color: @red;
+}
+
+/* Memory */
+#memory {
+  color: @text;
+  padding: 0px 10px 0px 5px;
+  border-radius: 0 10px 10px 0;
+  color: @green;
+}
+
+#memory.warning {
+  color: @yellow;
+}
+
+#memory.critical {
+  color: @red;
+}
+
+/* CPU Temp */
+#temperature.cpu {
+  color: @green;
+}
+
+/* Power Profiles Daemon */
+#power-profiles-daemon {
+  color: @subtext1;
+}
+
+#power-profiles-daemon.performance {
+  color: @red;
+}
+
+#power-profiles-daemon.balanced {
+  color: @yellow;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @green;
+}
+
+/* Clock */
+#clock {
+  padding: 0 15px;
+  color: @text;
+}
+
+/* Idle Inhibitor */
+#idle_inhibitor {
+  color: @subtext1;
+}
+
+#idle_inhibitor.activated {
+  color: @red;
+}
+
+#idle_inhibitor.deactivated {
+  color: @blue;
+}
+
+/* Network */
+#network {
+  color: @blue;
+}
+
+#network.disconnected,
+#network.disabled {
+  color: @red;
+}
+
+/* Bluetooth */
+#bluetooth {
+  color: @blue;
+}
+
+#bluetooth.oblue,
+#bluetooth.disabled {
+  color: @red;
+}
+
+/* Brightness */
+#backlight {
+  color: @blue;
+}
+
+/* Audio */
+#wireplumber {
+  color: @blue;
+}
+
+#wireplumber.muted {
+  color: @red;
+}
+
+/* Battery */
+#upower {
+    font-family: "Noto Color Emoji";
+
+  color: @sapphire;
+}
+#upower.charging {
+  color: @green;
+}
+
+#upower.discharging {
+  color: @blue;
+}

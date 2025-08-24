@@ -1,11 +1,16 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
-  ./hyprland.nix
+    ./hyprland.nix
+    ./networking.nix
+    ./audio.nix
+    ./system.nix
+    ./fonts.nix
+    ./stylix.nix
   ];
 
   services.getty.autologinUser = "bridgesense";
 
-  time.timeZone = "Asia/Hong_Kong";
+  time.timeZone = "America/Toronto";
 }

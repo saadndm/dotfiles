@@ -1,6 +1,23 @@
-{...}:
+{ pkgs, ... }:
 {
-programs.kitty.enable = true;
-wayland.windowManager.hyprland.enable = true;
-home.sessionVariables.NIXOS_OZONE_WL = "1";
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null;
+    portalPackage = null;
+    systemd.variables = [ "--all" ];
+  };
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.catppuccin-cursors.mochaBlue;
+    name = "catppuccin-mocha-blue-cursos";
+    size = 16;
+  };
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
 }

@@ -8,7 +8,12 @@
   programs = {
     go.enable = true;
     bat.enable = true;
-    btop.enable = true;
+    btop = {
+      enable = true;
+      settings = {
+        vim_keys = true;
+      };
+    };
     fzf = {
       enable = true;
       colors.bg = lib.mkForce "#181825";
@@ -30,9 +35,9 @@
     wget
     lazygit
     eza
-    home-manager
     zoxide
     unzip
     ripgrep
+    fastfetch
   ];
 }

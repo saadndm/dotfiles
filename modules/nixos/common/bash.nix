@@ -7,6 +7,7 @@
         shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
         exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
       fi
+
     '';
   };
 }
