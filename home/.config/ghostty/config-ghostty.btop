@@ -1,3 +1,0 @@
-class = ghostty.btop
-x11-instance-name = ghostty.btop
-command = btop

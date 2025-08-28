@@ -11,11 +11,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
-    emmylua_ls = {
-      url = "github:EmmyLuaLs/emmylua-analyzer-rust";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     fff-nvim = {
       url = "github:dmtrKovalenko/fff.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -101,7 +96,7 @@
           # this includes LSPs
           lspsAndRuntimeDeps = {
             general = with pkgs; [
-              inputs.emmylua_ls.packages.${system}.emmylua_ls
+              emmylua-ls
 
               nixd
               nixfmt

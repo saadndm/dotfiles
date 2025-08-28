@@ -58,4 +58,7 @@
       capabilities = "cap_perfmon+ep";
     };
   };
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+  ];
 }

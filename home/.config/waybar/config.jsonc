@@ -92,8 +92,8 @@
     "tooltip-format-wifi": " {bandwidthDownBytes} |  {bandwidthUpBytes} | {essid} | {signalStrength}%",
     "tooltip-format-disconnected": "Disconnected",
     "tooltip-format-disabled": "Disabled",
-    "on-click": "bash -c \"rfkill list wifi | grep -q 'Soft blocked: yes' && rfkill unblock wifi || rfkill block wifi\"",
-    "on-click-right": "ghostty +new-window --class=ghostty.impala"
+    "on-click": "kitty --class Impala -e impala",
+    "on-click-right": "bash -c \"rfkill list wifi | grep -q 'Soft blocked: yes' && rfkill unblock wifi || rfkill block wifi\"",
   },
   "bluetooth": {
     "interval": 120,
@@ -109,8 +109,8 @@
     "tooltip-format-connected": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
     "tooltip-format-disabled": "Bluetooth is off",
-    "on-click": "bash -c \"rfkill list bluetooth | grep -q 'Soft blocked: yes' && rfkill unblock bluetooth || rfkill block bluetooth\"",
-    "on-click-right": "ghostty +new-window --class=ghostty.bluetui"
+    "on-click": "kitty --class Bluetui -e bluetui",
+    "on-click-right": "bash -c \"rfkill list bluetooth | grep -q 'Soft blocked: yes' && rfkill unblock bluetooth || rfkill block bluetooth\"",
   },
   "backlight": {
     "interval": "once",

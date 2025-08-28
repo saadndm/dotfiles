@@ -5,12 +5,12 @@
   imports = [
     ./dotfiles.nix
     ./yazi.nix
+    ./termfilepickers.nix
     ./hyprland.nix
     ./applications.nix
     ./fonts.nix
     ./catppuccin.nix
     ./system.nix
-    ./ghostty.nix
     ./zen-browser.nix
   ];
 

@@ -37,6 +37,7 @@
   };
   home.packages = with pkgs; [
     inputs.ghostty.packages.${pkgs.system}.default
+    kitty
     jmtpfs
     impala
     clipse

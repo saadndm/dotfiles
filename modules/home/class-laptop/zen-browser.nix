@@ -16,6 +16,7 @@
         "zen.theme.gradient.show-custom-colors" = true;
         "zen.pinned-tab-manager.restore-pinned-tabs-to-pinned-url" = true;
         "browser.startup.page" = 3;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
     };
     policies = {
