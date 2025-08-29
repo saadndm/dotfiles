@@ -32,5 +32,10 @@
         name = "Noto Color Emoji";
       };
     };
+    cursor = {
+      name = "catppuccin-mocha-blue-cursors";
+      package = pkgs.catppuccin-cursors.mochaBlue;
+      size = 16;
+    };
   };
 }
