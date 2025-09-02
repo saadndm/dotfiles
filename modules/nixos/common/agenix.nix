@@ -17,6 +17,9 @@
       tailscale = {
         file = ../../../secrets/tailscale.age;
       };
+      cloudflared-carbon = {
+        file = ../../../secrets/cloudflared-carbon.age;
+      };
     };
   };
 }
