@@ -127,8 +127,10 @@
   "wireplumber": {
     "format": "<span font='Font Awesome 6 Pro Solid'>{icon}</span> {volume}%",
     "format-muted": " {volume}%",
-    "on-click": "wiremix",
-    "format-icons": ["", "", ""]
+    "on-click": "kitty --class Wiremix -e wiremix",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": ["", "", ""],
+    "scroll-step": 5.0,
   },
   "upower": {
     "interval": "once",
