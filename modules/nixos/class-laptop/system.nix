@@ -60,5 +60,6 @@
   };
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    socat
   ];
 }
