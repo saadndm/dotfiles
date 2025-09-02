@@ -16,6 +16,7 @@
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#${nixosConfig.networking.hostName}";
       cat = "bat";
       y = "yazi";
+      ts = "tailscale";
     };
     shellAliases = {
       ls = "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -G";

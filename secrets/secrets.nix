@@ -16,4 +16,5 @@ in
 {
   "password.age".publicKeys = users ++ systems;
   "tailscale.age".publicKeys = users ++ systems;
+  "cloudflared.age".publicKeys = users ++ systems;
 }
