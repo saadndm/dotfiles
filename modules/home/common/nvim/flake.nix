@@ -113,6 +113,8 @@
               hyprls
 
               shfmt
+
+              tinymist
             ];
           };
 
@@ -161,6 +163,9 @@
               ];
               gitsigns = with pkgs.vimPlugins; [
                 gitsigns-nvim
+              ];
+              typst-preview = with pkgs.vimPlugins; [
+                typst-preview-nvim
               ];
             };
             format = with pkgs.vimPlugins; [

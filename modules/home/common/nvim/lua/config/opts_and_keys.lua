@@ -18,11 +18,6 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>w", ":write<CR>")
 vim.keymap.set({ "n", "v", "x" }, "<C-d>", "M<C-d>")
 vim.keymap.set({ "n", "v", "x" }, "<C-u>", "M<C-u>")
 
--- MiniJump2d
-vim.keymap.set("n", "s", function()
-  MiniJump2d.start(MiniJump2d.builtin_opts.single_character)
-end)
-
 -- Options
 local o = vim.o
 
