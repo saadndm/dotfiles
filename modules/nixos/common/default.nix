@@ -15,6 +15,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "bak";
     users.bridgesense = ../../../hosts/${config.networking.hostName}/users/bridgesense/home-configuration.nix;
   };
 
