@@ -14,7 +14,9 @@ let
   ];
 in
 {
-  "password.age".publicKeys = users ++ systems;
+  "login.age".publicKeys = users ++ systems;
   "tailscale.age".publicKeys = users ++ systems;
   "cloudflared-carbon.age".publicKeys = users ++ systems;
+  "password.age".publicKeys = users ++ systems;
+  "cloudflare.age".publicKeys = users ++ systems;
 }

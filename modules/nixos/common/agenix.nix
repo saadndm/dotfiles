@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   ...
 }:
 {
@@ -11,14 +10,20 @@
   age = {
     identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
-      password = {
-        file = ../../../secrets/password.age;
+      login = {
+        file = ../../../secrets/login.age;
       };
       tailscale = {
         file = ../../../secrets/tailscale.age;
       };
       cloudflared-carbon = {
         file = ../../../secrets/cloudflared-carbon.age;
+      };
+      password = {
+        file = ../../../secrets/password.age;
+      };
+      cloudflare = {
+        file = ../../../secrets/cloudflare.age;
       };
     };
   };

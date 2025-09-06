@@ -3,8 +3,11 @@
   services.cloudflared = {
     enable = true;
     tunnels = {
-      "b45b90a4-8ed7-411b-9922-04f2405bcfac" = {
+      "168fc309-1d5e-4158-91c1-a54e0e975900" = {
         credentialsFile = "${config.age.secrets.cloudflared-carbon.path}";
+        ingress = {
+          "vault.bridgesense.dev" = "http://localhost:8000";
+        };
         default = "http_status:404";
       };
     };

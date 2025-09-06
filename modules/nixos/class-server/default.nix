@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
-  imports = [ ./tailscale.nix ];
+  imports = [
+    ./tailscale.nix
+    ./vaultwarden.nix
+    ./fail2ban.nix
+  ];
 
   time.timeZone = "UTC";
 }
