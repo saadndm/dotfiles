@@ -10,6 +10,7 @@
     polarity = "dark";
     targets = {
       fish.enable = false;
+      plymouth.enable = false;
     };
     fonts = {
       serif = {

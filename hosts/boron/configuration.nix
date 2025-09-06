@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ./disk-config.nix
     ./iwl-fix.nix
+    ./plymouth.nix
   ];
 
   networking.hostName = "boron";

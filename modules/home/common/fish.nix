@@ -32,11 +32,6 @@
     interactiveShellInit = ''
       set fish_greeting ""
     '';
-    loginShellInit = ''
-      if test (tty) = "/dev/tty1"
-        exec uwsm start hyprland-uwsm.desktop -g -1
-      end
-    '';
   };
 
   home.activation.configure-tide = lib.hm.dag.entryAfter [ "linkGeneration" ] ''

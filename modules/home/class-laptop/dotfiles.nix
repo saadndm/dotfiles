@@ -10,4 +10,6 @@
   xdg.configFile."mako".source = "${inputs.self}/home/.config/mako";
   xdg.configFile."scripts".source = "${inputs.self}/home/.config/scripts";
   xdg.configFile."ghostty/config".source = "${inputs.self}/home/.config/ghostty/config";
+  xdg.configFile."racket/racket-prefs.rktd".source =
+    "${inputs.self}/home/.config/racket/racket-prefs.rktd";
 }

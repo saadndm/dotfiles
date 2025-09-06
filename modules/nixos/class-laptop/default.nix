@@ -8,9 +8,8 @@
     ./system.nix
     ./fonts.nix
     ./stylix.nix
+    ./seamless-login.nix
   ];
-
-  services.getty.autologinUser = "bridgesense";
 
   time.timeZone = "America/Toronto";
 }

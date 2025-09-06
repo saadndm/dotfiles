@@ -12,6 +12,7 @@
     ./catppuccin.nix
     ./system.nix
     ./zen-browser.nix
+    ./kanshi.nix
   ];
 
   home.sessionVariables = {
