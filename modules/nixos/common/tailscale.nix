@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   services.tailscale = {
@@ -9,11 +9,8 @@
     extraUpFlags = [
       "--ssh"
     ];
-    extraDaemonFlags = [
-      "--tun=userspace-networking"
-      "--socks5-server=0.0.0.0:1055"
-    ];
   };
+  systemd.services.tailscaled-autoconnect.serviceConfig.Type = lib.mkForce "simple";
   networking.firewall = {
     trustedInterfaces = [
       "tailscale0"
