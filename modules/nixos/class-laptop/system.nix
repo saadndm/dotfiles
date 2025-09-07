@@ -45,7 +45,11 @@
         users = [ "bridgesense" ];
         commands = [
           {
-            command = "/usr/bin/tee /sys/class/leds/platform\\:\\:mute/brightness";
+            command = "/run/current-system/sw/bin/tee /sys/class/leds/platform\\:\\:mute/brightness";
+            options = [ "NOPASSWD" ];
+          }
+          {
+            command = "/run/current-system/sw/bin/tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004\\:00/conservation_mode";
             options = [ "NOPASSWD" ];
           }
         ];
