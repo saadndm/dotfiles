@@ -1,9 +1,9 @@
-@define-color selected-text #cba6f7;
-@define-color text #c6d0f5;
-@define-color base #24273a;
-@define-color border #c6d0f5;
-@define-color foreground #c6d0f5;
-@define-color background #24273a;
+@define-color selected-text #b9b4fa;
+@define-color text #cdd6f4;
+@define-color base #1e1e2e;
+@define-color border #cdd6f4;
+@define-color foreground #cdd6f;
+@define-color background #1e1e2e;
 
 /* Reset all elements */
 #window,

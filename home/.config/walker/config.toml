@@ -1,6 +1,6 @@
 app_launch_prefix = "uwsm app -- "
 terminal_title_flag = ""
-terminal = "ghostty +new-window"
+terminal = "kitty"
 locale = ""
 close_when_open = true
 theme = "catppuccin"
