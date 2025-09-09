@@ -9,6 +9,7 @@
     ./fonts.nix
     ./stylix.nix
     ./seamless-login.nix
+    ./gnome.nix
   ];
 
   time.timeZone = "America/Toronto";
