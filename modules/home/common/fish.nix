@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  nixosConfig,
   ...
 }:
 {
@@ -13,7 +12,8 @@
     shellAbbrs = {
       n = "nvim";
       lg = "lazygit";
-      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#${nixosConfig.networking.hostName}";
+      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#(hostname)";
+      hrs = "home-manager switch --flake ~/dotfiles";
       cat = "bat";
       y = "yazi";
       ts = "tailscale";

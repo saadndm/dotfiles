@@ -10,6 +10,7 @@
     ./applications.nix
     ./fonts.nix
     ./catppuccin.nix
+    ./stylix.nix
     ./system.nix
     ./zen-browser.nix
     ./kanshi.nix

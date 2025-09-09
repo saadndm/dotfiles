@@ -57,5 +57,6 @@
     evince
     pinta
     vesktop
+    home-manager
   ];
 }

@@ -37,7 +37,6 @@
       };
     };
   };
-  stylix.targets.zen-browser.profileNames = [ "BridgeSense" ];
   home.file.".zen/BridgeSense/zen-keyboard-shortcuts.json".source =
     "${inputs.self}/home/.zen/BridgeSense/zen-keyboard-shortcuts.json";
 }

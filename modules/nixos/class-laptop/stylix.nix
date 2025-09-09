@@ -8,6 +8,10 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
+    homeManagerIntegration = {
+      autoImport = false;
+      followSystem = false;
+    };
     targets = {
       fish.enable = false;
       plymouth.enable = false;
