@@ -70,7 +70,12 @@ menu,
 }
 
 #workspaces button:hover {
-  color: @subtext0;
+  color: @blue;
+  animation: none;
+}
+
+#workspaces button.active:hover {
+  color: @base;
   animation: none;
 }
 
