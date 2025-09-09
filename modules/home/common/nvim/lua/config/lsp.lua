@@ -1,11 +1,12 @@
 vim.lsp.enable({
   "emmylua_ls",
   "nixd",
-  'gopls',
+  "gopls",
   "basedpyright",
   "tsgo",
   "hyprls",
-  "ruff"
+  "ruff",
+  "tinymist"
 })
 
 vim.diagnostic.config({

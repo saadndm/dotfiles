@@ -56,6 +56,7 @@
     xournalpp
     evince
     pinta
+    typst
     vesktop
     home-manager
   ];

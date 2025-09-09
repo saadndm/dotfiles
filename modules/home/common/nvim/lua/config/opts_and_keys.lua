@@ -18,6 +18,14 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>w", ":write<CR>")
 vim.keymap.set({ "n", "v", "x" }, "<C-d>", "M<C-d>")
 vim.keymap.set({ "n", "v", "x" }, "<C-u>", "M<C-u>")
 
+-- nvim-notify
+vim.keymap.set("n", "<leader>,", function()
+  require("notify").dismiss({ silent = true, pending = false })
+end, { desc = "Dismiss most recent notification" })
+vim.keymap.set("n", "<leader><", function()
+  require("notify").dismiss({ silent = true, pending = true })
+end, { desc = "Dismiss all notifications" })
+
 -- Options
 local o = vim.o
 

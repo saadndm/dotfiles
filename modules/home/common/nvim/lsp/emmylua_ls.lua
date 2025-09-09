@@ -10,36 +10,37 @@
 --- The default `cmd` assumes that the `emmylua_ls` binary can be found in `$PATH`.
 --- It might require you to provide cargo binaries installation path in it.
 
+---@type vim.lsp.Config
 return {
-  cmd = { 'emmylua_ls' },
-  filetypes = { 'lua' },
+  cmd = { "emmylua_ls" },
+  filetypes = { "lua" },
   root_markers = {
-    '.luarc.json',
-    '.emmyrc.json',
-    '.luacheckrc',
-    '.editorconfig',
-    '.git',
+    ".luarc.json",
+    ".emmyrc.json",
+    ".luacheckrc",
+    ".editorconfig",
+    ".git",
   },
   workspace_required = false,
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT',
+        version = "LuaJIT",
         requirePattern = {
-          'lua/?.lua',
-          'lua/?/init.lua',
+          "lua/?.lua",
+          "lua/?/init.lua",
         },
       },
       workspace = {
         library = {
           vim.env.VIMRUNTIME,
-          vim.fn.stdpath('data') .. '/site/pack/packer/start',
+          vim.fn.stdpath("data") .. "/site/pack/packer/start",
           (nixCats.nixCatsPath or "") .. "/lua",
         },
-        globals = { 'vim' },
+        globals = { "vim" },
       },
       diagnostics = {
-        globals = { 'vim' },
+        globals = { "vim" },
       },
     },
   },

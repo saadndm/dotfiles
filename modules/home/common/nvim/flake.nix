@@ -115,6 +115,7 @@
               shfmt
 
               tinymist
+              typstyle
             ];
           };
 
@@ -156,7 +157,6 @@
                 nvim-treesitter.withAllGrammars
                 nvim-treesitter-context
                 nvim-treesitter-textobjects
-                nvim-treesitter-textsubjects
               ];
               noice = with pkgs.vimPlugins; [
                 noice-nvim
