@@ -3,7 +3,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Clipboard
+vim.keymap.set("n", "<leader>Y", '"+y$')
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y')
+vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d')
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p')
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
