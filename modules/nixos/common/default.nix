@@ -12,13 +12,6 @@
     ./agenix.nix
   ];
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "bak";
-    users.bridgesense = ../../../hosts/${config.networking.hostName}/users/bridgesense/home-configuration.nix;
-  };
-
   nix.settings = {
     auto-optimise-store = true;
     experimental-features = [
@@ -46,6 +39,7 @@
         enable = true;
         configurationLimit = 15;
       };
+      timeout = 1;
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";

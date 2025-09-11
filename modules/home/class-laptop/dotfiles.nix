@@ -1,6 +1,5 @@
 { inputs, ... }:
 {
-  xdg.configFile."hypr".source = "${inputs.self}/home/.config/hypr";
   xdg.configFile."waybar".source = "${inputs.self}/home/.config/waybar";
   xdg.configFile."walker/config.toml".source = "${inputs.self}/home/.config/walker/config.toml";
   xdg.configFile."walker/themes/catppuccin.toml".source =
@@ -13,4 +12,6 @@
   xdg.configFile."racket/racket-prefs.rktd".source =
     "${inputs.self}/home/.config/racket/racket-prefs.rktd";
   xdg.configFile."oama/config.yaml".source = "${inputs.self}/home/.config/oama/config.yaml";
+  xdg.configFile."uwsm/env".source = "${inputs.self}/home/.config/uwsm/env";
+  xdg.configFile."uwsm/env-hyprland".source = "${inputs.self}/home/.config/uwsm/env-hyprland";
 }

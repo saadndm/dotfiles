@@ -1,0 +1,3 @@
+export GDK_SCALE=2
+export HYPRSHOT_DIR=~/Pictures/Screenshots
+export XCURSOR_SIZE=18
