@@ -22,6 +22,7 @@
 
   home.packages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
+    gcc
     gotools
     gopls
     golangci-lint
