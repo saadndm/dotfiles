@@ -60,5 +60,6 @@
     vesktop
     home-manager
     oama
+    hyprshot
   ];
 }
