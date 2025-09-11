@@ -12,4 +12,5 @@
   xdg.configFile."ghostty/config".source = "${inputs.self}/home/.config/ghostty/config";
   xdg.configFile."racket/racket-prefs.rktd".source =
     "${inputs.self}/home/.config/racket/racket-prefs.rktd";
+  xdg.configFile."oama/config.yaml".source = "${inputs.self}/home/.config/oama/config.yaml";
 }

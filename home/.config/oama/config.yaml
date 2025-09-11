@@ -1,0 +1,15 @@
+encryption:
+  tag: KEYRING
+
+services:
+  microsoft:
+    client_id: 9e5f94bc-e8a4-4e73-b8be-63364c29d753
+    tenant: common
+    auth_endpoint: https://login.microsoftonline.com/common/oauth2/v2.0/devicecode
+    token_endpoint: https://login.microsoftonline.com/common/oauth2/v2.0/token
+    auth_scope: https://outlook.office.com/IMAP.AccessAsUser.All https://outlook.office.com/POP.AccessAsUser.All https://outlook.office.com/SMTP.Send offline_access
+    auth_http_method: GET
+    auth_params_mode: QueryString
+    token_http_method: POST
+    token_params_mode: RequestBodyForm
+

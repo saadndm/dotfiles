@@ -4,6 +4,7 @@
 {
   imports = [
     ./dotfiles.nix
+    ./aerc.nix
     ./yazi.nix
     ./termfilepickers.nix
     ./hyprland.nix

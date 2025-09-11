@@ -59,5 +59,6 @@
     typst
     vesktop
     home-manager
+    oama
   ];
 }

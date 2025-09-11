@@ -19,4 +19,6 @@ in
   "cloudflared-carbon.age".publicKeys = users ++ systems;
   "password.age".publicKeys = users ++ systems;
   "cloudflare.age".publicKeys = users ++ systems;
+  "bridgesensemc-gmail.age".publicKeys = users ++ systems;
+  "saad29nadeem-gmail.age".publicKeys = users ++ systems;
 }
