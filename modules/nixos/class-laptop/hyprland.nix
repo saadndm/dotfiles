@@ -1,8 +1,16 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 
 {
   programs.hyprland = {
     enable = true;
     withUWSM = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      inputs.xdp-termfilepickers.packages.${pkgs.system}.default
+    ];
   };
 }
