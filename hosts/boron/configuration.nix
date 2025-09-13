@@ -1,6 +1,7 @@
 {
   flake,
   inputs,
+  pkgs,
   ...
 }:
 
@@ -19,4 +20,36 @@
   networking.hostName = "boron";
 
   system.stateVersion = "25.05";
+
+  security = {
+    sudo.extraRules = [
+      {
+        users = [ "bridgesense" ];
+        commands = [
+          {
+            command = "/run/current-system/sw/bin/tee /sys/class/leds/platform\\:\\:mute/brightness";
+            options = [ "NOPASSWD" ];
+          }
+          {
+            command = "/run/current-system/sw/bin/tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004\\:00/conservation_mode";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
+    wrappers = {
+      intel_gpu_top = {
+        owner = "root";
+        group = "root";
+        source = "${pkgs.intel-gpu-tools}/bin/intel_gpu_top";
+        capabilities = "cap_perfmon+ep";
+      };
+      btop = {
+        owner = "root";
+        group = "root";
+        source = "${pkgs.btop}/bin/btop";
+        capabilities = "cap_perfmon+ep";
+      };
+    };
+  };
 }
