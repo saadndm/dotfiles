@@ -112,10 +112,13 @@
 
               hyprls
 
+              bash-language-server
               shfmt
 
               tinymist
               typstyle
+
+              vscode-json-languageserver
             ];
           };
 
@@ -132,6 +135,8 @@
               extra = [
                 fzf-lua
                 oil-nvim
+                SchemaStore-nvim
+                undotree
                 pkgs.neovimPlugins.fff-nvim
                 nvim-web-devicons
               ];

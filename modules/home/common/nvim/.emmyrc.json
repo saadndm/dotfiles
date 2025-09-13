@@ -1,10 +1,14 @@
 {
   "diagnostics": {
-    "disable": ["undefined-global"],
+    "disable": [
+      "undefined-global"
+    ],
     "severity": {
       "undefined-global": "warning",
       "unused-local": "hint"
     },
-    "enables": ["undefined-field"]
+    "enables": [
+      "undefined-field"
+    ]
   }
 }

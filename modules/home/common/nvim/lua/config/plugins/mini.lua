@@ -21,7 +21,16 @@ return {
     }
     )
     require("mini.pairs").setup()
-    require("mini.surround").setup()
+    require("mini.surround").setup({
+      mappings = {
+        add = "<leader>sa",
+        delete = "<leader>sd",
+        find = "<leader>sf",
+        find_left = "<leader>sF",
+        highlight = "<leader>sh",
+        replace = "<leader>sr",
+      }
+    })
 
     require("mini.bracketed").setup()
     local miniclue = require("mini.clue")
@@ -70,7 +79,8 @@ return {
     require("mini.jump").setup()
     require("mini.jump2d").setup({
       view = {
-        dim = true
+        dim = true,
+        n_steps_ahead = 10
       },
       mappings = {
         start_jumping = "",
@@ -84,6 +94,7 @@ return {
     })
     require("mini.hipatterns").setup()
     require("mini.indentscope").setup()
+
     local icons = require("mini.icons")
     icons.setup({
       file = {
@@ -94,8 +105,45 @@ return {
         dotenv = { glyph = "", hl = "MiniIconsYellow" },
       },
     })
-
     icons.mock_nvim_web_devicons()
-    require("mini.statusline").setup()
+
+    local statusline = require("mini.statusline")
+    local function mode_or_recording(args)
+      local rec = vim.fn.reg_recording()
+      if rec ~= "" then
+        return "Recording @" .. rec, "MiniStatuslineModeNormal"
+      end
+      return statusline.section_mode(args)
+    end
+    statusline.setup({
+      content = {
+        active = function()
+          local mode, mode_hl = mode_or_recording({ trunc_width = 120 })
+          local git           = statusline.section_git({ trunc_width = 40 })
+          local diff          = statusline.section_diff({ trunc_width = 75 })
+          local diagnostics   = statusline.section_diagnostics({ trunc_width = 75 })
+          local lsp           = statusline.section_lsp({ trunc_width = 75 })
+          local filename      = statusline.section_filename({ trunc_width = 140 })
+          local fileinfo      = statusline.section_fileinfo({ trunc_width = 120 })
+          local location      = statusline.section_location({ trunc_width = 75 })
+          local search        = statusline.section_searchcount({ trunc_width = 75 })
+
+          return statusline.combine_groups({
+            { hl = mode_hl,                 strings = { mode } },
+            { hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics, lsp } },
+            "%<",
+            { hl = "MiniStatuslineFilename", strings = { filename } },
+            "%=",
+            { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+            { hl = mode_hl,                  strings = { search, location } },
+          })
+        end,
+      },
+    })
+    vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+      callback = function()
+        vim.cmd("redrawstatus")
+      end,
+    })
   end,
 }

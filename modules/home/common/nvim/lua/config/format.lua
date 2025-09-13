@@ -12,7 +12,7 @@ require("lze").load {
           nix = { "nixfmt" },
           go = { "gofmt" },
           python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-          bash = { "shfmt" },
+          sh = { "shfmt" },
           typst = { "typstyle" }
         },
         format_on_save = {

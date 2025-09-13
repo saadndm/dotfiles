@@ -6,7 +6,9 @@ vim.lsp.enable({
   "tsgo",
   "hyprls",
   "ruff",
-  "tinymist"
+  "tinymist",
+  "jsonls",
+  "bashls"
 })
 
 vim.diagnostic.config({
