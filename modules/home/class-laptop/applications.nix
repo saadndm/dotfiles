@@ -31,10 +31,24 @@
       };
     };
   };
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
+
+  services = {
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
+    wpaperd = {
+      enable = true;
+      settings = {
+        default = {
+          duration = "30m";
+          mode = "center";
+        };
+        any.path = "~/dotfiles/wallpapers";
+      };
+    };
   };
+
   home.packages = with pkgs; [
     inputs.ghostty.packages.${pkgs.system}.default
     inputs.sunsetr.packages.${pkgs.system}.sunsetr
@@ -48,7 +62,6 @@
     wiremix
     hyprpicker
     yt-dlp
-    hyprpaper
     libqalculate
     bluetui
     hypridle
@@ -64,5 +77,6 @@
     hyprshot
     hyprsunset
     hyprlock
+    hypridle
   ];
 }
