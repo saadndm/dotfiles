@@ -47,7 +47,7 @@
     };
 
     xdp-termfilepickers = {
-      url = "github:Guekka/xdg-desktop-portal-termfilepickers/9418845bf218cb25278722a294936247732f269c";
+      url = "github:Guekka/xdg-desktop-portal-termfilepickers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
