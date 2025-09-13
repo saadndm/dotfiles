@@ -19,4 +19,5 @@
     "${inputs.self}/home/.config/clipse/custom_theme.json";
   xdg.configFile."hypr/hyprlock.conf".source = "${inputs.self}/home/.config/hypr/hyprlock.conf";
   xdg.configFile."hypr/mocha.conf".source = "${inputs.self}/home/.config/hypr/mocha.conf";
+  xdg.configFile."hypr/hypridle.conf".source = "${inputs.self}/home/.config/hypr/hypridle.conf";
 }

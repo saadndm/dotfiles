@@ -31,6 +31,7 @@
         "uwsm app -- clipse -listen"
         "uwsm app -- walker --gapplication-service"
         "uwsm app -- sunsetr"
+        "uwsm app -- hypridle"
         "[workspace 1 silent] uwsm app -- zen-twilight"
       ];
 

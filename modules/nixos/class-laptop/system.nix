@@ -32,6 +32,17 @@
       };
     };
     udisks2.enable = true;
+    logind = {
+      powerKey = "suspend";
+      powerKeyLongPress = "poweroff";
+      lidSwitch = "suspend";
+      lidSwitchDocked = "ignore";
+      lidSwitchExternalPower = "suspend";
+      settings.Login = {
+        HoldoffTimeoutSec = 5;
+      };
+    };
+    upower.ignoreLid = true;
   };
   environment.etc."libinput/local-overrides.quirks".text = ''
     [Serial Keyboards]
