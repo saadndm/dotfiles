@@ -63,5 +63,6 @@
     oama
     hyprshot
     hyprsunset
+    hyprlock
   ];
 }

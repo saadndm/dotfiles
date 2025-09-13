@@ -10,6 +10,15 @@ let
       cp $src/Font-Awesome-6-Pro-Regular.otf $out/share/fonts/opentype/
     '';
   };
+  alfa-slab-one = pkgs.stdenv.mkDerivation {
+    name = "alfa-slab-one";
+    src = ../../../fonts;
+    dontUnpack = true;
+    installPhase = ''
+      mkdir -p $out/share/fonts/truetype
+      cp $src/AlfaSlabOne-Regular.ttf $out/share/fonts/truetype/
+    '';
+  };
 in
 {
   fonts = {
@@ -22,6 +31,7 @@ in
       liberation_ttf
       inter
       font-awesome-6-pro
+      alfa-slab-one
       nerd-fonts.jetbrains-mono
     ];
 
