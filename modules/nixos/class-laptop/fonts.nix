@@ -12,14 +12,43 @@ let
   };
 in
 {
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    liberation_ttf
-    inter
-    font-awesome-6-pro
+  fonts = {
+    enableDefaultPackages = true;
 
-    nerd-fonts.jetbrains-mono
-  ];
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      liberation_ttf
+      inter
+      font-awesome-6-pro
+      nerd-fonts.jetbrains-mono
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [
+          "Inter"
+          "Noto Serif"
+          "Noto Color Emoji"
+          "Font Awesome 6 Pro Solid"
+        ];
+        sansSerif = [
+          "Inter"
+          "Noto Sans"
+          "Noto Color Emoji"
+          "Font Awesome 6 Pro Solid"
+        ];
+        monospace = [
+          "JetBrainsMono Nerd Font Mono"
+          "Noto Color Emoji"
+          "Font Awesome 6 Pro Solid"
+        ];
+        emoji = [
+          "Noto Color Emoji"
+          "Font Awesome 6 Pro Solid"
+        ];
+      };
+    };
+  };
 }
