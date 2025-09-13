@@ -37,6 +37,7 @@
   };
   home.packages = with pkgs; [
     inputs.ghostty.packages.${pkgs.system}.default
+    inputs.sunsetr.packages.${pkgs.system}.sunsetr
     kitty
     jmtpfs
     impala
@@ -61,5 +62,6 @@
     home-manager
     oama
     hyprshot
+    hyprsunset
   ];
 }
