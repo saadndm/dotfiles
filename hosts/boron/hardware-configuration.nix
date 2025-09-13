@@ -25,10 +25,21 @@
       "sd_mod"
       "sdhci_pci"
     ];
-    kernelModules = [ " i915 " ];
+    kernelModules = [ "i915" ];
   };
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelParams = [
+    "intel_iommu=on"
+    "i915.enable_guc=3"
+    "i915.max_vfs=7"
+    "i915.force_probe=7d51"
+    "module_blacklist=xe"
+  ];
+
+  boot.extraModulePackages = [ pkgs.i915-sriov ];
+
+  hardware.enableRedistributableFirmware = true;
+  hardware.firmware = [ pkgs.linux-firmware ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
