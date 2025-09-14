@@ -10,6 +10,7 @@
     ./bash.nix
     ./tailscale.nix
     ./agenix.nix
+    ./applications.nix
   ];
 
   nix.settings = {
@@ -56,6 +57,7 @@
     users.bridgesense = {
       isNormalUser = true;
       extraGroups = [ "wheel" ];
+      linger = true;
       # Initial password: temp
       # initialHashedPassword = "$6$randomsalt$vj1dHwOh9AOg8xgdq529s1YrNYduioIlHHlrc/lfQRUp3lA0PG7ajlSL6JgnM87MtZ2ExRgWEOuNB9A3c/9Uw.";
       hashedPasswordFile = config.age.secrets.login.path;

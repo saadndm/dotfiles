@@ -18,6 +18,9 @@
       enable = true;
       colors.bg = lib.mkForce "#181825";
     };
+    lazydocker = {
+      enable = true;
+    };
   };
 
   home.sessionVariables = {
