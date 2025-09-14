@@ -6,7 +6,6 @@ if nixCats("general.extra") then
   require("config.plugins.oil")
   require("config.plugins.fff")
   require("config.plugins.fzf-lua")
-  -- require("config.plugins.undotree")
 end
 
 require("lze").load {

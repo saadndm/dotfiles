@@ -139,6 +139,7 @@
                 undotree
                 pkgs.neovimPlugins.fff-nvim
                 nvim-web-devicons
+                vim-wakatime
               ];
             };
             themer = with pkgs.vimPlugins; [
