@@ -14,6 +14,7 @@
             status = "enable";
           }
         ];
+        profile.exec = "~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0";
       }
 
       {
@@ -32,6 +33,7 @@
             status = "enable";
           }
         ];
+        profile.exec = "~/.config/scripts/burn-in.sh disable";
       }
     ];
   };

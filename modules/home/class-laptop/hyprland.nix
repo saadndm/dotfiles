@@ -32,6 +32,7 @@
         "uwsm app -- walker --gapplication-service"
         "uwsm app -- sunsetr"
         "uwsm app -- hypridle"
+        "~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0"
         "[workspace 1 silent] uwsm app -- zen-twilight"
       ];
 

@@ -10,6 +10,7 @@
     ./stylix.nix
     ./seamless-login.nix
     ./gnome.nix
+    ./cron.nix
   ];
 
   time.timeZone = "America/Toronto";
