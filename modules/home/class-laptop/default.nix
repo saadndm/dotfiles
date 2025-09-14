@@ -9,7 +9,6 @@
     ./termfilepickers.nix
     ./hyprland.nix
     ./applications.nix
-    ./catppuccin.nix
     ./stylix.nix
     ./system.nix
     ./zen-browser.nix

@@ -11,6 +11,7 @@
     ./fish.nix
     ./nvim.nix
     ./git.nix
+    ./catppuccin.nix
   ];
 
   home = {
