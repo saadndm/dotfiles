@@ -72,7 +72,6 @@
     pinta
     typst
     vesktop
-    home-manager
     oama
     hyprshot
     hyprsunset

@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -16,5 +17,8 @@
     username = "bridgesense";
     homeDirectory = "/home/bridgesense";
     stateVersion = "25.05";
+    packages = with pkgs; [
+      home-manager
+    ];
   };
 }
