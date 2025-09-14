@@ -1,6 +1,20 @@
 { pkgs, ... }:
 {
   xdg = {
+    desktopEntries."yazi" = {
+      name = "Yazi";
+      exec = "kitty --class=Yazi -e yazi %f";
+      type = "Application";
+      categories = [
+        "Utility"
+        "FileManager"
+        "TerminalEmulator"
+      ];
+      mimeType = [
+        "application/zip"
+        "inode/directory"
+      ];
+    };
     mimeApps = {
       enable = true;
       defaultApplications = {

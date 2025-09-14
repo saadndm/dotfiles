@@ -15,7 +15,7 @@
         ];
         sort_by = "mtime";
         sort_sensitive = false;
-        sort_reverse = false;
+        sort_reverse = true;
         sort_dir_first = true;
         linemode = "none";
         show_hidden = true;
