@@ -78,5 +78,6 @@
     hyprsunset
     hyprlock
     hypridle
+    imv
   ];
 }

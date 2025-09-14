@@ -5,6 +5,7 @@
     package = inputs.yazi.packages.${pkgs.system}.default.override {
       _7zz = pkgs._7zz-rar;
     };
+    enableFishIntegration = true;
     settings = {
       mgr = {
         ratio = [
@@ -35,6 +36,68 @@
           0
         ];
       };
+      opener = {
+        mpv = [
+          {
+            run = "mpv \"$@\"";
+            desc = "MPV";
+            orphan = true;
+            for = "unix";
+          }
+        ];
+        imv = [
+          {
+            run = "imv \"$@\"";
+            desc = "imv";
+            orphan = true;
+            for = "unix";
+          }
+        ];
+        pinta = [
+          {
+            run = "pinta \"$@\"";
+            desc = "Pinta";
+            orphan = true;
+            for = "unix";
+          }
+        ];
+        evince = [
+          {
+            run = "evince \"$@\"";
+            desc = "Evince";
+            orphan = true;
+            for = "unix";
+          }
+        ];
+        xournalpp = [
+          {
+            run = "xournalpp \"$@\"";
+            desc = "Xournalpp";
+            orphan = true;
+            for = "unix";
+          }
+        ];
+      };
+      open.prepend_rules = [
+        {
+          mime = "image/*";
+          use = [
+            "imv"
+            "pinta"
+          ];
+        }
+        {
+          mime = "{audio,video}/*";
+          use = [ "mpv" ];
+        }
+        {
+          mime = "application/pdf";
+          use = [
+            "evince"
+            "xournalpp"
+          ];
+        }
+      ];
     };
     keymap = {
       mgr = {
@@ -49,7 +112,7 @@
             run = "plugin mount";
           }
           {
-            on = "=";
+            on = "+";
             run = "plugin zoom 1";
           }
           {
