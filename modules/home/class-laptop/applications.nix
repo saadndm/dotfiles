@@ -78,5 +78,6 @@
     hyprlock
     hypridle
     imv
+    prismlauncher
   ];
 }

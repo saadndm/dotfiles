@@ -11,6 +11,7 @@
     ./tailscale.nix
     ./agenix.nix
     ./applications.nix
+    ./development.nix
   ];
 
   nix.settings = {
