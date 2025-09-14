@@ -35,6 +35,11 @@
     options = "--delete-older-than 7d";
   };
 
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
+
   boot = {
     loader = {
       systemd-boot = {
