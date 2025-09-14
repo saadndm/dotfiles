@@ -6,6 +6,7 @@
       "168fc309-1d5e-4158-91c1-a54e0e975900" = {
         credentialsFile = "${config.age.secrets.cloudflared-carbon.path}";
         ingress = {
+          "actual.bridgesense.dev" = "http://localhost:5006";
           "vault.bridgesense.dev" = "http://localhost:8000";
         };
         default = "http_status:404";
