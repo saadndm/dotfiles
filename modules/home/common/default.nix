@@ -12,8 +12,6 @@
     ./git.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home = {
     username = "bridgesense";
     homeDirectory = "/home/bridgesense";

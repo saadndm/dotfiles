@@ -33,12 +33,12 @@
     };
     udisks2.enable = true;
     logind = {
-      powerKey = "suspend";
-      powerKeyLongPress = "poweroff";
-      lidSwitch = "suspend";
-      lidSwitchDocked = "ignore";
-      lidSwitchExternalPower = "suspend";
       settings.Login = {
+        HandlePowerKey = "suspend";
+        HandlePowerKeyLongPress = "poweroff";
+        HandleLidSwitch = "suspend";
+        HandleLidSwitchDocked = "ignore";
+        HandleLidSwitchExternalPower = "suspend";
         HoldoffTimeoutSec = 5;
       };
     };
