@@ -20,6 +20,10 @@
     };
   };
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   home.packages = with pkgs; [
     inputs.agenix.packages.${pkgs.system}.default
     gcc
