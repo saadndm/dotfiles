@@ -4,7 +4,8 @@
     ./tailscale.nix
     ./actual.nix
     ./vaultwarden.nix
-    ./fail2ban.nix
+    ./caddy.nix
+    ./immich.nix
   ];
 
   time.timeZone = "UTC";
