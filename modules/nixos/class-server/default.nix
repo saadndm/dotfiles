@@ -8,6 +8,7 @@
     ./immich.nix
 
     ./ConvertX/docker-compose.nix
+    ./Dawarich/docker-compose.nix
   ];
 
   time.timeZone = "UTC";
