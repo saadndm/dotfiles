@@ -77,6 +77,7 @@
         "$mainmod, q, exec, ~/.config/scripts/switch-power-profiles.sh"
         "$mainmod, escape, exec, ~/.config/scripts/power-menu.sh"
         "$mainmod, o, exec, uwsm app -- obsidian"
+        "$mainmod, d, exec, uwsm app -- vesktop"
         "$mainmod, comma, exec, makoctl dismiss"
         "$mainmod shift, comma, exec, makoctl dismiss --all"
         "$mainmod ctrl, comma, exec, makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send \"silenced notifications\" || notify-send \"enabled notifications\""
