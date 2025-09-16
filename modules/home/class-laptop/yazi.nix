@@ -61,10 +61,10 @@
             for = "unix";
           }
         ];
-        evince = [
+        zathura = [
           {
-            run = "evince \"$@\"";
-            desc = "Evince";
+            run = "zathura \"$@\"";
+            desc = "Zathura";
             orphan = true;
             for = "unix";
           }
@@ -93,7 +93,7 @@
         {
           mime = "application/pdf";
           use = [
-            "evince"
+            "zathura"
             "xournalpp"
           ];
         }

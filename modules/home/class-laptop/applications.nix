@@ -30,6 +30,10 @@
         hdr-compute-peak = "no";
       };
     };
+
+    zathura = {
+      enable = true;
+    };
   };
 
   services = {
@@ -68,7 +72,6 @@
     walker
     obsidian
     xournalpp
-    evince
     pinta
     typst
     vesktop
