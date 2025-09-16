@@ -1,22 +1,33 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   programs = {
+    kitty = {
+      enable = true;
+      settings = {
+        confirm_os_window_close = 0;
+        dynamic_background_opacity = true;
+        background_opacity = lib.mkForce "0.8";
+      };
+    };
+
     mpv = {
       enable = true;
-
       package = (
         pkgs.mpv-unwrapped.wrapper {
           scripts = with pkgs.mpvScripts; [
             uosc
             sponsorblock
           ];
-
           mpv = pkgs.mpv-unwrapped.override {
             waylandSupport = true;
           };
         }
       );
-
       config = {
         profile = "high-quality";
         ytdl-format = "bestvideo[height<=2160][vcodec^=vp9.2]+bestaudio/best";
@@ -56,7 +67,6 @@
   home.packages = with pkgs; [
     inputs.ghostty.packages.${pkgs.system}.default
     inputs.sunsetr.packages.${pkgs.system}.sunsetr
-    kitty
     jmtpfs
     impala
     clipse
