@@ -82,5 +82,6 @@
     hypridle
     imv
     prismlauncher
+    wakatime
   ];
 }

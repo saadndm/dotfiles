@@ -21,4 +21,5 @@ in
   "cloudflare.age".publicKeys = users ++ systems;
   "bridgesensemc-gmail.age".publicKeys = users ++ systems;
   "saad29nadeem-gmail.age".publicKeys = users ++ systems;
+  "wakatime.age".publicKeys = users ++ systems;
 }

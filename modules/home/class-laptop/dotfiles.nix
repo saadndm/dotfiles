@@ -9,8 +9,13 @@
   xdg.configFile."mako".source = "${inputs.self}/home/.config/mako";
   xdg.configFile."scripts".source = "${inputs.self}/home/.config/scripts";
   xdg.configFile."ghostty/config".source = "${inputs.self}/home/.config/ghostty/config";
-  xdg.configFile."racket/racket-prefs.rktd".source =
-    "${inputs.self}/home/.config/racket/racket-prefs.rktd";
+  xdg.configFile."racket/racket-prefs.rktd" = {
+    force = true;
+    onChange = ''
+      ~/.config/racket/drracket-wakatime.sh
+    '';
+    source = "${inputs.self}/home/.config/racket/racket-prefs.rktd";
+  };
   xdg.configFile."oama/config.yaml".source = "${inputs.self}/home/.config/oama/config.yaml";
   xdg.configFile."uwsm/env".source = "${inputs.self}/home/.config/uwsm/env";
   xdg.configFile."uwsm/env-hyprland".source = "${inputs.self}/home/.config/uwsm/env-hyprland";
