@@ -61,7 +61,6 @@
     impala
     clipse
     waybar
-    racket
     mako
     wiremix
     hyprpicker

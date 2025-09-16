@@ -1,6 +1,4 @@
 {
-  config,
-  pkgs,
   inputs,
   ...
 }:
@@ -22,16 +20,5 @@
         file = ../../../secrets/wakatime.age;
       };
     };
-  };
-
-  xdg.configFile."racket/drracket-wakatime.sh" = {
-    executable = true;
-    source = pkgs.writeShellScript "drracket-wakatime" ''
-      #!/usr/bin/env bash
-
-      WAKATIME_API_KEY=$(cat "${config.age.secrets.wakatime.path}")
-
-      sed -i "s#WAKATIME_API_KEY_PLACEHOLDER#''${WAKATIME_API_KEY}#" "$HOME/.config/racket/racket-prefs.rktd"
-    '';
   };
 }
