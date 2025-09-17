@@ -1,6 +1,7 @@
 {
-  pkgs,
   lib,
+  inputs,
+  pkgs,
   ...
 }:
 {
@@ -78,4 +79,37 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    inputs.agenix.packages.${pkgs.system}.default
+    inputs.ghostty.packages.${pkgs.system}.default
+    inputs.sunsetr.packages.${pkgs.system}.sunsetr
+
+    jmtpfs
+    impala
+    clipse
+    waybar
+    mako
+    wiremix
+    hyprpicker
+    yt-dlp
+    libqalculate
+    bluetui
+    hypridle
+    walker
+    obsidian
+    xournalpp
+    pinta
+    typst
+    vesktop
+    oama
+    hyprshot
+    hyprsunset
+    hyprlock
+    hypridle
+    imv
+    prismlauncher
+    go
+    bat
+  ];
 }

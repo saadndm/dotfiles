@@ -1,9 +1,13 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  programs.java = {
+    enable = true;
+    package = pkgs.temurin-bin-21;
+  };
+
+  home.packages = with pkgs; [
     gcc
     typescript
-    temurin-bin-8
     temurin-bin-21
     go
     bun
