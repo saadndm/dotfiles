@@ -119,6 +119,10 @@
               typstyle
 
               vscode-json-languageserver
+
+              gotools
+              gopls
+              golangci-lint
             ];
           };
 

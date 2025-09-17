@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   ...
@@ -45,6 +44,22 @@
     zathura = {
       enable = true;
     };
+
+    btop = {
+      enable = true;
+      settings = {
+        vim_keys = true;
+      };
+    };
+
+    fzf = {
+      enable = true;
+      colors.bg = lib.mkForce "#181825";
+    };
+
+    lazydocker = {
+      enable = true;
+    };
   };
 
   services = {
@@ -63,34 +78,4 @@
       };
     };
   };
-
-  home.packages = with pkgs; [
-    inputs.ghostty.packages.${pkgs.system}.default
-    inputs.sunsetr.packages.${pkgs.system}.sunsetr
-    jmtpfs
-    impala
-    clipse
-    waybar
-    mako
-    wiremix
-    hyprpicker
-    yt-dlp
-    libqalculate
-    bluetui
-    hypridle
-    walker
-    obsidian
-    xournalpp
-    pinta
-    typst
-    vesktop
-    oama
-    hyprshot
-    hyprsunset
-    hyprlock
-    hypridle
-    imv
-    prismlauncher
-    wakatime
-  ];
 }
