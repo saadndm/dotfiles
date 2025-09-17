@@ -119,6 +119,10 @@
             on = "-";
             run = "plugin zoom -1";
           }
+          {
+            on = "<C-n>";
+            run = "shell -- dragon-drop -k -T \"$@\"";
+          }
         ];
       };
     };

@@ -111,5 +111,6 @@
     prismlauncher
     go
     bat
+    dragon-drop
   ];
 }
