@@ -1,8 +1,26 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
-  programs.java = {
-    enable = true;
-    package = pkgs.temurin-bin-21;
+  programs = {
+    btop = {
+      enable = true;
+      settings = {
+        vim_keys = true;
+      };
+    };
+
+    fzf = {
+      enable = true;
+      colors.bg = lib.mkForce "#181825";
+    };
+
+    lazydocker = {
+      enable = true;
+    };
+
+    java = {
+      enable = true;
+      package = pkgs.temurin-bin-21;
+    };
   };
 
   home.packages = with pkgs; [
@@ -25,5 +43,6 @@
     fastfetch
     compose2nix
     wakatime
+    bat
   ];
 }

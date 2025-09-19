@@ -45,22 +45,6 @@
     zathura = {
       enable = true;
     };
-
-    btop = {
-      enable = true;
-      settings = {
-        vim_keys = true;
-      };
-    };
-
-    fzf = {
-      enable = true;
-      colors.bg = lib.mkForce "#181825";
-    };
-
-    lazydocker = {
-      enable = true;
-    };
   };
 
   services = {
@@ -109,8 +93,6 @@
     hypridle
     imv
     prismlauncher
-    go
-    bat
     dragon-drop
   ];
 }
