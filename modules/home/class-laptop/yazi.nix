@@ -123,6 +123,14 @@
             on = "<C-n>";
             run = "shell -- dragon-drop -k -T \"$@\"";
           }
+          {
+            on = [
+              "g"
+              "p"
+            ];
+            run = "cd /run/user/1000/045d328dfcc24422a0ae0117d55865b1/storage/emulated/0";
+            desc = "Go to phone storage";
+          }
         ];
       };
     };
