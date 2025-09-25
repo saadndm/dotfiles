@@ -38,6 +38,7 @@
 
       input = {
         kb_layout = "us";
+        kb_options = "caps:escape";
         follow_mouse = 1;
         sensitivity = 0;
 
@@ -48,14 +49,14 @@
         };
       };
 
-      gesture = "3, horizontal, workspace";
-
       device = [
         {
-          name = "epic-mouse-v1";
-          sensitivity = -0.5;
+          name = "glorious-model-o-wireless";
+          accel_profile = "flat";
         }
       ];
+
+      gesture = "3, horizontal, workspace";
 
       "$mainmod" = "SUPER";
       "$terminal" = "ghostty +new-window";

@@ -18,19 +18,6 @@
         };
       };
     };
-    keyd = {
-      enable = true;
-      keyboards = {
-        default = {
-          ids = [ "*" ];
-          settings = {
-            main = {
-              capslock = "esc";
-            };
-          };
-        };
-      };
-    };
     udisks2.enable = true;
     logind = {
       settings.Login = {
@@ -45,10 +32,9 @@
     upower.ignoreLid = true;
   };
   environment.etc."libinput/local-overrides.quirks".text = ''
-    [Serial Keyboards]
-    MatchUdevType=keyboard
-    MatchName=keyd virtual keyboard
-    AttrKeyboardIntegration=internal
+    [Glorious Model O Wireless NoDebounce]
+    MatchName=Glorious Model O Wireless
+    ModelBouncingKeys=1
   '';
 
   environment.systemPackages = with pkgs; [
