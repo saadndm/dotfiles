@@ -18,4 +18,6 @@
   xdg.configFile."hypr/hyprlock.conf".source = "${inputs.self}/home/.config/hypr/hyprlock.conf";
   xdg.configFile."hypr/mocha.conf".source = "${inputs.self}/home/.config/hypr/mocha.conf";
   xdg.configFile."hypr/hypridle.conf".source = "${inputs.self}/home/.config/hypr/hypridle.conf";
+  xdg.configFile."aerc/binds.conf".source = "${inputs.self}/home/.config/aerc/binds.conf";
+  xdg.configFile."aerc/accounts.conf".source = "${inputs.self}/home/.config/aerc/accounts.conf";
 }
