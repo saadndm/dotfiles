@@ -23,10 +23,13 @@
     };
   };
 
+  home.file.".jdks/temurin-bin-21".source = pkgs.temurin-bin-21;
+  home.file.".jdks/temurin-bin-17".source = pkgs.temurin-bin-17;
+  home.file.".jdks/temurin-bin-8".source = pkgs.temurin-bin-8;
+
   home.packages = with pkgs; [
     gcc
     typescript
-    temurin-bin-21
     go
     bun
 
