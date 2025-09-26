@@ -92,7 +92,12 @@
     hyprlock
     hypridle
     imv
-    prismlauncher
+    (prismlauncher.override {
+      jdks = [
+        temurin-jre-bin-8
+        temurin-jre-bin-21
+      ];
+    })
     dragon-drop
     xorg.xsetroot
   ];
