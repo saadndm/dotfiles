@@ -8,7 +8,7 @@
     ./system.nix
     ./fonts.nix
     ./stylix.nix
-    ./seamless-login.nix
+    ./gdm.nix
     ./gnome.nix
     ./cron.nix
   ];
