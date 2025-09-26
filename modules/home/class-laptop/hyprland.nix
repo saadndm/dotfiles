@@ -33,6 +33,7 @@
         "uwsm app -- sunsetr"
         "uwsm app -- hypridle"
         "~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0"
+        "xsetroot -xcf ~/.local/share/icons/catppuccin-mocha-blue-cursors/cursors/left_ptr 16"
         "[workspace 1 silent] uwsm app -- zen-twilight"
       ];
 

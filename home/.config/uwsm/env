@@ -1,6 +1,6 @@
 export GDK_SCALE=2
 export HYPRSHOT_DIR=~/Pictures/Screenshots
-export XCURSOR_SIZE=18
+export XCURSOR_SIZE=16
 export NIXOS_OZONE_WL=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export GDK_BACKEND=wayland,x11

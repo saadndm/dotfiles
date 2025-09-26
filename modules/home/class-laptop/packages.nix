@@ -94,5 +94,6 @@
     imv
     prismlauncher
     dragon-drop
+    xorg.xsetroot
   ];
 }
