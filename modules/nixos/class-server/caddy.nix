@@ -55,6 +55,12 @@
           reverse_proxy localhost:4000
         '';
       };
+      "beszel.bridgesense.dev" = {
+        extraConfig = ''
+          import ts_host
+          reverse_proxy localhost:8090
+        '';
+      };
     };
   };
 }
