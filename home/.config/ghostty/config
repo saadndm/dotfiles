@@ -17,3 +17,4 @@ keybind = ctrl+backspace=text:\x17
 keybind = ctrl+shift+c=unbind
 keybind = performable:ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+f=write_screen_file:open
+keybind = ctrl+enter=unbind
