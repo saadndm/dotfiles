@@ -61,6 +61,12 @@
           reverse_proxy localhost:8090
         '';
       };
+      "wakapi.bridgesense.dev" = {
+        extraConfig = ''
+          import ts_host
+          reverse_proxy localhost:8080
+        '';
+      };
     };
   };
 }
