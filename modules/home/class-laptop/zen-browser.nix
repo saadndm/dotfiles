@@ -17,6 +17,8 @@
         "zen.pinned-tab-manager.restore-pinned-tabs-to-pinned-url" = true;
         "browser.startup.page" = 3;
         "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "browser.urlbar.maxRichResults" = 10;
+        "browser.urlbar.maxHistoricalSearchSuggestions" = 4;
       };
     };
     policies = {
