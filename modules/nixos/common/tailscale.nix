@@ -10,7 +10,7 @@
       "--ssh"
     ];
   };
-  systemd.services.tailscaled-autoconnect.serviceConfig.Type = lib.mkForce "simple";
+
   networking.firewall = {
     trustedInterfaces = [
       "tailscale0"
