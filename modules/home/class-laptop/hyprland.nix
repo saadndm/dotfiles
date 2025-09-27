@@ -84,6 +84,8 @@
         "$mainmod shift, comma, exec, makoctl dismiss --all"
         "$mainmod ctrl, comma, exec, makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send \"silenced notifications\" || notify-send \"enabled notifications\""
 
+        "ALT, Tab, workspace, previous"
+
         "$mainmod, h, movefocus, l"
         "$mainmod, l, movefocus, r"
         "$mainmod, j, movefocus, u"
