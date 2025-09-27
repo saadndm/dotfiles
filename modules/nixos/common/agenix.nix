@@ -25,6 +25,9 @@
       cloudflare = {
         file = ../../../secrets/cloudflare.age;
       };
+      wakapi-salt = {
+        file = ../../../secrets/wakapi-salt.age;
+      };
     };
   };
 }

@@ -22,4 +22,5 @@ in
   "bridgesensemc-gmail.age".publicKeys = users ++ systems;
   "saad29nadeem-gmail.age".publicKeys = users ++ systems;
   "wakatime.age".publicKeys = users ++ systems;
+  "wakapi-salt.age".publicKeys = users ++ systems;
 }
