@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<leader><leader>", function()
   require("fff").find_files()
-end, { desc = "Open FFF file picker" })
+end, { desc = "FFF file picker" })
 
 require("fff").setup({
   base_path = vim.fn.getcwd(),

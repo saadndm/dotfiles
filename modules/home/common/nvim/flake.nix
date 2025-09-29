@@ -128,13 +128,13 @@
 
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = {
-            gitPlugins = with pkgs.neovimPlugins; [ ];
             general = with pkgs.vimPlugins; {
               always = [
                 lze
                 lzextras
                 nui-nvim
                 nvim-notify
+                plenary-nvim
               ];
               extra = [
                 fzf-lua
@@ -154,7 +154,10 @@
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
           optionalPlugins = {
-            gitPlugins = with pkgs.neovimPlugins; [ ];
+            gitPlugins = with pkgs.vimPlugins; [
+              gitsigns-nvim
+              lazygit-nvim
+            ];
             general = {
               blink = with pkgs.vimPlugins; [
                 blink-cmp
@@ -171,11 +174,11 @@
               noice = with pkgs.vimPlugins; [
                 noice-nvim
               ];
-              gitsigns = with pkgs.vimPlugins; [
-                gitsigns-nvim
-              ];
               typst-preview = with pkgs.vimPlugins; [
                 typst-preview-nvim
+              ];
+              ultimate-autopair = with pkgs.vimPlugins; [
+                ultimate-autopair-nvim
               ];
             };
             format = with pkgs.vimPlugins; [

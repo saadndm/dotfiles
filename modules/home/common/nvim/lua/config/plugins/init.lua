@@ -13,6 +13,7 @@ require("lze").load {
   { import = "config.plugins.completion" },
   { import = "config.plugins.mini" },
   { import = "config.plugins.noice" },
-  { import = "config.plugins.gitsigns" },
+  { import = "config.plugins.git" },
   { import = "config.plugins.typst-preview" },
+  { import = "config.plugins.ultimate-autopair" }
 }

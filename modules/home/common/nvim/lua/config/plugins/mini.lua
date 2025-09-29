@@ -1,7 +1,3 @@
-vim.keymap.set("n", "s", function()
-  MiniJump2d.start(MiniJump2d.builtin_opts.single_character)
-end)
-
 return {
   "mini.nvim",
   for_cat = "general.mini",
@@ -18,16 +14,57 @@ return {
           i = "@function.inner",
         }),
       }
-    }
-    )
-    require("mini.pairs").setup()
+    })
+
+    require("mini.operators").setup({
+      replace = {
+        prefix = "<leader>gr",
+      },
+      multiply = {
+        prefix = "<leader>gm"
+      }
+    })
+
+    vim.keymap.set({ "n", "x" }, "<leader>gR", function()
+      return '"+' .. vim.api.nvim_replace_termcodes("<leader>gr", true, true, true)
+    end, { expr = true, remap = true, desc = " Replace operator" })
+
+    vim.keymap.set({ "n", "x" }, "<leader>gRr", function()
+      return '"+' .. vim.api.nvim_replace_termcodes("<leader>grr", true, true, true)
+    end, { expr = true, remap = true, desc = " Replace line" })
+
+    require("mini.snippets").setup({
+      snippets = {
+        {
+          prefix = "liminf",
+          body = "display(lim_($1->infinity)) $0",
+          desc = "Typst ∞ Limit",
+        },
+        {
+          prefix = "lim",
+          body = "display(lim_($1->$2) $0",
+          desc = "Typst Limit",
+        },
+        {
+          prefix = "sum",
+          body = "sum_($1)^($2) $0",
+          desc = "Summation"
+        }
+      },
+      mappings = {
+        expand = "",
+        jump_next = "<Tab>",
+        jump_prev = "<S-Tab>"
+      }
+    })
+
     require("mini.surround").setup({
       mappings = {
         add = "<leader>sa",
         delete = "<leader>sd",
         find = "<leader>sf",
         find_left = "<leader>sF",
-        highlight = "<leader>sh",
+        highlight = "",
         replace = "<leader>sr",
       }
     })
@@ -86,6 +123,10 @@ return {
         start_jumping = "",
       },
     })
+
+    vim.keymap.set("n", "s", function()
+      MiniJump2d.start(MiniJump2d.builtin_opts.single_character)
+    end)
 
     require("mini.animate").setup({
       cursor = {

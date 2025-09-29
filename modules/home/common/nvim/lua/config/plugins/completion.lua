@@ -10,24 +10,29 @@ return {
     event = "DeferredUIEnter",
     after = function(_)
       require("blink.cmp").setup({
-        -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
-        -- See :h blink-cmp-config-keymap for configuring keymaps
         keymap = {
-          preset = 'default',
+          preset = "default",
+          ["<C-u>"] = { "scroll_signature_up", "fallback" },
+          ["<C-d>"] = { "scroll_signature_down", "fallback" },
+          ["<S-u>"] = { "scroll_documentation_up", "fallback" },
+          ["<S-d>"] = { "scroll_documentation_down", "fallback" },
         },
         cmdline = {
           enabled = true,
           completion = {
+            menu = {
+              auto_show = true,
+            },
             ghost_text = {
-              enabled = true
-            }
+              enabled = true,
+            },
           },
         },
         fuzzy = {
           sorts = {
-            'exact',
-            'score',
-            'sort_text',
+            "exact",
+            "score",
+            "sort_text",
           },
         },
         signature = {
@@ -39,7 +44,7 @@ return {
         completion = {
           menu = {
             draw = {
-              treesitter = { 'lsp' },
+              treesitter = { "lsp" },
               components = {
                 label = {
                   text = function(ctx)
@@ -56,8 +61,9 @@ return {
             auto_show = true,
           },
         },
+        snippets = { preset = "mini_snippets" },
         sources = {
-          default = { 'lsp', 'path', 'snippets', 'buffer', 'omni' },
+          default = { "lsp", "path", "snippets", "buffer", "omni" },
           providers = {
             path = {
               score_offset = 50,
@@ -69,11 +75,11 @@ return {
               score_offset = 40,
             },
             cmp_cmdline = {
-              name = 'cmp_cmdline',
-              module = 'blink.compat.source',
+              name = "cmp_cmdline",
+              module = "blink.compat.source",
               score_offset = -100,
               opts = {
-                cmp_name = 'cmdline',
+                cmp_name = "cmdline",
               },
             },
           },

@@ -1,9 +1,3 @@
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
-
 vim.api.nvim_create_user_command("LintInfo", function()
   local filetype = vim.bo.filetype
   local linters = require("lint").linters_by_ft[filetype]
@@ -15,17 +9,17 @@ vim.api.nvim_create_user_command("LintInfo", function()
   end
 end, {})
 
-require('lze').load {
+require("lze").load {
   {
     "nvim-lint",
-    for_cat = 'lint',
+    for_cat = "lint",
     event = "FileType",
     after = function(plugin)
-      require('lint').linters_by_ft = {
+      require("lint").linters_by_ft = {
         fish = { "fish" },
-        javascript = { 'biomejs' },
-        typescript = { 'biomejs' },
-        go = { 'golangcilint' },
+        javascript = { "biomejs" },
+        typescript = { "biomejs" },
+        go = { "golangcilint" },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost" }, {
