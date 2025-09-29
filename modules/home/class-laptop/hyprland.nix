@@ -26,11 +26,11 @@
       xwayland.force_zero_scaling = true;
 
       exec-once = [
+        "uwsm app -- sunsetr"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "uwsm app -- waybar"
         "uwsm app -- clipse -listen"
         "uwsm app -- walker --gapplication-service"
-        "uwsm app -- sunsetr"
         "uwsm app -- hypridle"
         "~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0"
         "xsetroot -xcf ~/.local/share/icons/catppuccin-mocha-blue-cursors/cursors/left_ptr 16"

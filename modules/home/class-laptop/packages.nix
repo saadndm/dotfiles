@@ -88,7 +88,6 @@
     vesktop
     oama
     hyprshot
-    hyprsunset
     hyprlock
     hypridle
     imv
