@@ -42,7 +42,7 @@ return {
         },
         {
           prefix = "lim",
-          body = "display(lim_($1->$2) $0",
+          body = "display(lim_($1->$2)) $0",
           desc = "Typst Limit",
         },
         {
