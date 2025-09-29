@@ -100,5 +100,6 @@
     })
     dragon-drop
     xorg.xsetroot
+    racket
   ];
 }

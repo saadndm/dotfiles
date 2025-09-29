@@ -13,6 +13,5 @@
     ./system.nix
     ./zen-browser.nix
     ./kanshi.nix
-    ./racket.nix
   ];
 }
