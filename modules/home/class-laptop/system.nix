@@ -72,10 +72,21 @@
     };
   };
 
-  home.packages = with pkgs; [
-    upower
-    intel-gpu-tools
-    brightnessctl
-    wireplumber
-  ];
+  systemd.user.services."burn-in" = {
+    Service = {
+      ExecStart = ''
+        /run/current-system/sw/bin/bash /home/bridgesense/.config/scripts/burn-in.sh switch
+      '';
+    };
+  };
+
+  systemd.user.timers."burn-in" = {
+    Timer = {
+      OnCalendar = "*:0/30";
+      Persistent = true;
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+  };
 }

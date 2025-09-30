@@ -11,7 +11,6 @@
     ./stylix.nix
     ./gdm.nix
     ./gnome.nix
-    ./cron.nix
   ];
 
   time.timeZone = "America/Toronto";

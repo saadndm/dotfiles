@@ -100,5 +100,10 @@
     dragon-drop
     xorg.xsetroot
     racket
+    upower
+    intel-gpu-tools
+    brightnessctl
+    wireplumber
+    wl-clipboard
   ];
 }

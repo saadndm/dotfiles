@@ -47,5 +47,6 @@
     compose2nix
     wakatime
     bat
+    socat
   ];
 }

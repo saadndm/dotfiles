@@ -10,7 +10,7 @@ switch() {
     exit 0
   fi
 
-  ./home/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0
+  ~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0
 
   current_in=$(hyprctl -j getoption general:gaps_in | jq -r '.custom' | awk '{print $1}')
   current_out=$(hyprctl -j getoption general:gaps_out | jq -r '.custom' | awk '{print $1}')

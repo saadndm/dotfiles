@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ ... }:
 {
   hardware.bluetooth.enable = true;
+
   services = {
     tuned = {
       enable = true;
@@ -31,14 +32,10 @@
     };
     upower.ignoreLid = true;
   };
+
   environment.etc."libinput/local-overrides.quirks".text = ''
     [Glorious Model O Wireless NoDebounce]
     MatchName=Glorious Model O Wireless
     ModelBouncingKeys=1
   '';
-
-  environment.systemPackages = with pkgs; [
-    wl-clipboard
-    socat
-  ];
 }
