@@ -75,7 +75,7 @@
         "$mainmod, v, exec, kitty --class=Clipse -e clipse"
         "$mainmod shift, c, exec, uwsm app -- hyprpicker -a"
         "$mainmod, t, exec, kitty --class=Btop -e btop"
-        "$mainmod shift, s, exec, uwsm app -- hyprshot -m region --freeze"
+        "$mainmod shift, s, exec, uwsm app -- ~/.config/scripts/hyprcap.sh --freeze shot region -w -c"
         "$mainmod, q, exec, ~/.config/scripts/switch-power-profiles.sh"
         "$mainmod, escape, exec, ~/.config/scripts/power-menu.sh"
         "$mainmod, o, exec, uwsm app -- obsidian"

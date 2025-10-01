@@ -87,7 +87,6 @@
     typst
     vesktop
     oama
-    hyprshot
     hyprlock
     hypridle
     imv
@@ -105,5 +104,9 @@
     brightnessctl
     wireplumber
     wl-clipboard
+    libnotify
+    wayfreeze
+    slurp
+    grim
   ];
 }
