@@ -579,7 +579,7 @@ function freeze() {
   fi
 
   if command -v wayfreeze >/dev/null; then
-    wayfreeze &
+    wayfreeze --hide-cursor &
     WAYFREEZE_PID=$!
     sleep 0.2
   else
