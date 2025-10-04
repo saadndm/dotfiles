@@ -13,7 +13,7 @@ return {
           { "{", "}", newline = true,   space = true },
           { '"', '"' },
           { "<", ">", nft = { "typst" } },
-          { "$", "$", space = true,     ft = { "typst" } },
+          { "$", "$", space = true,     ft = { "typst" }, newline = true },
           { "*", "*", ft = { "typst" } },
         },
         tabout = {

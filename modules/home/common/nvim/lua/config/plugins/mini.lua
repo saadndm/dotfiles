@@ -33,23 +33,11 @@ return {
       return '"+' .. vim.api.nvim_replace_termcodes("<leader>grr", true, true, true)
     end, { expr = true, remap = true, desc = " Replace line" })
 
+    local gen_loader = require("mini.snippets").gen_loader
+
     require("mini.snippets").setup({
       snippets = {
-        {
-          prefix = "liminf",
-          body = "display(lim_($1->infinity)) $0",
-          desc = "Typst ∞ Limit",
-        },
-        {
-          prefix = "lim",
-          body = "display(lim_($1->$2)) $0",
-          desc = "Typst Limit",
-        },
-        {
-          prefix = "sum",
-          body = "sum_($1)^($2) $0",
-          desc = "Summation"
-        }
+        gen_loader.from_lang(),
       },
       mappings = {
         expand = "",
