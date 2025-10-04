@@ -139,6 +139,14 @@
             run = "cd ~/.local/share/PrismLauncher/instances";
             desc = "Go to minecraft";
           }
+          {
+            on = [
+              "g"
+              "a"
+            ];
+            run = "cd ~/Documents/Assignments";
+            desc = "Go to assignments";
+          }
         ];
       };
     };

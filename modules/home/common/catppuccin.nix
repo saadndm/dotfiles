@@ -11,5 +11,6 @@
     fzf.enable = true;
     bat.enable = true;
     aerc.enable = true;
+    yazi.enable = true;
   };
 }

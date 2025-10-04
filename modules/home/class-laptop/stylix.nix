@@ -11,6 +11,7 @@
     targets = {
       fzf.enable = false;
       bat.enable = false;
+      yazi.enable = false;
       zen-browser.profileNames = [ "BridgeSense" ];
     };
     fonts = {
