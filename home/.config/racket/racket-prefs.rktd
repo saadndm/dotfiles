@@ -1,6 +1,6 @@
 (
- (plt:framework-pref:drracket:language-dialog:teaching-hierlist-default ("Teaching Languages" "How to Design Programs" "Beginning Student"))
- (plt:framework-pref:drracket:recent-language-names (("Beginning Student" #6(#t constructor repeating-decimal #f #t none) #f () #f)))
+ (plt:framework-pref:drracket:language-dialog:teaching-hierlist-default ("Teaching Languages" "How to Design Programs" "Beginning Student with List Abbreviations"))
+ (plt:framework-pref:drracket:recent-language-names (("Beginning Student with List Abbreviations" #6(#t constructor repeating-decimal #f #t none) #f () #f) ("Beginning Student" #6(#t constructor repeating-decimal #f #t none) #f () #f)))
  (plt:framework-pref:drracket:language-settings ((-500 -500 1) (#6(#t constructor repeating-decimal #f #t none) #f () #f)))
  (plt:framework-pref:framework:verify-exit #t)
  (plt:framework-pref:drracket:recently-closed-tabs ())
