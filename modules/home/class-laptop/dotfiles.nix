@@ -20,6 +20,4 @@
   xdg.configFile."hypr/hypridle.conf".source = "${inputs.self}/home/.config/hypr/hypridle.conf";
   xdg.configFile."aerc/binds.conf".source = "${inputs.self}/home/.config/aerc/binds.conf";
   xdg.configFile."aerc/accounts.conf".source = "${inputs.self}/home/.config/aerc/accounts.conf";
-  xdg.configFile."racket/racket-prefs.rktd".source =
-    "${inputs.self}/home/.config/racket/racket-prefs.rktd";
 }
