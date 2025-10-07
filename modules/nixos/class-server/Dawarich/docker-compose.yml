@@ -39,8 +39,10 @@ services:
       timeout: 10s
     # command: postgres -c config_file=/etc/postgresql/postgresql.conf # Use custom config, uncomment if you want to use a custom config
   dawarich_app:
-    image: freikin/dawarich:latest
+    image: docker.io/freikin/dawarich:latest
     container_name: dawarich_app
+    labels:
+      io.containers.autoupdate: registry
     volumes:
       - dawarich_public:/var/app/public
       - dawarich_watched:/var/app/tmp/imports/watched

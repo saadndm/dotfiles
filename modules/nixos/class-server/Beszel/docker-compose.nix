@@ -20,7 +20,7 @@
 
   # Containers
   virtualisation.oci-containers.containers."beszel" = {
-    image = "henrygd/beszel:latest";
+    image = "docker.io/henrygd/beszel:latest";
     volumes = [
       "/home/bridgesense/dotfiles/modules/nixos/class-server/Beszel/beszel_data:/beszel_data:rw"
       "/home/bridgesense/dotfiles/modules/nixos/class-server/Beszel/beszel_socket:/beszel_socket:rw"
@@ -28,6 +28,9 @@
     ports = [
       "8090:8090/tcp"
     ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     log-driver = "journald";
     extraOptions = [
       "--network-alias=beszel"
@@ -52,7 +55,7 @@
     ];
   };
   virtualisation.oci-containers.containers."beszel-agent" = {
-    image = "henrygd/beszel-agent";
+    image = "docker.io/henrygd/beszel-agent";
     environment = {
       "HUB_URL" = "https://beszel.bridgesense.dev";
       "KEY" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOb87WMu3EmR91+czmEKgJD5Xb2qXj8R6YpS969gQGqn";
@@ -63,6 +66,9 @@
       "/home/bridgesense/dotfiles/modules/nixos/class-server/Beszel/beszel_agent_data:/var/lib/beszel-agent:rw"
       "/var/run/docker.sock:/var/run/docker.sock:ro"
     ];
+    labels = {
+      "io.containers.autoupdate" = "registry";
+    };
     log-driver = "journald";
     extraOptions = [
       "--network=host"
