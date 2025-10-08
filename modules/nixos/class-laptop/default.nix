@@ -12,6 +12,4 @@
     ./gdm.nix
     ./gnome.nix
   ];
-
-  time.timeZone = "America/Toronto";
 }

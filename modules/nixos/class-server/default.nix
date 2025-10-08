@@ -12,6 +12,4 @@
     ./Dawarich/docker-compose.nix
     ./Beszel/docker-compose.nix
   ];
-
-  time.timeZone = "UTC";
 }
