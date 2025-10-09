@@ -6,3 +6,4 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 export GDK_BACKEND=wayland,x11
 export QT_QPA_PLATFORM=wayland;xcb
 export EDITOR=nvim
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"

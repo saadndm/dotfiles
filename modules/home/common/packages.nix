@@ -11,6 +11,13 @@
     fzf = {
       enable = true;
       colors.bg = lib.mkForce "#181825";
+      enableFishIntegration = false;
+    };
+
+    bat = {
+      config = {
+        theme = "Catppuccin Mocha";
+      };
     };
 
     lazydocker = {
@@ -46,7 +53,6 @@
     fastfetch
     compose2nix
     wakatime
-    bat
     socat
   ];
 }
