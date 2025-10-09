@@ -142,10 +142,10 @@
           {
             on = [
               "g"
-              "a"
+              "c"
             ];
-            run = "cd ~/Documents/Assignments";
-            desc = "Go to assignments";
+            run = "cd ~/Documents/Obsidian/Saad/Courses/";
+            desc = "Go to courses";
           }
         ];
       };
