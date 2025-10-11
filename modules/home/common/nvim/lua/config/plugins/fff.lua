@@ -1,6 +1,8 @@
-vim.keymap.set("n", "<leader><leader>", function()
-  require("fff").find_files()
-end, { desc = "FFF file picker" })
+vim.keymap.set("n", "<leader><leader>",
+  "<cmd> FFFSnacks <cr>"
+  , { desc = "FFF" })
+
+require("config.plugins.fff-snacks").setup()
 
 require("fff").setup({
   base_path = vim.fn.getcwd(),

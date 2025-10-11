@@ -12,5 +12,6 @@
     bat.enable = true;
     aerc.enable = true;
     yazi.enable = true;
+    lazygit.enable = true;
   };
 }

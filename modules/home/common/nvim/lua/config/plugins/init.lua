@@ -5,7 +5,7 @@ end
 if nixCats("general.extra") then
   require("config.plugins.oil")
   require("config.plugins.fff")
-  require("config.plugins.fzf-lua")
+  require("config.plugins.snacks")
 end
 
 require("lze").load {

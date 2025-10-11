@@ -9,12 +9,15 @@ return {
     after = function()
       require("ultimate-autopair").setup {
         internal_pairs = {
-          { "(", ")", newline = true,   space = true },
-          { "{", "}", newline = true,   space = true },
+          { "(", ")",  newline = true,   space = true },
+          { "{", "}",  newline = true,   space = true, nft = { "nix" } },
+          { "{", "};", newline = true,   space = true, ft = { "nix" } },
+          { "[", "]",  newline = true,   space = true, nft = { "nix" } },
+          { "[", "];", newline = true,   space = true, ft = { "nix" } },
           { '"', '"' },
-          { "<", ">", nft = { "typst" } },
-          { "$", "$", space = true,     ft = { "typst" }, newline = true },
-          { "*", "*", ft = { "typst" } },
+          { "<", ">",  nft = { "typst" } },
+          { "$", "$",  newline = true,   space = true, ft = { "typst" } },
+          { "*", "*",  ft = { "typst" } },
         },
         tabout = {
           enable = true,

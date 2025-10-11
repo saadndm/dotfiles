@@ -21,15 +21,8 @@ vim.keymap.set({ "n", "v", "x" }, "<C-d>", "M<C-d>")
 vim.keymap.set({ "n", "v", "x" }, "<C-u>", "M<C-u>")
 
 -- undotree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undotree" })
-
--- nvim-notify
-vim.keymap.set("n", "<leader>,", function()
-  require("notify").dismiss({ silent = true, pending = false })
-end, { desc = "Dismiss most recent notification" })
-vim.keymap.set("n", "<leader><", function()
-  require("notify").dismiss({ silent = true, pending = true })
-end, { desc = "Dismiss all notifications" })
+vim.cmd("packadd! nvim.undotree")
+vim.keymap.set("n", "<leader>u", vim.cmd.Undotree, { desc = "Undotree" })
 
 -- Options
 local o = vim.o

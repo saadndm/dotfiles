@@ -12,6 +12,7 @@
       fzf.enable = false;
       bat.enable = false;
       yazi.enable = false;
+      lazygit.enable = false;
       zen-browser.profileNames = [ "BridgeSense" ];
     };
     fonts = {

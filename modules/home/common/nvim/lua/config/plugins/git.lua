@@ -1,12 +1,6 @@
-vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk_inline<CR>", { desc = "Preview Hunk" })
 
 return {
-  {
-    "lazygit.nvim",
-    for_cat = "gitPlugins",
-    event = "DeferredUIEnter",
-  },
   {
     "gitsigns.nvim",
     for_cat = "gitPlugins",

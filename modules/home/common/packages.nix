@@ -54,5 +54,9 @@
     compose2nix
     wakatime
     socat
+    imagemagick
+    ghostscript
+    fd
+    sqlite
   ];
 }

@@ -1,0 +1,65 @@
+vim.keymap.set("n", "<leader><", function()
+  Snacks.notifier.hide()
+end, { desc = "Dismiss all notifications" })
+
+vim.keymap.set("n", "<leader>gg", function()
+  Snacks.lazygit()
+end, { desc = "LazyGit" })
+
+vim.keymap.set("n", "<leader>/", function()
+  Snacks.picker.grep({ cwd = Snacks.git.get_root() })
+end, { desc = "Grep (Git Root)" })
+
+vim.keymap.set("n", "<leader>?", function()
+  Snacks.picker.help()
+end, { desc = "Help Pages" })
+
+
+vim.keymap.set("n", "<leader>gb", function() Snacks.picker.git_log_line() end, { desc = "Git Blame Line" })
+vim.keymap.set("n", "<leader>gh", function() Snacks.picker.git_log_file() end, { desc = "Git Current File History" })
+vim.keymap.set({ "n", "x" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" })
+
+require("snacks").setup({
+  bigfile = { enabled = true },
+  notifier = { enabled = true },
+  notifiy = { enabled = true },
+  lazygit = {
+    enabled = true,
+    configure = false,
+    win = {
+      style = {
+        border = "rounded",
+      }
+    }
+  },
+  picker = {
+    win = {
+      style = {
+        border = "rounded",
+        backdrop = 100,
+      },
+      input = {
+        keys = {
+          ["<a-c>"] = {
+            "toggle_cwd",
+            mode = { "n", "i" },
+          },
+        },
+      },
+    },
+    actions = {
+      toggle_cwd = function(p)
+        local root = Snacks.git.get_root()
+        local cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".")
+        local fff_state = require("config.plugins.fff-snacks").state
+        local current = fff_state.current_dir or p:cwd()
+
+        p:set_cwd(current == root and cwd or root)
+        p:find()
+      end,
+    },
+  },
+  image = { enabled = true },
+  quickfile = { enabled = true },
+  terminal = { enabled = false }
+})
