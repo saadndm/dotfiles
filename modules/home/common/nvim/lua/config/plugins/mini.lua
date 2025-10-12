@@ -101,7 +101,6 @@ return {
         miniclue.gen_clues.z(),
       },
     })
-    require("mini.jump").setup()
     require("mini.jump2d").setup({
       view = {
         dim = true,

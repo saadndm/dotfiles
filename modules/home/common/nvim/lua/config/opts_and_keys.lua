@@ -45,3 +45,8 @@ o.autowriteall = true
 o.undofile = true
 
 o.list = true
+
+o.spell = true
+o.spelllang = "en"
+
+o.ignorecase = true

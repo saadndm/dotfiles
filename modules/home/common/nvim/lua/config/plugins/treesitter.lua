@@ -1,31 +1,18 @@
-return {
-  {
-    "nvim-treesitter",
-    for_cat = "general.treesitter",
-    event = "DeferredUIEnter",
-    load = function(name)
-      vim.cmd.packadd(name)
-      vim.cmd.packadd("nvim-treesitter-textobjects")
-      vim.cmd.packadd("nvim-treesitter-context")
-    end,
-    after = function(plugin)
-      require("nvim-treesitter.configs").setup {
-        highlight = { enable = true, },
-        indent = { enable = true, },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<C-space>",
-            node_incremental = "<C-space>",
-            scope_incremental = false,
-            node_decremental = "<bs>",
-          },
-        },
-      }
-      require("treesitter-context").setup {
-        max_lines = 3,
-        mode = "topline"
-      }
-    end,
-  },
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "*" },
+  callback = function(args)
+    if pcall(vim.treesitter.start) then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+
+require("nvim-treesitter").setup {
+  highlight = { enable = true, },
+  indent = { enable = true, },
+}
+
+require("treesitter-context").setup {
+  max_lines = 3,
+  mode = "topline"
 }

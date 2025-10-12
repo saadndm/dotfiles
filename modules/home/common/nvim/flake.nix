@@ -13,6 +13,11 @@
       url = "github:dmtrKovalenko/fff.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvim-treesitter-main = {
+      url = "github:iofq/nvim-treesitter-main/f99c66a95b8820fe7781650addd854709e66635c";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +43,22 @@
           neovimPlugins = prev.neovimPlugins // {
             fff-nvim = inputs.fff-nvim.packages.${final.system}.fff-nvim;
           };
+        })
+
+        inputs.nvim-treesitter-main.overlays.default
+
+        (final: prev: {
+          vimPlugins = prev.vimPlugins.extend (
+            f: p: {
+              nvim-treesitter = p.nvim-treesitter.withAllGrammars;
+              nvim-treesitter-context = p.nvim-treesitter-context.overrideAttrs {
+                dependencies = [ f.nvim-treesitter ];
+              };
+              nvim-treesitter-textobjects = p.nvim-treesitter-textobjects.overrideAttrs {
+                dependencies = [ f.nvim-treesitter ];
+              };
+            }
+          );
         })
       ];
 
@@ -80,10 +101,12 @@
           };
 
           startupPlugins = {
+            lze = with pkgs.vimPlugins; [
+              lze
+              lzextras
+            ];
             general = with pkgs.vimPlugins; {
               always = [
-                lze
-                lzextras
                 nui-nvim
                 plenary-nvim
               ];
@@ -95,8 +118,14 @@
                 nvim-web-devicons
                 vim-wakatime
                 snacks-nvim
+                flash-nvim
               ];
             };
+            treesitter = with pkgs.vimPlugins; [
+              nvim-treesitter
+              nvim-treesitter-context
+              nvim-treesitter-textobjects
+            ];
             themer = with pkgs.vimPlugins; [
               catppuccin-nvim
             ];
@@ -111,11 +140,6 @@
               mini = with pkgs.vimPlugins; [
                 mini-nvim
               ];
-              treesitter = with pkgs.vimPlugins; [
-                nvim-treesitter.withAllGrammars
-                nvim-treesitter-context
-                nvim-treesitter-textobjects
-              ];
               noice = with pkgs.vimPlugins; [
                 noice-nvim
               ];
@@ -124,6 +148,9 @@
               ];
               ultimate-autopair = with pkgs.vimPlugins; [
                 ultimate-autopair-nvim
+              ];
+              flash = with pkgs.vimPlugins; [
+                flash-nvim
               ];
             };
             gitPlugins = with pkgs.vimPlugins; [
@@ -160,6 +187,8 @@
               neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
             };
             categories = {
+              lze = true;
+              treesitter = true;
               general = true;
               gitPlugins = true;
               format = true;
