@@ -118,7 +118,7 @@
                 nvim-web-devicons
                 vim-wakatime
                 snacks-nvim
-                flash-nvim
+                trouble-nvim
               ];
             };
             treesitter = with pkgs.vimPlugins; [
