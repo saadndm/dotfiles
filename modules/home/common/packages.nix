@@ -59,5 +59,6 @@
     ghostscript
     fd
     sqlite
+    scooter
   ];
 }

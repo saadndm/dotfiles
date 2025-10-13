@@ -30,10 +30,12 @@
       y = "yazi";
       ts = "tailscale";
       fzf = "fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\"";
+      lsn = "ls";
+    };
+    shellAliases = {
       ls = "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -G";
       lsa = "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a -G";
       lst = "eza --color=always --tree --icons=always";
-      lsn = "ls";
     };
     plugins = with pkgs.fishPlugins; [
       {
@@ -45,6 +47,7 @@
       set fish_greeting ""
 
       bind -M visual ' 'y fish_clipboard_copy
+      set fish_cursor_external line
     '';
   };
 
