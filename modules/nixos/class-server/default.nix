@@ -8,6 +8,8 @@
     ./immich.nix
     ./wakapi.nix
 
+    ./dominance-link.nix
+
     ./ConvertX/docker-compose.nix
     ./Dawarich/docker-compose.nix
     ./Beszel/docker-compose.nix
