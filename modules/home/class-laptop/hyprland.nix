@@ -39,7 +39,7 @@
 
       input = {
         kb_layout = "us";
-        kb_options = "caps:escape";
+        kb_options = "caps:escape,compose:ralt";
         follow_mouse = 1;
         sensitivity = 0;
 
