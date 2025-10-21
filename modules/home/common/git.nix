@@ -4,9 +4,13 @@
 {
   programs.git = {
     enable = true;
-    userName = "Saad Nadeem";
-    userEmail = "saad29nadeem@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Saad Nadeem";
+        email = "saad29nadeem@gmail.com";
+      };
+      init.defaultBranch = "master";
+      rerere.enabled = true;
       diff = {
         algorithm = "histogram";
         colorMoved = "plain";
