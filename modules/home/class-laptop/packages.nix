@@ -111,6 +111,5 @@
     libreoffice-qt6-fresh
     hunspell
     hunspellDicts.uk_UA
-    calibre
   ];
 }

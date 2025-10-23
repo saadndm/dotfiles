@@ -9,11 +9,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
-    fff-nvim = {
-      url = "github:dmtrKovalenko/fff.nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvim-treesitter-main = {
       url = "github:iofq/nvim-treesitter-main/f99c66a95b8820fe7781650addd854709e66635c";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,12 +33,6 @@
         (utils.standardPluginOverlay inputs)
 
         inputs.neovim-nightly-overlay.overlays.default
-
-        (final: prev: {
-          neovimPlugins = prev.neovimPlugins // {
-            fff-nvim = inputs.fff-nvim.packages.${final.system}.fff-nvim;
-          };
-        })
 
         inputs.nvim-treesitter-main.overlays.default
 
@@ -114,7 +103,7 @@
                 fzf-lua
                 oil-nvim
                 SchemaStore-nvim
-                pkgs.neovimPlugins.fff-nvim
+                fff-nvim
                 nvim-web-devicons
                 vim-wakatime
                 snacks-nvim
