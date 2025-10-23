@@ -9,7 +9,7 @@
     ./system.nix
     ./fonts.nix
     ./stylix.nix
-    ./gdm.nix
+    ./seamless-login.nix
     ./gnome.nix
   ];
 }
