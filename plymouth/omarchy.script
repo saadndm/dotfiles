@@ -10,8 +10,8 @@ logo.sprite.SetY (Window.GetHeight() / 2 - logo.image.GetHeight() / 2);
 logo.sprite.SetOpacity (1);
 
 # Use these to adjust the progress bar timing
-global.fake_progress_limit = 0.7;  # Target percentage for fake progress (0.0 to 1.0)
-global.fake_progress_duration = 15.0;  # Duration in seconds to reach limit
+global.fake_progress_limit = 1.0;  # Target percentage for fake progress (full bar)
+global.fake_progress_duration = 10.0;  # Duration in seconds to reach limit
 
 # Progress bar animation variables
 global.fake_progress = 0.0;
@@ -36,10 +36,8 @@ fun refresh_callback ()
         time_ratio = elapsed_time / global.fake_progress_duration;
         if (time_ratio > 1.0)
           time_ratio = 1.0;
-        
-        # Apply easing curve: ease-out quadratic
-        # Formula: 1 - (1 - x)^2
-        eased_ratio = 1 - ((1 - time_ratio) * (1 - time_ratio));
+
+        eased_ratio = time_ratio;
         
         # Calculate fake progress based on eased ratio
         global.fake_progress = eased_ratio * global.fake_progress_limit;
@@ -214,25 +212,12 @@ progress_bar.y = progress_box.y + (progress_box.image.GetHeight() - progress_bar
 progress_bar.sprite.SetPosition(progress_bar.x, progress_bar.y, 1);
 progress_bar.sprite.SetOpacity(0);
 
-fun progress_callback (duration, progress)
-  {
-    global.real_progress = progress;
-    
-    # If real progress is above limit, stop fake progress and use real progress
-    if (progress > global.fake_progress_limit)
-      {
-        stop_fake_progress();
-        update_progress_bar(progress);
-      }
-  }
-
-Plymouth.SetBootProgressFunction(progress_callback);
-
 #----------------------------------------- Quit --------------------------------
 
 fun quit_callback ()
 {
   logo.sprite.SetOpacity (1);
+  # stop_fake_progress();
 }
 
 Plymouth.SetQuitFunction(quit_callback);

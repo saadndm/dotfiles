@@ -10,6 +10,5 @@
     ./fonts.nix
     ./stylix.nix
     ./seamless-login.nix
-    ./gnome.nix
   ];
 }

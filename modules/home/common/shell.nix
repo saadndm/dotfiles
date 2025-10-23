@@ -26,13 +26,13 @@
       ld = "DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock sudo lazydocker";
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#(hostname)";
       hrs = "home-manager switch --flake ~/dotfiles";
-      cat = "bat --paging=never";
       y = "yazi";
       ts = "tailscale";
       fzf = "fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\"";
       lsn = "ls";
     };
     shellAliases = {
+      cat = "bat --paging=never";
       ls = "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -G";
       lsa = "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a -G";
       lst = "eza --color=always --tree --icons=always";

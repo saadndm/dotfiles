@@ -15,6 +15,7 @@
     };
 
     bat = {
+      enable = true;
       config = {
         theme = "Catppuccin Mocha";
       };
@@ -39,7 +40,6 @@
     typescript
     go
     bun
-    nodejs
 
     jq
     uv
@@ -52,7 +52,6 @@
     unzip
     ripgrep
     fastfetch
-    compose2nix
     wakatime
     socat
     imagemagick
@@ -60,5 +59,6 @@
     fd
     sqlite
     scooter
+    compose2nix
   ];
 }
