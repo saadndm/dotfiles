@@ -54,7 +54,7 @@
     yazi.url = "github:sxyazi/yazi";
 
     i915-sriov = {
-      url = "github:strongtz/i915-sriov-dkms";
+      url = "github:strongtz/i915-sriov-dkms/518611bcacfb0493a178e23acae071814baa4572";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
