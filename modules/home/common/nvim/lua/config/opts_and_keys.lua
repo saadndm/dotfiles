@@ -88,6 +88,8 @@ vim.keymap.set("v", "<leader>ss",
   { desc = "Search selected text in scooter" })
 
 -- Options
+vim.loader.enable()
+
 local o = vim.o
 
 o.signcolumn = "yes"
