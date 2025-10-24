@@ -16,4 +16,6 @@
       "tailscale0"
     ];
   };
+
+  systemd.services.tailscaled-autoconnect.serviceConfig.TimeoutStartSec = 1;
 }
