@@ -14,4 +14,16 @@
     ./Dawarich/docker-compose.nix
     ./Beszel/docker-compose.nix
   ];
+
+  security.sudo.extraRules = [
+    {
+      users = [ "bridgesense" ];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/rsync";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 }
