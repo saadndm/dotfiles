@@ -29,6 +29,10 @@
       enable = true;
       package = pkgs.temurin-bin-21;
     };
+
+    opencode = {
+      enable = true;
+    };
   };
 
   home.file.".jdks/temurin-bin-21".source = pkgs.temurin-bin-21;
