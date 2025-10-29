@@ -60,5 +60,6 @@
     sqlite
     scooter
     compose2nix
+    ffmpeg
   ];
 }
