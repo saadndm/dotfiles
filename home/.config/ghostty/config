@@ -1,4 +1,4 @@
-custom-shader = ~/Downloads/cursor_smear.glsl
+custom-shader = ./shaders/cursor_warp.glsl
 background-opacity = 0.8
 mouse-hide-while-typing = true
 clipboard-read = allow

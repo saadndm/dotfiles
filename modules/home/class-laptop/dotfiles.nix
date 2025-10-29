@@ -8,7 +8,7 @@
     "${inputs.self}/home/.config/walker/themes/catppuccin.css";
   xdg.configFile."mako".source = "${inputs.self}/home/.config/mako";
   xdg.configFile."scripts".source = "${inputs.self}/home/.config/scripts";
-  xdg.configFile."ghostty/config".source = "${inputs.self}/home/.config/ghostty/config";
+  xdg.configFile."ghostty".source = "${inputs.self}/home/.config/ghostty";
   xdg.configFile."oama/config.yaml".source = "${inputs.self}/home/.config/oama/config.yaml";
   xdg.configFile."uwsm/env".source = "${inputs.self}/home/.config/uwsm/env";
   xdg.configFile."uwsm/env-hyprland".source = "${inputs.self}/home/.config/uwsm/env-hyprland";
