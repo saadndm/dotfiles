@@ -56,7 +56,7 @@
     unzip
     ripgrep
     fastfetch
-    wakatime
+    wakatime-cli
     socat
     imagemagick
     ghostscript

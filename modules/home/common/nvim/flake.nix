@@ -10,7 +10,7 @@
     };
 
     nvim-treesitter-main = {
-      url = "github:iofq/nvim-treesitter-main/f99c66a95b8820fe7781650addd854709e66635c";
+      url = "github:iofq/nvim-treesitter-main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

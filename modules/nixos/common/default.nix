@@ -53,7 +53,7 @@
       };
     };
     initrd.systemd.enable = true;
-    kernelPackages = pkgs.linuxPackages_6_16;
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
