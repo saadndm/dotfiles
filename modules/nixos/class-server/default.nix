@@ -7,6 +7,7 @@
     ./caddy.nix
     ./immich.nix
     ./wakapi.nix
+    ./podman.nix
 
     ./dominance-link.nix
     ./hypixel-duels-discord-bot.nix

@@ -1,5 +1,10 @@
 # Auto-generated using compose2nix v0.3.2.
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   # Runtime
@@ -10,11 +15,13 @@
   };
 
   # Enable container name DNS for all Podman networks.
-  networking.firewall.interfaces = let
-    matchAll = if !config.networking.nftables.enable then "podman+" else "podman*";
-  in {
-    "${matchAll}".allowedUDPPorts = [ 53 ];
-  };
+  networking.firewall.interfaces =
+    let
+      matchAll = if !config.networking.nftables.enable then "podman+" else "podman*";
+    in
+    {
+      "${matchAll}".allowedUDPPorts = [ 53 ];
+    };
 
   virtualisation.oci-containers.backend = "podman";
 
@@ -48,7 +55,14 @@
     ports = [
       "4000:4000/tcp"
     ];
-    cmd = [ "bin/rails" "server" "-p" "4000" "-b" "::" ];
+    cmd = [
+      "bin/rails"
+      "server"
+      "-p"
+      "4000"
+      "-b"
+      "::"
+    ];
     labels = {
       "io.containers.autoupdate" = "registry";
     };
