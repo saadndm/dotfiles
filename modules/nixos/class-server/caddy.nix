@@ -69,4 +69,7 @@
       };
     };
   };
+
+  systemd.services.caddy.after = [ "network-online.target" ];
+  systemd.services.caddy.wants = [ "network-online.target" ];
 }
