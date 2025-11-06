@@ -17,5 +17,15 @@
     ];
   };
 
-  systemd.services.tailscaled-autoconnect.serviceConfig.TimeoutStartSec = 1;
+  systemd.services.tailscaled-autoconnect = {
+    after = lib.mkForce [
+      "network-online.target"
+      "tailscaled.service"
+    ];
+    wantedBy = lib.mkForce [ "network-online.target" ];
+    wants = lib.mkForce [
+      "network-online.target"
+      "tailscaled.service"
+    ];
+  };
 }

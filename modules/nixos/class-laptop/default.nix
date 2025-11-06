@@ -9,6 +9,6 @@
     ./system.nix
     ./fonts.nix
     ./stylix.nix
-    ./seamless-login.nix
+    ./sddm.nix
   ];
 }
