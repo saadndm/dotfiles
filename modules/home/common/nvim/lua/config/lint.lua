@@ -17,8 +17,6 @@ require("lze").load {
     after = function(plugin)
       require("lint").linters_by_ft = {
         fish = { "fish" },
-        javascript = { "biomejs" },
-        typescript = { "biomejs" },
         go = { "golangcilint" },
       }
 

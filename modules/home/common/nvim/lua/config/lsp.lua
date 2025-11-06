@@ -8,7 +8,8 @@ vim.lsp.enable({
   "ruff",
   "tinymist",
   "jsonls",
-  "bashls"
+  "bashls",
+  "biome"
 })
 
 vim.diagnostic.config({

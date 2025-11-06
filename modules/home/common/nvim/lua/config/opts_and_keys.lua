@@ -15,6 +15,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
+-- Code
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { silent = true })
+
 -- General Keymaps
 vim.keymap.set({ "n", "v", "x" }, "<leader>w", ":write<CR>", { desc = "Write file" })
 vim.keymap.set({ "n", "v", "x" }, "<C-d>", "M<C-d>")

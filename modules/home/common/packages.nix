@@ -44,6 +44,7 @@
     typescript
     go
     bun
+    nodejs
 
     jq
     uv
