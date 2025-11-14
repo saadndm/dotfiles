@@ -25,14 +25,17 @@
       "sd_mod"
       "sdhci_pci"
     ];
+    kernelModules = [ "i915" ];
   };
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [
     "intel_iommu=on"
-    "xe.max_vfs=7"
+    "i915.enable_guc=3"
     "i915.max_vfs=7"
-    "xe.force_probe=0x7d51"
-    "module_blacklist=i915"
+    "module_blacklist=xe"
+    "i915.force_probe=7d51"
+    "i915.disable_dsb=1"
+    "i915.enable_dc=0"
   ];
 
   boot.extraModulePackages = [ pkgs.i915-sriov ];
