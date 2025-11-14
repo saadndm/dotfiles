@@ -10,5 +10,6 @@
     ./fonts.nix
     ./stylix.nix
     ./sddm.nix
+    ./waydroid.nix
   ];
 }
