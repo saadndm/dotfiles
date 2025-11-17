@@ -10,7 +10,7 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-hyprland
-      inputs.xdp-termfilepickers.packages.${pkgs.system}.default
+      inputs.xdp-termfilepickers.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }

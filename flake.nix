@@ -57,11 +57,6 @@
       url = "github:strongtz/i915-sriov-dkms";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    sunsetr = {
-      url = "github:psi4j/sunsetr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

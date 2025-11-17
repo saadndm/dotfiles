@@ -65,9 +65,8 @@
   };
 
   home.packages = with pkgs; [
-    inputs.agenix.packages.${pkgs.system}.default
-    inputs.ghostty.packages.${pkgs.system}.default
-    inputs.sunsetr.packages.${pkgs.system}.sunsetr
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     jmtpfs
     impala
@@ -111,5 +110,6 @@
     libreoffice-qt6-fresh
     hunspell
     hunspellDicts.uk_UA
+    sunsetr
   ];
 }

@@ -173,7 +173,7 @@
               wrapRc = false;
               unwrappedCfgPath = utils.mkLuaInline "os.getenv('HOME') .. '/dotfiles/modules/home/common/nvim'";
               aliases = [ "vim" ];
-              neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+              neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
             };
             categories = {
               lze = true;
