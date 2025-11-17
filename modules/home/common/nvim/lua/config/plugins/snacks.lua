@@ -59,7 +59,10 @@ require("snacks").setup({
       end,
     },
   },
-  image = { enabled = true },
+  image = {
+    enabled = true,
+    math = { enabled = false }
+  },
   quickfile = { enabled = true },
   terminal = { enabled = false }
 })
