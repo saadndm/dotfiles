@@ -111,5 +111,6 @@
     hunspell
     hunspellDicts.uk_UA
     sunsetr
+    bruno
   ];
 }
