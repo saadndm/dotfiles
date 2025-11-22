@@ -112,5 +112,6 @@
     hunspellDicts.uk_UA
     sunsetr
     bruno
+    jetbrains.idea-ultimate
   ];
 }
