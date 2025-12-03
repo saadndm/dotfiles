@@ -113,5 +113,6 @@
     sunsetr
     bruno
     jetbrains.idea-ultimate
+    ventoy-full-gtk
   ];
 }

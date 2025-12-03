@@ -64,5 +64,8 @@
     inputs.blueprint {
       inherit inputs;
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.permittedInsecurePackages = [
+        "ventoy-gtk3-1.1.07"
+      ];
     };
 }

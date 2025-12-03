@@ -84,4 +84,8 @@
     };
     openFirewall = false;
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "ventoy-gtk3-1.1.07"
+  ];
 }
