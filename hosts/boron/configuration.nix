@@ -52,4 +52,16 @@
       };
     };
   };
+
+  systemd.services.sriov-setup = {
+    description = "Configure SR-IOV";
+    before = [ "libvirtd.service" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "/bin/sh -c 'echo 1 > /sys/devices/pci0000:00/0000:00:02.0/sriov_numvfs'";
+      User = "root";
+    };
+  };
 }

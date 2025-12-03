@@ -14,31 +14,46 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd = {
-    systemd.enable = true;
-    availableKernelModules = [
-      "xhci_pci"
-      "thunderbolt"
-      "nvme"
-      "usbhid"
-      "usb_storage"
-      "sd_mod"
-      "sdhci_pci"
-    ];
-    kernelModules = [ "i915" ];
-  };
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [
-    "intel_iommu=on"
-    "i915.enable_guc=3"
-    "i915.max_vfs=7"
-    "module_blacklist=xe"
-    "i915.force_probe=7d51"
-    "i915.disable_dsb=1"
-    "i915.enable_dc=0"
-  ];
+  boot = {
+    loader.systemd-boot = {
+      windows = {
+        "windows" = {
+          title = "Windows";
+          efiDeviceHandle = "FS1";
+          sortKey = "y_windows";
+        };
+      };
 
-  boot.extraModulePackages = [ pkgs.i915-sriov ];
+      edk2-uefi-shell.enable = true;
+      edk2-uefi-shell.sortKey = "z_edk2";
+    };
+
+    initrd = {
+      systemd.enable = true;
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+        "sdhci_pci"
+      ];
+      kernelModules = [ "i915" ];
+    };
+
+    kernelParams = [
+      "intel_iommu=on"
+      "i915.enable_guc=3"
+      "i915.max_vfs=7"
+      "module_blacklist=xe"
+      "i915.force_probe=7d51"
+      "i915.disable_dsb=1"
+      "i915.enable_dc=0"
+    ];
+
+    extraModulePackages = [ pkgs.i915-sriov ] ++ (with config.boot.kernelPackages; [ kvmfr ]);
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

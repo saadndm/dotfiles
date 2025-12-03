@@ -113,7 +113,9 @@
     sunsetr
     bruno
     jetbrains.idea-ultimate
+    virt-manager
     ventoy-full-gtk
+    looking-glass-client
     obs-studio
     kdePackages.kdenlive
   ];
