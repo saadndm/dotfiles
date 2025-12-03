@@ -9,7 +9,7 @@ SHADER_FILE="/dev/shm/hyproled_shader.glsl"
 
 show_help() {
   cat <<EOF
-Usage: $(basename $0) [OPTION]... [off]
+Usage: $(basename "$0") [OPTION]... [off]
 
 Hyprland shader utility to prevent OLED burn in.
 
@@ -29,6 +29,17 @@ EOF
 
 if [[ $1 == off ]]; then
   hyprctl keyword decoration:screen_shader ""
+  exit 0
+fi
+
+if [[ $1 == listen ]]; then
+  function handle {
+    case $1 in
+    "fullscreen>>1") ~/.config/scripts/hyproled.sh off ;;
+    "fullscreen>>0") ~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0 ;;
+    esac
+  }
+  socat -U - UNIX-CONNECT:"$XDG_RUNTIME_DIR"/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock | while read -r line; do handle "$line"; done
   exit 0
 fi
 
@@ -81,7 +92,7 @@ void main(){
 
 if [[ -n $area ]]; then
   if [[ $area =~ ^([0-9]+):([0-9]+):([0-9]+):([0-9]+)$ ]]; then
-    read x y w h <<<"${BASH_REMATCH[*]:1:4}"
+    read -r x y w h <<<"${BASH_REMATCH[*]:1:4}"
     shader_code+="  bool inRegion = (fc.x >= ${x}.0 && fc.x <= (${x}.0+${w}.0) && fc.y >= ${y}.0 && fc.y <= (${y}.0+${h}.0));
 "
     if $invert; then
