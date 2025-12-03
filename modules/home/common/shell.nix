@@ -24,8 +24,8 @@
       n = "nvim";
       lg = "lazygit";
       ld = "DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock sudo lazydocker";
-      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#(hostname)";
-      hrs = "home-manager switch --flake ~/dotfiles";
+      nrs = "sudo -v && nh os switch";
+      hrs = "nh home switch";
       y = "yazi";
       ts = "tailscale";
       fzf = "fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\"";
