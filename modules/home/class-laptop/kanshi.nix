@@ -27,7 +27,7 @@
             status = "disable";
           }
           {
-            criteria = "AOC Q27G3XMN 1APQCJA000040";
+            criteria = "AOC Q27G3XMN 1APR9UA001942";
             scale = 1.6;
             mode = "2560x1440@180Hz";
             status = "enable";
@@ -46,7 +46,7 @@
             status = "enable";
           }
           {
-            criteria = "AOC Q27G3XMN 1APQCJA000040";
+            criteria = "AOC Q27G3XMN 1APR9UA001942";
             status = "disable";
           }
         ];
