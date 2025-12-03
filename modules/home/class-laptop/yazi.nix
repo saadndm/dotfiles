@@ -126,7 +126,7 @@
           {
             on = [
               "g"
-              "p"
+              "P"
             ];
             run = "cd /run/user/1000/045d328dfcc24422a0ae0117d55865b1/storage/emulated/0";
             desc = "Go to phone storage";
@@ -146,6 +146,22 @@
             ];
             run = "cd ~/Documents/Obsidian/Saad/Courses/";
             desc = "Go to courses";
+          }
+          {
+            on = [
+              "g"
+              "p"
+            ];
+            run = "cd ~/Documents/Projects/";
+            desc = "Go to projects";
+          }
+          {
+            on = [
+              "g"
+              "t"
+            ];
+            run = "cd ~/Documents/Tools/";
+            desc = "Go to tools";
           }
         ];
       };
