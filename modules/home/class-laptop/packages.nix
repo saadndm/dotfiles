@@ -114,5 +114,7 @@
     bruno
     jetbrains.idea-ultimate
     ventoy-full-gtk
+    obs-studio
+    kdePackages.kdenlive
   ];
 }
