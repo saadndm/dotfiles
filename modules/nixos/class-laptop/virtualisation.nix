@@ -19,7 +19,7 @@
 
   virtualisation.spiceUSBRedirection.enable = true;
 
-  firewall.trustedInterfaces = [ "virbr0" ];
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
 
   boot = {
     kernelModules = [ "kvmfr" ];
@@ -42,8 +42,7 @@
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStart = "${pkgs.libvirt}/bin/virsh net-start default";
-      ExecStop = "${pkgs.libvirt}/bin/virsh net-destroy default";
+      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.libvirt}/bin/virsh net-start default || :'";
       User = "root";
     };
   };
