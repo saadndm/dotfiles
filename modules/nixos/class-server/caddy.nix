@@ -1,10 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   services.caddy = {
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
-      hash = "sha256-aRMg7R0dBAy+LJeGCMPg6HKppM6NPX2NPwtc0CeSQLg=";
+      hash = "sha256-Dvifm7rRwFfgXfcYvXcPDNlMaoxKd5h4mHEK6kJ+T4A=";
     };
     email = "bridgesensemc@gmail.com";
     environmentFile = config.age.secrets.cloudflare.path;
@@ -70,6 +75,19 @@
     };
   };
 
-  systemd.services.caddy.after = [ "network-online.target" ];
-  systemd.services.caddy.wants = [ "network-online.target" ];
+  systemd.services.caddy = {
+    after = [
+      "network-online.target"
+      "tailscaled.service"
+    ];
+    wants = [
+      "network-online.target"
+      "tailscaled.service"
+    ];
+    serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5s";
+      RestartPreventExitStatus = lib.mkForce "";
+    };
+  };
 }
