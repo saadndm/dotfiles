@@ -65,7 +65,6 @@
   };
 
   home.packages = with pkgs; [
-    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     jmtpfs
@@ -118,5 +117,6 @@
     looking-glass-client
     obs-studio
     kdePackages.kdenlive
+    seahorse
   ];
 }
