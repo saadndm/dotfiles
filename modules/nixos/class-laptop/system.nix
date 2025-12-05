@@ -3,6 +3,7 @@
   hardware.bluetooth.enable = true;
 
   services = {
+    gnome.gnome-keyring.enable = true;
     tuned = {
       enable = true;
       ppdSettings = {
