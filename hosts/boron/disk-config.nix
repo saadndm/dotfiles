@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = "/dev/disk/by-id/nvme-YMTC_YMSS2ED08D25MC_YMB51T0RA244600ABP";
         content = {
           type = "gpt";
           partitions = {
@@ -15,6 +15,14 @@
                 format = "vfat";
                 mountpoint = "/boot";
                 mountOptions = [ "umask=0077" ];
+              };
+            };
+            swap = {
+              size = "16G";
+              type = "8200";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
               };
             };
             luks = {
