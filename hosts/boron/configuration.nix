@@ -55,12 +55,19 @@
 
   systemd.services.sriov-setup = {
     description = "Configure SR-IOV";
-    before = [ "libvirtd.service" ];
     wantedBy = [ "multi-user.target" ];
+    unitConfig = {
+      After = [
+        "systemd-udev-settle.service"
+        "local-fs.target"
+        "systemd-modules-load.service"
+      ];
+      Before = [ "libvirtd.service" ];
+    };
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStart = "/bin/sh -c 'echo 1 > /sys/devices/pci0000:00/0000:00:02.0/sriov_numvfs'";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'for i in $(seq 1 5); do echo 1 > /sys/devices/pci0000:00/0000:00:02.0/sriov_numvfs && break; sleep 1; done'";
       User = "root";
     };
   };
