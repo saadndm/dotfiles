@@ -44,6 +44,7 @@
     loader = {
       systemd-boot = {
         enable = true;
+        configurationLimit = 10;
       };
       timeout = 1;
       efi = {
