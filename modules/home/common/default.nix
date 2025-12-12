@@ -11,6 +11,7 @@
     ./shell.nix
     ./git.nix
     ./catppuccin.nix
+    ./yazi.nix
   ];
 
   nvim.enable = true;
