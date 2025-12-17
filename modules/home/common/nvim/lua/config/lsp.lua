@@ -13,7 +13,7 @@ vim.lsp.enable({
 })
 
 vim.diagnostic.config({
-  virtual_lines = true,
+  virtual_lines = false,
   underline = true,
   severity_sort = true,
   float = {

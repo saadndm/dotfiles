@@ -20,6 +20,7 @@ vim.keymap.set("n", "<leader>gh", function() Snacks.picker.git_log_file() end, {
 vim.keymap.set({ "n", "x" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" })
 
 require("snacks").setup({
+  animate = { enabled = true },
   bigfile = { enabled = true },
   notifier = { enabled = true },
   notifiy = { enabled = true },
@@ -64,5 +65,6 @@ require("snacks").setup({
     math = { enabled = false }
   },
   quickfile = { enabled = true },
+  scroll = { enabled = true },
   terminal = { enabled = false }
 })

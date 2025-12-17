@@ -6,7 +6,7 @@ if nixCats("general.extra") then
   require("config.plugins.oil")
   require("config.plugins.fff")
   require("config.plugins.snacks")
-  require("config.plugins.trouble")
+  require("config.plugins.pairs")
 end
 
 if nixCats("treesitter") then
@@ -19,6 +19,7 @@ require("lze").load {
   { import = "config.plugins.noice" },
   { import = "config.plugins.git" },
   { import = "config.plugins.typst-preview" },
-  { import = "config.plugins.ultimate-autopair" },
   { import = "config.plugins.flash" },
+  { import = "config.plugins.trouble" },
+  { import = "config.plugins.tiny-inline-diagnostic" }
 }

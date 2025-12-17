@@ -115,13 +115,7 @@ return {
       MiniJump2d.start(MiniJump2d.builtin_opts.single_character)
     end)
 
-    require("mini.animate").setup({
-      cursor = {
-        enable = false
-      }
-    })
     require("mini.hipatterns").setup()
-    require("mini.indentscope").setup()
 
     local icons = require("mini.icons")
     icons.setup({

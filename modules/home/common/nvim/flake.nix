@@ -107,7 +107,8 @@
                 nvim-web-devicons
                 vim-wakatime
                 snacks-nvim
-                trouble-nvim
+                blink-pairs
+                blink-indent
               ];
             };
             treesitter = with pkgs.vimPlugins; [
@@ -135,11 +136,14 @@
               typst-preview = with pkgs.vimPlugins; [
                 typst-preview-nvim
               ];
-              ultimate-autopair = with pkgs.vimPlugins; [
-                ultimate-autopair-nvim
-              ];
               flash = with pkgs.vimPlugins; [
                 flash-nvim
+              ];
+              trouble = with pkgs.vimPlugins; [
+                trouble-nvim
+              ];
+              tiny-inline-diagnostic = with pkgs.vimPlugins; [
+                tiny-inline-diagnostic-nvim
               ];
             };
             gitPlugins = with pkgs.vimPlugins; [
