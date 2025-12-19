@@ -12,9 +12,9 @@
     ./dominance-link.nix
     ./hypixel-duels-discord-bot.nix
 
-    ./ConvertX/docker-compose.nix
     ./Dawarich/docker-compose.nix
     ./Beszel/docker-compose.nix
+    ./VERT/docker-compose.nix
   ];
 
   security.sudo.extraRules = [

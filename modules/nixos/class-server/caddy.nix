@@ -48,7 +48,7 @@
           reverse_proxy localhost:2283
         '';
       };
-      "convertx.bridgesense.dev" = {
+      "vert.bridgesense.dev" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:3000

@@ -1,0 +1,7 @@
+services:
+  vert:
+    container_name: vert
+    image: ghcr.io/vert-sh/vert:latest
+    restart: unless-stopped
+    ports:
+      - ${PORT:-3000}:80
