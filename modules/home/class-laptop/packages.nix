@@ -118,5 +118,7 @@
     obs-studio
     kdePackages.kdenlive
     seahorse
+    heroic
+    android-tools
   ];
 }
