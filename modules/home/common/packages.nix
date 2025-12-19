@@ -48,12 +48,13 @@
 
   home.packages = with pkgs; [
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-    gcc
     typescript
     go
     bun
     nodejs
     pnpm
+    clang
+    clang-tools
 
     jq
     uv

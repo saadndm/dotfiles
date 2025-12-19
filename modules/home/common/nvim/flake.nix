@@ -68,7 +68,7 @@
               golangci-lint
 
               ruff
-              basedpyright
+              ty
 
               typescript-go
               biome
@@ -86,6 +86,8 @@
               gotools
               gopls
               golangci-lint
+
+              clang-tools
             ];
           };
 

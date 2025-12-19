@@ -2,14 +2,15 @@ vim.lsp.enable({
   "emmylua_ls",
   "nixd",
   "gopls",
-  "basedpyright",
+  "ty",
   "tsgo",
   "hyprls",
   "ruff",
   "tinymist",
   "jsonls",
   "bashls",
-  "biome"
+  "biome",
+  "clangd"
 })
 
 vim.diagnostic.config({
