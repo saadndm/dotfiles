@@ -15,6 +15,8 @@
     ./Dawarich/docker-compose.nix
     ./Beszel/docker-compose.nix
     ./VERT/docker-compose.nix
+    ./IT-Tools/docker-compose.nix
+    ./Papra/docker-compose.nix
   ];
 
   security.sudo.extraRules = [

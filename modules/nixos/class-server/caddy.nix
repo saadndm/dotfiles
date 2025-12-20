@@ -72,6 +72,18 @@
           reverse_proxy localhost:8080
         '';
       };
+      "it-tools.bridgesense.dev" = {
+        extraConfig = ''
+          import ts_host
+          reverse_proxy localhost:9000
+        '';
+      };
+      "papra.bridgesense.dev" = {
+        extraConfig = ''
+          import ts_host
+          reverse_proxy localhost:1221
+        '';
+      };
     };
   };
 
