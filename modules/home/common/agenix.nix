@@ -16,9 +16,6 @@
       saad29nadeem-gmail = {
         file = ../../../secrets/saad29nadeem-gmail.age;
       };
-      wakatime = {
-        file = ../../../secrets/wakatime.age;
-      };
     };
   };
 }

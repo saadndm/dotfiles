@@ -19,14 +19,17 @@
       cloudflared-carbon = {
         file = ../../../secrets/cloudflared-carbon.age;
       };
-      password = {
-        file = ../../../secrets/password.age;
+      vaultwarden = {
+        file = ../../../secrets/vaultwarden.age;
       };
       cloudflare = {
         file = ../../../secrets/cloudflare.age;
       };
       wakapi-salt = {
         file = ../../../secrets/wakapi-salt.age;
+      };
+      password = {
+        file = ../../../secrets/password.age;
       };
     };
   };
