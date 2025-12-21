@@ -17,9 +17,9 @@ require("lze").load {
   { import = "config.plugins.completion" },
   { import = "config.plugins.mini" },
   { import = "config.plugins.noice" },
-  { import = "config.plugins.git" },
   { import = "config.plugins.typst-preview" },
   { import = "config.plugins.flash" },
   { import = "config.plugins.trouble" },
+  { import = "config.plugins.todo-comments" },
   { import = "config.plugins.tiny-inline-diagnostic" }
 }

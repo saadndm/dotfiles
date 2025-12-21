@@ -101,6 +101,16 @@ return {
         miniclue.gen_clues.z(),
       },
     })
+    vim.keymap.set("n", "<leader>go", function()
+      MiniDiff.toggle_overlay(0)
+    end, { desc = "Toggle mini.diff Overlay" })
+    require("mini.diff").setup({
+      view = {
+        style = "sign",
+        signs = { add = "▎", change = "▎", delete = "" },
+        priority = 0,
+      }
+    })
     require("mini.jump2d").setup({
       view = {
         dim = true,

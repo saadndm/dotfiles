@@ -144,12 +144,14 @@
               trouble = with pkgs.vimPlugins; [
                 trouble-nvim
               ];
+              todo-comments = with pkgs.vimPlugins; [
+                todo-comments-nvim
+              ];
               tiny-inline-diagnostic = with pkgs.vimPlugins; [
                 tiny-inline-diagnostic-nvim
               ];
             };
             gitPlugins = with pkgs.vimPlugins; [
-              gitsigns-nvim
               lazygit-nvim
             ];
             format = with pkgs.vimPlugins; [
