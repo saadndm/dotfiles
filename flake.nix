@@ -57,6 +57,10 @@
       url = "path:/home/bridgesense/Documents/Tools/i915-sriov-dkms";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-raspberrypi = {
+      url = "github:nvmd/nixos-raspberrypi/main";
+    };
   };
 
   outputs =
