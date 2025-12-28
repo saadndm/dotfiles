@@ -30,7 +30,7 @@
   };
 
   services.udev.extraRules = ''
-    SUBSYSTEM=="kvmfr", KERNEL=="kvmfr0", OWNER="root", GROUP="kvm", MODE="0660"
+    SUBSYSTEM=="kvmfr", KERNEL=="kvmfr0", OWNER="root", GROUP="libvirtd", MODE="0660"
   '';
 
   users.users.bridgesense.extraGroups = [ "libvirtd" ];

@@ -19,7 +19,7 @@
       windows = {
         "windows" = {
           title = "Windows";
-          efiDeviceHandle = "FS1";
+          efiDeviceHandle = "HD0b";
           sortKey = "y_windows";
         };
       };

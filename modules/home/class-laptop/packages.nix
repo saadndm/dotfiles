@@ -114,7 +114,15 @@
     jetbrains.idea-ultimate
     virt-manager
     ventoy-full-gtk
-    looking-glass-client
+    (looking-glass-client.overrideAttrs (oldAttrs: {
+      src = fetchFromGitHub {
+        owner = "gnif";
+        repo = "LookingGlass";
+        rev = "53bfb6547f2b7abd6c183192e13a57068c1677ea";
+        hash = "sha256-SakFCEXPsJW3zmNpmklK8ZCGpcJzJ/4v7TJDpjWqVeA=";
+        fetchSubmodules = true;
+      };
+    }))
     obs-studio
     kdePackages.kdenlive
     seahorse

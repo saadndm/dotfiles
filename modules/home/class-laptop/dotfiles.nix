@@ -22,4 +22,6 @@
   xdg.configFile."aerc/accounts.conf".source = "${inputs.self}/home/.config/aerc/accounts.conf";
   xdg.configFile."devauth/config.toml".source = "${inputs.self}/home/.config/devauth/config.toml";
   home.file.".wakatime.cfg".source = "${inputs.self}/home/.wakatime.cfg";
+  xdg.configFile."looking-glass/client.ini".source =
+    "${inputs.self}/home/.config/looking-glass/client.ini";
 }

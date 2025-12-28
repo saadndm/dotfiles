@@ -54,7 +54,7 @@
     yazi.url = "github:sxyazi/yazi";
 
     i915-sriov = {
-      url = "path:/home/bridgesense/Documents/Tools/i915-sriov-dkms";
+      url = "github:BridgeSenseDev/i915-sriov-dkms";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

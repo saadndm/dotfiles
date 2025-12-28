@@ -162,6 +162,7 @@
         "workspace 4 silent, class:vesktop"
         "workspace 6 silent, class:virt-manager"
         "workspace 6 silent, class:looking-glass-client"
+        "fullscreen, class:looking-glass-client"
         "workspace 9 silent, class:steam"
         "float, title:Picture-in-Picture"
         "pin, title:Picture-in-Picture"
