@@ -111,7 +111,7 @@
     hunspellDicts.uk_UA
     sunsetr
     bruno
-    jetbrains.idea-ultimate
+    jetbrains.idea
     virt-manager
     ventoy-full-gtk
     (looking-glass-client.overrideAttrs (oldAttrs: {
@@ -128,5 +128,8 @@
     seahorse
     heroic
     android-tools
+    qbittorrent
+    tridactyl-native
+    nix-update
   ];
 }
