@@ -21,7 +21,10 @@ vim.keymap.set({ "n", "x" }, "<leader>gB", function() Snacks.gitbrowse() end, { 
 
 require("snacks").setup({
   animate = { enabled = true },
-  bigfile = { enabled = true },
+  bigfile = {
+    enabled = true,
+    size = 0.5 * 1024 * 1024
+  },
   notifier = { enabled = true },
   notifiy = { enabled = true },
   lazygit = {
