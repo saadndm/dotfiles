@@ -27,16 +27,25 @@ Argument:
 EOF
 }
 
+is_fullscreen() {
+  hyprctl activeworkspace -j | jq -r '.hasfullscreen' 2>/dev/null | grep -q "true"
+  echo $?
+}
+
 if [[ $1 == off ]]; then
   hyprctl keyword decoration:screen_shader ""
   exit 0
 fi
 
+if [[ $1 == update ]]; then
+  ~/.config/scripts/hyproled.sh -a 0:0:2880:67 -m 0
+  exit 0
+fi
+
 if [[ $1 == listen ]]; then
-  function handle {
+  handle() {
     case $1 in
-    "fullscreen>>1") ~/.config/scripts/hyproled.sh off ;;
-    "fullscreen>>0") ~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0 ;;
+    "fullscreen>>"* | "workspace>>"*) ~/.config/scripts/hyproled.sh update ;;
     esac
   }
   socat -U - UNIX-CONNECT:"$XDG_RUNTIME_DIR"/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock | while read -r line; do handle "$line"; done
@@ -61,19 +70,20 @@ while getopts ":a:ism:h" opt; do
 done
 shift $((OPTIND - 1))
 
+if [[ $(is_fullscreen) -eq 0 ]]; then
+  hyprctl keyword decoration:screen_shader ""
+  exit 0
+fi
+
 # Compute shift offset
+last_shift=0
+[[ -f $STATE_FILE ]] && read -r last_shift <"$STATE_FILE"
+
 if $shift; then
-  last_shift=0
-  [[ -f $STATE_FILE ]] && read -r last_shift <"$STATE_FILE"
-  if ((last_shift == 0)); then
-    shift_offset=1
-    echo 1 >"$STATE_FILE"
-  else
-    shift_offset=0
-    echo 0 >"$STATE_FILE"
-  fi
+  shift_offset=$((1 - last_shift))
+  echo "$shift_offset" >"$STATE_FILE"
 else
-  shift_offset=0
+  shift_offset=$last_shift
 fi
 
 shader_code="#version 300 es
