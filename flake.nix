@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     blueprint.url = "github:numtide/blueprint";
@@ -68,8 +69,5 @@
     inputs.blueprint {
       inherit inputs;
       nixpkgs.config.allowUnfree = true;
-      nixpkgs.config.permittedInsecurePackages = [
-        "ventoy-gtk3-1.1.07"
-      ];
     };
 }

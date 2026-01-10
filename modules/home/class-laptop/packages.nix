@@ -17,17 +17,10 @@
 
     mpv = {
       enable = true;
-      package = (
-        pkgs.mpv-unwrapped.wrapper {
-          scripts = with pkgs.mpvScripts; [
-            uosc
-            sponsorblock
-          ];
-          mpv = pkgs.mpv-unwrapped.override {
-            waylandSupport = true;
-          };
-        }
-      );
+      scripts = with pkgs.mpvScripts; [
+        uosc
+        sponsorblock
+      ];
       config = {
         profile = "high-quality";
         ytdl-format = "bestvideo[height<=2160][vcodec^=vp9.2]+bestaudio/best";
@@ -113,7 +106,6 @@
     bruno
     jetbrains.idea
     virt-manager
-    ventoy-full-gtk
     (looking-glass-client.overrideAttrs (oldAttrs: {
       src = fetchFromGitHub {
         owner = "gnif";
@@ -130,6 +122,5 @@
     android-tools
     qbittorrent
     tridactyl-native
-    nix-update
   ];
 }

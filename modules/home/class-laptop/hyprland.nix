@@ -19,9 +19,7 @@
         ",preferred,auto,1"
       ];
 
-      experimental = {
-        xx_color_management_v4 = true;
-      };
+      render.cm_fs_passthrough = true;
 
       xwayland.force_zero_scaling = true;
 
@@ -151,24 +149,18 @@
       ];
 
       windowrule = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "float, class:^(Clipse|Impala|Bluetui|Btop|Wiremix|Yazi)"
-        "size 622 652, class:(Clipse|Impala|Bluetui)"
-        "size 1200 800, class:(Btop|Wiremix|Yazi)"
-        "workspace 3 silent, class:obsidian"
-        "workspace 4 silent, class:vesktop"
-        "workspace 6 silent, class:virt-manager"
-        "workspace 6 silent, class:looking-glass-client"
-        "fullscreen, class:looking-glass-client"
-        "workspace 9 silent, class:steam"
-        "float, title:Picture-in-Picture"
-        "pin, title:Picture-in-Picture"
-        "keepaspectratio, title:Picture-in-Picture"
-        "noborder, title:Picture-in-Picture"
-        "opacity 1.0 1.0, title:Picture-in-Picture"
-        "float, class:steam"
-        "tile, class:steam, title:Steam"
+        "suppress_event maximize, match:class .*"
+        "no_focus on, match:class ^$, match:title ^$, match:xwayland 1, match:float 1, match:fullscreen 0, match:pin 0"
+        "float on, match:class ^(Clipse|Impala|Bluetui|Btop|Wiremix|Yazi)"
+        "size 622 652, match:class (Clipse|Impala|Bluetui)"
+        "size 1200 800, match:class (Btop|Wiremix|Yazi)"
+        "workspace 3 silent, match:class obsidian"
+        "workspace 4 silent, match:class vesktop"
+        "workspace 6 silent, match:class virt-manager"
+        "workspace 6 silent, fullscreen on, match:class looking-glass-client"
+        "workspace 9 silent, float on, match:class steam"
+        "float on, pin on, keep_aspect_ratio on, border_size 0, opacity 1.0 1.0, match:title Picture-in-Picture"
+        "tile on, match:class steam, match:title Steam"
       ];
 
       general = {

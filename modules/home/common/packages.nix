@@ -78,5 +78,6 @@
     ffmpeg
     opencode
     zip
+    gh
   ];
 }
