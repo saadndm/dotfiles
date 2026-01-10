@@ -64,4 +64,13 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Bluetooth headphones dual boot
+  systemd.tmpfiles.rules = [
+    "d /var/lib/bluetooth 0700 root root -"
+    "d /var/lib/bluetooth/BC:CD:99:F8:A7:5E 0700 root root -"
+    "d /var/lib/bluetooth/BC:CD:99:F8:A7:5E/88:C9:E8:01:D5:3F 0700 root root -"
+
+    "f+ /var/lib/bluetooth/BC:CD:99:F8:A7:5E/88:C9:E8:01:D5:3F/info 0600 root root - [General]\\nName=WH-1000XM4\\nClass=0x240404\\nSupportedTechnologies=BR/EDR;\\nTrusted=true\\nBlocked=false\\nCablePairing=false\\nServices=00000000-deca-fade-deca-deafdecacaff;00001108-0000-1000-8000-00805f9b34fb;0000110b-0000-1000-8000-00805f9b34fb;0000110c-0000-1000-8000-00805f9b34fb;0000110d-0000-1000-8000-00805f9b34fb;0000110e-0000-1000-8000-00805f9b34fb;0000110f-0000-1000-8000-00805f9b34fb;0000111e-0000-1000-8000-00805f9b34fb;00001131-0000-1000-8000-00805f9b34fb;00001200-0000-1000-8000-00805f9b34fb;81c2e72a-0591-443e-a1ff-05f988593351;8901dfa8-5c7e-4d8f-9f0c-c2b70683f5f0;931c7e8a-540f-4686-b798-e8df0a2ad9f7;96cc203e-5068-46ad-b32d-e316f5e069ba;b9b213ce-eeab-49e4-8fd9-aa478ed1b26b;f8d1fbe4-7966-4334-8024-ff96c9330e15;\\n\\n[DeviceID]\\nSource=2\\nVendor=1356\\nProduct=3416\\nVersion=656\\n\\n[LinkKey]\\nKey=5CE2148434018299F47BC4DD7FD65FF6\\nType=4\\nPINLength=0"
+  ];
 }
