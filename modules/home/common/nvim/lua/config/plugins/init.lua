@@ -9,11 +9,8 @@ if nixCats("general.extra") then
   require("config.plugins.pairs")
 end
 
-if nixCats("treesitter") then
-  require("config.plugins.treesitter")
-end
-
 require("lze").load {
+  { import = "config.plugins.treesitter" },
   { import = "config.plugins.completion" },
   { import = "config.plugins.mini" },
   { import = "config.plugins.noice" },

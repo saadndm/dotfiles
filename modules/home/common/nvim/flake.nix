@@ -8,11 +8,6 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-
-    nvim-treesitter-main = {
-      url = "github:iofq/nvim-treesitter-main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -33,22 +28,6 @@
         (utils.standardPluginOverlay inputs)
 
         inputs.neovim-nightly-overlay.overlays.default
-
-        inputs.nvim-treesitter-main.overlays.default
-
-        (final: prev: {
-          vimPlugins = prev.vimPlugins.extend (
-            f: p: {
-              nvim-treesitter = p.nvim-treesitter.withAllGrammars;
-              nvim-treesitter-context = p.nvim-treesitter-context.overrideAttrs {
-                dependencies = [ f.nvim-treesitter ];
-              };
-              nvim-treesitter-textobjects = p.nvim-treesitter-textobjects.overrideAttrs {
-                dependencies = [ f.nvim-treesitter ];
-              };
-            }
-          );
-        })
       ];
 
       categoryDefinitions =
@@ -59,6 +38,8 @@
         {
           lspsAndRuntimeDeps = {
             general = with pkgs; [
+              tree-sitter
+
               emmylua-ls
 
               nixd
@@ -102,7 +83,6 @@
                 plenary-nvim
               ];
               extra = [
-                fzf-lua
                 oil-nvim
                 SchemaStore-nvim
                 fff-nvim
@@ -114,9 +94,8 @@
               ];
             };
             treesitter = with pkgs.vimPlugins; [
-              nvim-treesitter
+              nvim-treesitter.withAllGrammars
               nvim-treesitter-context
-              nvim-treesitter-textobjects
             ];
             themer = with pkgs.vimPlugins; [
               catppuccin-nvim

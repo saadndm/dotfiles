@@ -5,7 +5,7 @@ return {
   {
     "typst-preview.nvim",
     for_cat = "general.typst-preview",
-    -- event = "DeferredUIEnter",
+    event = "DeferredUIEnter",
     ft = "typst",
     after = function()
       require("typst-preview").setup {}
