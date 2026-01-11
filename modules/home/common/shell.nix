@@ -6,20 +6,6 @@
 {
   programs.fish = {
     enable = true;
-    binds = {
-      "ctrl-y" = {
-        command = "forward-char";
-        mode = "insert";
-      };
-      "ctrl-p" = {
-        command = "up-or-search";
-        mode = "insert";
-      };
-      "ctrl-n" = {
-        command = "down-or-search";
-        mode = "insert";
-      };
-    };
     shellAbbrs = {
       n = "nvim";
       lg = "lazygit";
@@ -30,12 +16,9 @@
       ts = "tailscale";
       fzf = "fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\"";
       lsn = "ls";
-    };
-    shellAliases = {
+      man = "batman";
       cat = "bat --paging=never";
-      ls = "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -G";
-      lsa = "eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a -G";
-      lst = "eza --color=always --tree --icons=always";
+      lst = "eza --tree --level=3";
     };
     plugins = with pkgs.fishPlugins; [
       {

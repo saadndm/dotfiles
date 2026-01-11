@@ -10,6 +10,7 @@
     ./bash.nix
     ./tailscale.nix
     ./agenix.nix
+    ./stylix.nix
   ];
 
   nix.settings = {

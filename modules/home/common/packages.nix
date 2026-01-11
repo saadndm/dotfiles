@@ -21,8 +21,9 @@
 
     fzf = {
       enable = true;
-      colors.bg = lib.mkForce "#181825";
-      enableFishIntegration = false;
+      defaultOptions = [
+        "--preview ${lib.escapeShellArg "bat --color=always --style=numbers --line-range=:500 {}"}"
+      ];
     };
 
     bat = {
@@ -39,6 +40,21 @@
     java = {
       enable = true;
       package = pkgs.temurin-bin-21;
+    };
+
+    eza = {
+      enable = true;
+      icons = "auto";
+      extraOptions = [
+        "--group-directories-first"
+      ];
+    };
+
+    opencode = {
+      enable = true;
+      settings = {
+        theme = "catppuccin";
+      };
     };
   };
 
@@ -62,7 +78,6 @@
     curl
     wget
     lazygit
-    eza
     zoxide
     unzip
     ripgrep
@@ -76,8 +91,9 @@
     scooter
     compose2nix
     ffmpeg
-    opencode
     zip
     gh
+    delta
+    bat-extras.core
   ];
 }

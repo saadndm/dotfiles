@@ -8,7 +8,6 @@
     ./aerc.nix
     ./termfilepickers.nix
     ./hyprland.nix
-    ./stylix.nix
     ./system.nix
     ./zen-browser.nix
     ./kanshi.nix

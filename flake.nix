@@ -6,8 +6,10 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    blueprint.url = "github:numtide/blueprint";
-    blueprint.inputs.nixpkgs.follows = "nixpkgs";
+    blueprint = {
+      url = "github:numtide/blueprint";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -52,7 +54,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    yazi.url = "github:sxyazi/yazi";
+    yazi = {
+      url = "github:sxyazi/yazi";
+    };
 
     i915-sriov = {
       url = "github:strongtz/i915-sriov-dkms";

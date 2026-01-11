@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   ...
 }:
 {
@@ -12,6 +11,7 @@
     ./git.nix
     ./catppuccin.nix
     ./yazi.nix
+    ./stylix.nix
   ];
 
   nvim.enable = true;
@@ -24,8 +24,5 @@
       EDITOR = "nvim";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
     };
-    packages = with pkgs; [
-      home-manager
-    ];
   };
 }

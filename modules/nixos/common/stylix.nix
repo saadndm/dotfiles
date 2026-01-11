@@ -1,7 +1,7 @@
-{ pkgs, inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
-    inputs.stylix.homeModules.stylix
+    inputs.stylix.nixosModules.stylix
   ];
 
   stylix = {
@@ -9,12 +9,8 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
     targets = {
-      fzf.enable = false;
-      bat.enable = false;
-      btop.enable = false;
-      yazi.enable = false;
-      lazygit.enable = false;
-      zen-browser.profileNames = [ "BridgeSense" ];
+      fish.enable = false;
+      plymouth.enable = false;
     };
     fonts = {
       serif = {
