@@ -7,7 +7,7 @@
   };
 
   services.displayManager = {
-    defaultSession = "hyprland-uwsm";
+    defaultSession = "hyprland";
     autoLogin = {
       enable = true;
       user = "bridgesense";

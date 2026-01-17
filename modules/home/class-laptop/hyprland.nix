@@ -11,7 +11,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = false;
     settings = {
       monitor = [
         "eDP-1,2880x1800@120,auto,2,vrr,1,bitdepth,10"
@@ -19,19 +18,24 @@
         ",preferred,auto,1"
       ];
 
+      env = [
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        "HYPRCURSOR_SIZE,16"
+      ];
+
       render.cm_fs_passthrough = true;
 
       xwayland.force_zero_scaling = true;
 
       exec-once = [
-        "uwsm app -- sunsetr"
+        "sunsetr"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "uwsm app -- waybar"
-        "uwsm app -- clipse -listen"
-        "uwsm app -- walker --gapplication-service"
-        "uwsm app -- hypridle"
+        "waybar"
+        "clipse -listen"
+        "walker --gapplication-service"
+        "hypridle"
         "xsetroot -xcf ~/.local/share/icons/catppuccin-mocha-blue-cursors/cursors/left_ptr 16"
-        "[workspace 1 silent] uwsm app -- zen-twilight"
+        "[workspace 1 silent] zen-twilight"
       ];
 
       input = {
@@ -58,7 +62,7 @@
 
       "$mainmod" = "SUPER";
       "$terminal" = "ghostty +new-window";
-      "$browser" = "uwsm app -- zen-twilight";
+      "$browser" = "zen-twilight";
 
       bind = [
         "$mainmod, f, togglefloating,"
@@ -70,13 +74,13 @@
         "$mainmod, e, exec, kitty --class=Yazi -e yazi"
         "$mainmod, b, exec, $browser"
         "$mainmod, v, exec, kitty --class=Clipse -e clipse"
-        "$mainmod shift, c, exec, uwsm app -- hyprpicker -a"
+        "$mainmod shift, c, exec, hyprpicker -a"
         "$mainmod, t, exec, kitty --class=Btop -e btop"
-        "$mainmod shift, s, exec, uwsm app -- ~/.config/scripts/hyprcap.sh --freeze shot region -w -c"
+        "$mainmod shift, s, exec, ~/.config/scripts/hyprcap.sh --freeze shot region -w -c"
         "$mainmod, q, exec, ~/.config/scripts/switch-power-profiles.sh"
         "$mainmod, escape, exec, ~/.config/scripts/power-menu.sh"
-        "$mainmod, o, exec, uwsm app -- obsidian"
-        "$mainmod, d, exec, uwsm app -- vesktop"
+        "$mainmod, o, exec, obsidian"
+        "$mainmod, d, exec, vesktop"
         "$mainmod, comma, exec, makoctl dismiss"
         "$mainmod shift, comma, exec, makoctl dismiss --all"
         "$mainmod ctrl, comma, exec, makoctl mode -t do-not-disturb && makoctl mode | grep -q 'do-not-disturb' && notify-send \"silenced notifications\" || notify-send \"enabled notifications\""

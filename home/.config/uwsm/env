@@ -1,9 +1,0 @@
-export GDK_SCALE=2
-export HYPRSHOT_DIR=~/Pictures/Screenshots
-export XCURSOR_SIZE=16
-export NIXOS_OZONE_WL=1
-export ELECTRON_OZONE_PLATFORM_HINT=auto
-export GDK_BACKEND=wayland,x11
-export QT_QPA_PLATFORM=wayland;xcb
-export EDITOR=nvim
-export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
