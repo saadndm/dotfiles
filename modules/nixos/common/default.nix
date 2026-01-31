@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    inputs.determinate.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
     ./bash.nix
     ./tailscale.nix
@@ -34,12 +35,6 @@
   programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
 
   networking.nameservers = [
     "1.1.1.1"

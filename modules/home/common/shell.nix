@@ -15,7 +15,7 @@
       y = "yazi";
       ts = "tailscale";
       fzf = "fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\"";
-      lsn = "ls";
+      lsn = "command ls";
       man = "batman";
       cat = "bat --paging=never";
       lst = "eza --tree --level=3";
