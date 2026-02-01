@@ -1,10 +1,8 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   programs.yazi = {
     enable = true;
-    package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-      _7zz = pkgs._7zz-rar;
-    };
+    package = pkgs.yazi.override { _7zz = pkgs._7zz-rar; };
     enableFishIntegration = true;
     settings = {
       mgr = {
