@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
@@ -28,6 +29,10 @@
         value = "3";
       };
       nvme = {
+        enable = true;
+        value = "on";
+      };
+      i2c_arm = {
         enable = true;
         value = "on";
       };

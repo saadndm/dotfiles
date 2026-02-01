@@ -12,6 +12,7 @@
     inputs.disko.nixosModules.default
     ./hardware-configuration.nix
     ./disk-config.nix
+    ./argonone.nix
   ];
 
   networking.hostName = "helium";
