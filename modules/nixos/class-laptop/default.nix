@@ -9,7 +9,6 @@
     ./system.nix
     ./fonts.nix
     ./sddm.nix
-    ./waydroid.nix
     ./virtualisation.nix
   ];
 }

@@ -71,6 +71,7 @@
     pnpm
     clang
     clang-tools
+    ghc
 
     jq
     uv
@@ -78,7 +79,6 @@
     curl
     wget
     lazygit
-    zoxide
     unzip
     ripgrep
     fastfetch

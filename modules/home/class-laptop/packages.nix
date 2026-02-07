@@ -37,6 +37,14 @@
 
     zathura = {
       enable = true;
+      options = {
+        selection-clipboard = "clipboard";
+        recolor-keephue = true;
+      };
+    };
+
+    obs-studio = {
+      enable = true;
     };
   };
 
@@ -70,7 +78,6 @@
     yt-dlp
     libqalculate
     bluetui
-    hypridle
     walker
     obsidian
     xournalpp
@@ -115,7 +122,6 @@
         fetchSubmodules = true;
       };
     }))
-    obs-studio
     kdePackages.kdenlive
     seahorse
     heroic

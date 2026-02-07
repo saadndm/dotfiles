@@ -8,6 +8,8 @@
       yazi.enable = false;
       lazygit.enable = false;
       opencode.enable = false;
+      zathura.enable = false;
+      mpv.enable = false;
       zen-browser.profileNames = [ "BridgeSense" ];
     };
   };

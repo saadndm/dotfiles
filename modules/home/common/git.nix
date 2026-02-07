@@ -7,7 +7,7 @@
     settings = {
       user = {
         name = "Saad Nadeem";
-        email = "saad29nadeem@gmail.com";
+        email = "saadndm.sn@gmail.com";
       };
       init.defaultBranch = "master";
       rerere.enabled = true;

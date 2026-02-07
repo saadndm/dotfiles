@@ -14,5 +14,9 @@
     aerc.enable = true;
     yazi.enable = true;
     lazygit.enable = true;
+    eza.enable = true;
+    obs.enable = true;
+    mpv.enable = true;
+    zathura.enable = true;
   };
 }

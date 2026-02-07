@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  virtualisation.waydroid.enable = true;
+
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
