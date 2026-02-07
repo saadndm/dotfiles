@@ -42,19 +42,26 @@ require("snacks").setup({
         border = "rounded",
         backdrop = 100,
       },
+      list = {
+        keys = {
+          ["<C-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+          ["<C-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+          ["<a-c>"] = { "toggle_cwd", mode = { "i", "n" } },
+
+        }
+      },
       input = {
         keys = {
-          ["<a-c>"] = {
-            "toggle_cwd",
-            mode = { "n", "i" },
-          },
+          ["<C-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+          ["<C-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+          ["<a-c>"] = { "toggle_cwd", mode = { "i", "n" } },
         },
       },
     },
     actions = {
       toggle_cwd = function(p)
         local root = Snacks.git.get_root()
-        local cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".")
+        local cwd = vim.fs.normalize(vim.uv.cwd() or ".")
         local fff_state = require("config.plugins.fff-snacks").state
         local current = fff_state.current_dir or p:cwd()
 
@@ -65,6 +72,10 @@ require("snacks").setup({
   },
   image = {
     enabled = true,
+    doc = {
+      float = true,
+      inline = false,
+    },
     math = { enabled = false }
   },
   quickfile = { enabled = true },

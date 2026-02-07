@@ -57,7 +57,11 @@ return {
       }
     })
 
-    require("mini.bracketed").setup()
+    require("mini.bracketed").setup({
+      diagnostic = {
+        options = { float = false }
+      },
+    })
     local miniclue = require("mini.clue")
     miniclue.setup({
       triggers = {
