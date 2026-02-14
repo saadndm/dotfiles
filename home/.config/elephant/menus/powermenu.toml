@@ -1,0 +1,31 @@
+name = "powermenu"
+name_pretty = "Power Menu"
+icon = "\uf011"
+
+fixed_order = true
+history = false
+
+[[entries]]
+text = "Shutdown"
+icon = "\uf011"
+actions = { default = "systemctl poweroff" }
+
+[[entries]]
+text = "Suspend"
+icon = "\uf880"
+actions = { default = "systemctl suspend" }
+
+[[entries]]
+text = "Lock"
+icon = "\uf023"
+actions = { default = "hyprlock" }
+
+[[entries]]
+text = "Restart"
+icon = "\uf021"
+actions = { default = "systemctl reboot" }
+
+[[entries]]
+text = "Relaunch"
+icon = "\uf2d2"
+actions = { default = "hyprctl dispatch exit" }

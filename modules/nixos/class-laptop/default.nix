@@ -10,5 +10,6 @@
     ./fonts.nix
     ./sddm.nix
     ./virtualisation.nix
+    ./elephant.nix
   ];
 }

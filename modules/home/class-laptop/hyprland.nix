@@ -11,6 +11,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.variables = [ "--all" ];
     settings = {
       monitor = [
         "eDP-1,2880x1800@120,auto,2,vrr,1,bitdepth,10"
@@ -29,7 +30,6 @@
 
       exec-once = [
         "sunsetr"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "waybar"
         "clipse -listen"
         "walker --gapplication-service"
@@ -70,7 +70,7 @@
         "$mainmod, backslash, togglesplit,"
         "$mainmod, w, killactive,"
         "$mainmod, return, exec, $terminal"
-        "$mainmod, space, exec, walker"
+        "$mainmod, space, exec, nc -U /run/user/1000/walker/walker.sock"
         "$mainmod, e, exec, kitty --class=Yazi -e yazi"
         "$mainmod, b, exec, $browser"
         "$mainmod, v, exec, kitty --class=Clipse -e clipse"
@@ -78,7 +78,7 @@
         "$mainmod, t, exec, kitty --class=Btop -e btop"
         "$mainmod shift, s, exec, ~/.config/scripts/hyprcap.sh --freeze shot region -w -c"
         "$mainmod, q, exec, ~/.config/scripts/switch-power-profiles.sh"
-        "$mainmod, escape, exec, ~/.config/scripts/power-menu.sh"
+        "$mainmod, escape, exec, walker -m 'menus:powermenu'"
         "$mainmod, o, exec, obsidian"
         "$mainmod, d, exec, vesktop"
         "$mainmod, comma, exec, makoctl dismiss"

@@ -1,0 +1,143 @@
+@define-color selected-text #89b4fa;
+@define-color text #cdd6f4;
+@define-color base #1e1e2e;
+@define-color border #cdd6f4;
+@define-color foreground #cdd6f4;
+@define-color background #1e1e2e;
+
+* {
+  all: unset;
+}
+
+* {
+  font-family: 'JetBrainsMono Nerd Font Mono';
+  font-size: 18px;
+  color: @text;
+}
+
+.item-image-text {
+  font-family: "Font Awesome 6 Pro Solid";
+  margin-right: 10px;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+.box-wrapper {
+  background: alpha(@base, 0.95);
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-image:
+    linear-gradient(0deg, alpha(@base, 0.95), alpha(@base, 0.95)), /* Inner background */
+    linear-gradient(
+      -30deg,
+      #8aadf4 0%,
+      #24273a 25%,
+      #24273a 75%,
+      #8aadf4 100%
+    );
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+}
+
+.preview-box {
+}
+
+.box {
+}
+
+.search-container {
+  background: @base;
+  padding: 10px;
+}
+
+.input placeholder {
+  opacity: 0.5;
+}
+
+.input {
+}
+
+.input:focus,
+.input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.input selection {
+  background-color: @selected-text;
+  color: @base;
+}
+
+.content-container {
+}
+
+.placeholder {
+}
+
+.scroll {
+}
+
+.list {
+}
+
+child,
+child > * {
+}
+
+child:hover .item-box {
+}
+
+child:selected .item-box {
+}
+
+child:selected .item-box * {
+  color: @selected-text;
+}
+
+.item-box {
+  padding-left: 14px;
+}
+
+.item-text-box {
+  all: unset;
+  padding: 14px 0;
+}
+
+.item-text {
+}
+
+.item-subtext {
+  font-size: 0px;
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-image {
+  margin-right: 14px;
+  -gtk-icon-transform: scale(0.9);
+}
+
+.current {
+  font-style: italic;
+}
+
+.keybind-hints {
+  background: @background;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.preview {
+}

@@ -3,6 +3,7 @@
 {
   programs.hyprland = {
     enable = true;
+    systemd.setPath.enable = true;
   };
 
   xdg.portal = {
