@@ -8,7 +8,7 @@
           type = "gpt";
           partitions = {
             ESP = {
-              size = "512M";
+              size = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -18,7 +18,7 @@
               };
             };
             swap = {
-              size = "16G";
+              size = "32G";
               type = "8200";
               content = {
                 type = "swap";

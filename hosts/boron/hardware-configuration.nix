@@ -29,7 +29,6 @@
     };
 
     initrd = {
-      systemd.enable = true;
       availableKernelModules = [
         "xhci_pci"
         "thunderbolt"
@@ -47,9 +46,6 @@
       "i915.enable_guc=3"
       "i915.max_vfs=7"
       "module_blacklist=xe"
-      "i915.force_probe=7d51"
-      "i915.disable_dsb=1"
-      "i915.enable_dc=0"
     ];
 
     extraModulePackages = [ pkgs.i915-sriov ] ++ (with config.boot.kernelPackages; [ kvmfr ]);

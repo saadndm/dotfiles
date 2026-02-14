@@ -14,7 +14,6 @@
         background_opacity = lib.mkForce "0.8";
       };
     };
-
     mpv = {
       enable = true;
       scripts = with pkgs.mpvScripts; [
@@ -34,7 +33,6 @@
         hdr-compute-peak = "no";
       };
     };
-
     zathura = {
       enable = true;
       options = {
@@ -42,7 +40,6 @@
         recolor-keephue = true;
       };
     };
-
     obs-studio = {
       enable = true;
     };
@@ -127,6 +124,5 @@
     heroic
     android-tools
     qbittorrent
-    tridactyl-native
   ];
 }

@@ -19,6 +19,7 @@
       man = "batman";
       cat = "bat --paging=never";
       lst = "eza --tree --level=3";
+      c = "opencode";
     };
     plugins = with pkgs.fishPlugins; [
       {

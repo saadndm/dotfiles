@@ -8,7 +8,7 @@
           type = "gpt";
           partitions = {
             firmware = {
-              size = "512M";
+              size = "1G";
               type = "EF00";
               priority = 1;
               content = {
