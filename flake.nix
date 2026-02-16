@@ -41,7 +41,7 @@
     };
 
     stylix = {
-      url = "github:BridgeSenseDev/stylix/personal";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
