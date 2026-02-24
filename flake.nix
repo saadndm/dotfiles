@@ -69,6 +69,16 @@
       url = "github:nvmd/nixos-raspberrypi/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    kopia = {
+      url = "github:efficacy38/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    rustfs = {
+      url = "github:rustfs/rustfs-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

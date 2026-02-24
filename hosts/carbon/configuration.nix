@@ -11,7 +11,7 @@
     inputs.disko.nixosModules.default
     ./hardware-configuration.nix
     ./disk-config.nix
-    ./cloudflared.nix
+    ./backups.nix
   ];
 
   networking.hostName = "carbon";

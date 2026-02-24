@@ -5,4 +5,4 @@ services:
     pull_policy: always
     restart: unless-stopped
     ports:
-      - 9000:8080
+      - 9100:8080

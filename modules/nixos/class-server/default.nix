@@ -8,12 +8,13 @@
     ./immich.nix
     ./wakapi.nix
     ./podman.nix
+    ./dawarich.nix
+    ./beszel.nix
+    ./rustfs.nix
 
     ./dominance-link.nix
     ./hypixel-duels-discord-bot.nix
 
-    ./Dawarich/docker-compose.nix
-    ./Beszel/docker-compose.nix
     ./VERT/docker-compose.nix
     ./IT-Tools/docker-compose.nix
     ./Papra/docker-compose.nix

@@ -8,10 +8,10 @@
   services.caddy = {
     enable = true;
     package = pkgs.caddy.withPlugins {
-      plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
-      hash = "sha256-Dvifm7rRwFfgXfcYvXcPDNlMaoxKd5h4mHEK6kJ+T4A=";
+      plugins = [ "github.com/caddy-dns/cloudflare@v0.2.2" ];
+      hash = "sha256-dnhEjopeA0UiI+XVYHYpsjcEI6Y1Hacbi28hVKYQURg=";
     };
-    email = "bridgesensemc@gmail.com";
+    email = "saadndm.sn@gmail.com";
     environmentFile = config.age.secrets.cloudflare.path;
     extraConfig = ''
       (ts_host) {
@@ -30,58 +30,70 @@
       }
     '';
     virtualHosts = {
-      "actual.bridgesense.dev" = {
+      "actual.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:5006
         '';
       };
-      "vault.bridgesense.dev" = {
+      "vault.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:8000
         '';
       };
-      "immich.bridgesense.dev" = {
+      "immich.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:2283
         '';
       };
-      "vert.bridgesense.dev" = {
+      "vert.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:3000
         '';
       };
-      "dawarich.bridgesense.dev" = {
+      "dawarich.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:4000
         '';
       };
-      "beszel.bridgesense.dev" = {
+      "beszel.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:8090
         '';
       };
-      "wakapi.bridgesense.dev" = {
+      "wakapi.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:8080
         '';
       };
-      "it-tools.bridgesense.dev" = {
+      "it-tools.saadndm.com" = {
+        extraConfig = ''
+          import ts_host
+          reverse_proxy localhost:9100
+        '';
+      };
+      "papra.saadndm.com" = {
+        extraConfig = ''
+          import ts_host
+          reverse_proxy localhost:1221
+        '';
+      };
+      "rustfs-carbon.saadndm.com" = {
         extraConfig = ''
           import ts_host
           reverse_proxy localhost:9000
         '';
       };
-      "papra.bridgesense.dev" = {
+      "kopia-carbon.saadndm.com" = {
         extraConfig = ''
           import ts_host
-          reverse_proxy localhost:1221
+          reverse_proxy localhost:51515
         '';
       };
     };

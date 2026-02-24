@@ -21,6 +21,9 @@
       lst = "eza --tree --level=3";
       o = "opencode";
     };
+    shellAliases = {
+      kopia = "sudo kopia --config-file=/var/lib/kopia/$hostname-backup/repository.config";
+    };
     plugins = with pkgs.fishPlugins; [
       {
         name = "tide";

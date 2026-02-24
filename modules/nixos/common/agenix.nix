@@ -16,9 +16,6 @@
       tailscale = {
         file = ../../../secrets/tailscale.age;
       };
-      cloudflared-carbon = {
-        file = ../../../secrets/cloudflared-carbon.age;
-      };
       vaultwarden = {
         file = ../../../secrets/vaultwarden.age;
       };
@@ -30,6 +27,13 @@
       };
       password = {
         file = ../../../secrets/password.age;
+        owner = "bridgesense";
+      };
+      beszel-env = {
+        file = ../../../secrets/beszel-env.age;
+      };
+      kopia-env = {
+        file = ../../../secrets/kopia-env.age;
       };
     };
   };

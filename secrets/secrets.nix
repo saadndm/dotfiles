@@ -20,11 +20,12 @@ in
 {
   "login.age".publicKeys = users ++ systems;
   "tailscale.age".publicKeys = users ++ systems;
-  "cloudflared-carbon.age".publicKeys = users ++ systems;
   "vaultwarden.age".publicKeys = users ++ systems;
   "cloudflare.age".publicKeys = users ++ systems;
   "bridgesensemc-gmail.age".publicKeys = users ++ systems;
   "saad29nadeem-gmail.age".publicKeys = users ++ systems;
   "wakapi-salt.age".publicKeys = users ++ systems;
   "password.age".publicKeys = users ++ systems;
+  "beszel-env.age".publicKeys = users ++ systems;
+  "kopia-env.age".publicKeys = users ++ systems;
 }

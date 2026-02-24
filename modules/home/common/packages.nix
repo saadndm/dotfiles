@@ -95,5 +95,6 @@
     gh
     delta
     bat-extras.core
+    kopia
   ];
 }

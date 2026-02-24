@@ -23,7 +23,7 @@
   virtualisation.oci-containers.containers."it-tools" = {
     image = "sharevb/it-tools:latest";
     ports = [
-      "9000:8080/tcp"
+      "9100:8080/tcp"
     ];
     log-driver = "journald";
     extraOptions = [

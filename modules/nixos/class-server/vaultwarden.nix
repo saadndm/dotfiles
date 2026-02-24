@@ -4,7 +4,7 @@
     enable = true;
     environmentFile = config.age.secrets.vaultwarden.path;
     config = {
-      DOMAIN = "https://vault.bridgesense.dev";
+      DOMAIN = "https://vault.saadndm.com";
     };
   };
 }

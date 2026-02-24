@@ -23,10 +23,10 @@
   virtualisation.oci-containers.containers."papra" = {
     image = "ghcr.io/papra-hq/papra:latest";
     environment = {
-      "APP_BASE_URL" = "https://papra.bridgesense.dev";
+      "APP_BASE_URL" = "https://papra.saadndm.com";
     };
     volumes = [
-      "/home/bridgesense/dotfiles/modules/nixos/class-server/Papra/app-data:/app/app-data:rw"
+      "/var/lib/papra:/app/app-data:rw"
     ];
     ports = [
       "1221:1221/tcp"

@@ -599,6 +599,21 @@
         "type": "github"
       }
     },
+    "kopia": {
+      "locked": {
+        "lastModified": 1771118741,
+        "narHash": "sha256-bZNNlI+gE7ty2i3ei+fvoJH9a/2DMPne5yLjjDN4xqo=",
+        "owner": "efficacy38",
+        "repo": "nixpkgs",
+        "rev": "82abe0c84261cc5fdb630a756d740c5a05fcd97b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "efficacy38",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -927,14 +942,36 @@
         "ghostty": "ghostty",
         "home-manager": "home-manager_3",
         "i915-sriov": "i915-sriov",
+        "kopia": "kopia",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvim": "nvim",
+        "rustfs": "rustfs",
         "stylix": "stylix",
         "xdp-termfilepickers": "xdp-termfilepickers",
         "zen-browser": "zen-browser"
+      }
+    },
+    "rustfs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770804343,
+        "narHash": "sha256-CTxdmLgRhUC9fWdiJz+C/6PAExBn0IvnO90x7IqNS2U=",
+        "owner": "rustfs",
+        "repo": "rustfs-flake",
+        "rev": "74dcf53ca87d741034be3588fea36b84a3cfef7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rustfs",
+        "repo": "rustfs-flake",
+        "type": "github"
       }
     },
     "stylix": {
