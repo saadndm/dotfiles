@@ -32,8 +32,8 @@
       beszel-env = {
         file = ../../../secrets/beszel-env.age;
       };
-      kopia-env = {
-        file = ../../../secrets/kopia-env.age;
+      kopia = {
+        file = ../../../secrets/kopia.age;
       };
     };
   };

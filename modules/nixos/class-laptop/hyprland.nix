@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  perSystem,
+  ...
+}:
 
 {
   programs.hyprland = {
@@ -10,7 +14,7 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-hyprland
-      inputs.xdp-termfilepickers.packages.${pkgs.stdenv.hostPlatform.system}.default
+      perSystem.xdp-termfilepickers.default
     ];
   };
 }

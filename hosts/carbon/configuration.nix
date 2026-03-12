@@ -11,7 +11,6 @@
     inputs.disko.nixosModules.default
     ./hardware-configuration.nix
     ./disk-config.nix
-    ./backups.nix
   ];
 
   networking.hostName = "carbon";

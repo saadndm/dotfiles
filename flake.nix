@@ -72,7 +72,6 @@
 
     kopia = {
       url = "github:efficacy38/nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     rustfs = {

@@ -12,6 +12,8 @@
     ./beszel.nix
     ./rustfs.nix
 
+    ./backup-carbon.nix
+
     ./dominance-link.nix
     ./hypixel-duels-discord-bot.nix
 

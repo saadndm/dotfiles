@@ -2,6 +2,7 @@
   lib,
   inputs,
   pkgs,
+  perSystem,
   ...
 }:
 {
@@ -63,7 +64,7 @@
   };
 
   home.packages = with pkgs; [
-    inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
+    perSystem.ghostty.default
 
     jmtpfs
     impala

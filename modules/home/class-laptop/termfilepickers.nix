@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  perSystem,
   pkgs,
   ...
 }:
@@ -8,7 +9,7 @@
   imports = [ inputs.xdp-termfilepickers.homeManagerModules.default ];
   services.xdg-desktop-portal-termfilepickers =
     let
-      termfilepickers = inputs.xdp-termfilepickers.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      termfilepickers = perSystem.xdp-termfilepickers.default;
     in
     {
       enable = true;

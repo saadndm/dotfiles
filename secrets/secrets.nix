@@ -27,5 +27,5 @@ in
   "wakapi-salt.age".publicKeys = users ++ systems;
   "password.age".publicKeys = users ++ systems;
   "beszel-env.age".publicKeys = users ++ systems;
-  "kopia-env.age".publicKeys = users ++ systems;
+  "kopia.age".publicKeys = users ++ systems;
 }
