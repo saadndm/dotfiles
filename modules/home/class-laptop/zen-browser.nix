@@ -25,7 +25,11 @@
       };
       userChrome = ''
         #urlbar-results {
-          max-height: 520px !important;
+          max-height: min(65vh, 520px) !important;
+        }
+
+        #urlbar[open][zen-floating-urlbar="true"] {
+          top: 15.6vh !important;
         }
       '';
       keyboardShortcuts = [
@@ -59,7 +63,11 @@
         }
         {
           id = "manBookmarkKb";
-          key = "";
+          disabled = true;
+        }
+        {
+          id = "key_inspector";
+          disabled = true;
         }
       ];
     };
