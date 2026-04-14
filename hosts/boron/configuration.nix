@@ -13,7 +13,6 @@
     inputs.i915-sriov.nixosModules.default
     ./hardware-configuration.nix
     ./disk-config.nix
-    ./iwl-fix.nix
     ./plymouth.nix
   ];
 

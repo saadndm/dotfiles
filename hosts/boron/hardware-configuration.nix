@@ -61,6 +61,11 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  # D3cold for Wi-Fi PCI device is broken
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
+  '';
+
   # Bluetooth headphones dual boot
   systemd.tmpfiles.rules = [
     "d /var/lib/bluetooth 0700 root root -"
