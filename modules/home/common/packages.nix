@@ -18,30 +18,31 @@
         vim_keys = true;
       };
     };
-
     fzf = {
       enable = true;
       defaultOptions = [
         "--preview ${lib.escapeShellArg "bat --color=always --style=numbers --line-range=:500 {}"}"
       ];
     };
-
     bat = {
       enable = true;
       config = {
         theme = "Catppuccin Mocha";
       };
     };
-
+    lazygit = {
+      enable = true;
+      settings = {
+        git.log.order = "default";
+      };
+    };
     lazydocker = {
       enable = true;
     };
-
     java = {
       enable = true;
       package = pkgs.temurin-bin-21;
     };
-
     eza = {
       enable = true;
       icons = "auto";
@@ -49,10 +50,9 @@
         "--group-directories-first"
       ];
     };
-
     opencode = {
       enable = true;
-      settings = {
+      tui = {
         theme = "catppuccin";
       };
     };
@@ -78,7 +78,6 @@
     dig
     curl
     wget
-    lazygit
     unzip
     ripgrep
     fastfetch
@@ -96,5 +95,7 @@
     delta
     bat-extras.core
     kopia
+    gnumake
+    man-pages
   ];
 }

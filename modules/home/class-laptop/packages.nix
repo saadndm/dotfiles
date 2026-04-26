@@ -88,7 +88,7 @@
       ];
     })
     dragon-drop
-    xorg.xsetroot
+    xsetroot
     racket
     upower
     intel-gpu-tools
