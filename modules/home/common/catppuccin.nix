@@ -11,7 +11,6 @@
     btop.enable = true;
     fzf.enable = true;
     bat.enable = true;
-    aerc.enable = true;
     yazi.enable = true;
     lazygit.enable = true;
     eza.enable = true;

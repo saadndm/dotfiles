@@ -6,7 +6,6 @@
   imports = [
     inputs.nvim.homeModules.default
     ./packages.nix
-    ./agenix.nix
     ./shell.nix
     ./git.nix
     ./catppuccin.nix
