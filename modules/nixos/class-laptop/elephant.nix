@@ -3,18 +3,14 @@
   services.elephant = {
     enable = true;
     package = pkgs.elephant.override {
-      enableBitwarden = false;
-      enableBluetooth = false;
-      enableBookmarks = false;
-      enableClipboard = false;
-      enableFiles = false;
-      enableNiriActions = false;
-      enableNiriSessions = false;
-      enableRunner = false;
-      enableSnippets = false;
-      enableWindows = false;
-      enableTodo = false;
-      enableWebsearch = false;
+      enabledProviders = [
+        "calc"
+        "desktopapplications"
+        "menus"
+        "providerlist"
+        "symbols"
+        "unicode"
+      ];
     };
   };
   systemd.user.services.elephant.serviceConfig.Environment =
