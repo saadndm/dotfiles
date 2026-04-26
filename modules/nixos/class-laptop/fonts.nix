@@ -33,6 +33,7 @@ in
       font-awesome-6-pro
       alfa-slab-one
       nerd-fonts.jetbrains-mono
+      stix-two
     ];
 
     fontconfig = {
