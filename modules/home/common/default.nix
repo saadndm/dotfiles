@@ -13,7 +13,7 @@
     ./stylix.nix
   ];
 
-  nvim.enable = true;
+  wrappers.nvim.enable = true;
 
   home = {
     username = "bridgesense";

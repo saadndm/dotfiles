@@ -1,117 +1,94 @@
-vim.keymap.set("n", "<leader><leader>",
-  function()
-    require("fff").find_files()
-  end, { desc = "FFF" })
+return {
+  "fff.nvim",
+  event = "DeferredUIEnter",
+  after = function()
+    local fff = require("fff")
 
-require("fff").setup({
-  base_path = vim.fn.getcwd(),
-  prompt = " ",
-  title = "FFFiles",
-  max_results = 100,
-  max_threads = 4,
-  lazy_sync = true,
-  layout = {
-    height = 0.8,
-    width = 0.8,
-    prompt_position = "bottom", -- or 'top'
-    preview_position = "right", -- or 'left', 'right', 'top', 'bottom'
-    preview_size = 0.5,
-    show_scrollbar = true,      -- Show scrollbar for pagination
-  },
-  preview = {
-    enabled = true,
-    max_size = 10 * 1024 * 1024,  -- Do not try to read files larger than 10MB
-    chunk_size = 8192,            -- Bytes per chunk for dynamic loading (8kb - fits ~100-200 lines)
-    binary_file_threshold = 1024, -- amount of bytes to scan for binary content (set 0 to disable)
-    imagemagick_info_format_str = "%m: %wx%h, %[colorspace], %q-bit",
-    line_numbers = false,
-    wrap_lines = false,
-    show_file_info = true,
-    filetypes = {
-      svg = { wrap_lines = true },
-      markdown = { wrap_lines = true },
-      text = { wrap_lines = true },
-    },
-  },
-  keymaps = {
-    close = "<Esc>",
-    select = "<CR>",
-    select_split = "<C-s>",
-    select_vsplit = "<C-v>",
-    select_tab = "<C-t>",
-    -- you can assign multiple keys to any action
-    move_up = { "<Up>", "<C-p>" },
-    move_down = { "<Down>", "<C-n>" },
-    preview_scroll_up = "<C-u>",
-    preview_scroll_down = "<C-d>",
-    toggle_debug = "<F2>",
-    -- goes to the previous query in history
-    cycle_previous_query = "<C-Up>",
-    -- multi-select keymaps for quickfix
-    toggle_select = "<Tab>",
-    send_to_quickfix = "<C-q>",
-  },
-  hl = {
-    border = "FloatBorder",
-    normal = "Normal",
-    cursor = "CursorLine",
-    matched = "IncSearch",
-    title = "Title",
-    prompt = "Question",
-    active_file = "Visual",
-    frecency = "Number",
-    debug = "Comment",
-    combo_header = "Number",
-    scrollbar = "Comment",      -- Highlight for scrollbar thumb (track uses border)
-    directory_path = "Comment", -- Highlight for directory path in file list
-    -- Multi-select highlights
-    selected = "FFFSelected",
-    selected_active = "FFFSelectedActive",
-    -- Git text highlights for file names
-    git_staged = "FFFGitStaged",
-    git_modified = "FFFGitModified",
-    git_deleted = "FFFGitDeleted",
-    git_renamed = "FFFGitRenamed",
-    git_untracked = "FFFGitUntracked",
-    git_ignored = "FFFGitIgnored",
-    -- Git sign/border highlights
-    git_sign_staged = "FFFGitSignStaged",
-    git_sign_modified = "FFFGitSignModified",
-    git_sign_deleted = "FFFGitSignDeleted",
-    git_sign_renamed = "FFFGitSignRenamed",
-    git_sign_untracked = "FFFGitSignUntracked",
-    git_sign_ignored = "FFFGitSignIgnored",
-    -- Git sign selected highlights
-    git_sign_staged_selected = "FFFGitSignStagedSelected",
-    git_sign_modified_selected = "FFFGitSignModifiedSelected",
-    git_sign_deleted_selected = "FFFGitSignDeletedSelected",
-    git_sign_renamed_selected = "FFFGitSignRenamedSelected",
-    git_sign_untracked_selected = "FFFGitSignUntrackedSelected",
-    git_sign_ignored_selected = "FFFGitSignIgnoredSelected",
-  },
-  -- Store file open frecency
-  frecency = {
-    enabled = true,
-    db_path = vim.fn.stdpath("cache") .. "/fff_nvim",
-  },
-  -- Store successfully opened queries with respective matches
-  history = {
-    enabled = true,
-    db_path = vim.fn.stdpath("data") .. "/fff_queries",
-    min_combo_count = 3,                -- file will get a boost if it was selected 3 in a row times per specific query
-    combo_boost_score_multiplier = 100, -- Score multiplier for combo matches
-  },
-  -- Git integration
-  git = {
-    status_text_color = false, -- Apply git status colors to filename text (default: false, only sign column)
-  },
-  debug = {
-    enabled = false, -- Set to true to show scores in the UI
-    show_scores = false,
-  },
-  logging = {
-    enabled = true,
-    log_file = vim.fn.stdpath("log") .. "/fff.log",
-    log_level = "info",
-  }
-})
+    local search_cwd = false
+    local search_root
+
+    local function get_root_markers()
+      local res = {}
+      for _, client in ipairs(vim.lsp.get_clients()) do
+        local markers = client.config and client.config.root_markers
+        if markers then
+          vim.list_extend(res, markers)
+        end
+      end
+
+      return res
+    end
+
+    local function get_search_root()
+      local git_root = vim.fs.root(0, ".git")
+      if git_root then return git_root end
+
+      local root_markers = get_root_markers()
+      local root = #root_markers > 0 and vim.fs.root(0, root_markers)
+
+      return root or vim.fn.getcwd()
+    end
+
+    vim.keymap.set("n", "<leader><leader>",
+      function()
+        search_root = get_search_root()
+        search_cwd = false
+        fff.find_files({ cwd = search_root })
+      end, { desc = "FFF" })
+
+    vim.keymap.set("n", "<leader>/",
+      function()
+        search_root = get_search_root()
+        search_cwd = false
+        fff.live_grep({ cwd = search_root })
+      end, { desc = "FFF" })
+
+    local function change_picker_root(root)
+      local picker_ui = require("fff.picker_ui")
+      local file_picker = require("fff.file_picker")
+      local conf = require("fff.conf")
+      local fuzzy = require("fff.core").ensure_initialized()
+      local rust = require("fff.rust")
+
+      local ok, err = pcall(fuzzy.restart_index_in_path, root)
+      if not ok then
+        vim.notify("Failed to change directory: " .. tostring(err), vim.log.levels.ERROR)
+        return false
+      end
+
+      local function poll()
+        if not picker_ui.state.active then return end
+        local current_root = rust.get_base_path()
+        local progress = file_picker.get_scan_progress()
+        if current_root and vim.fs.normalize(current_root) == root and not progress.is_scanning then
+          conf.get().base_path = root
+          picker_ui.state.last_status_info = nil
+          picker_ui.update_results()
+          return
+        end
+
+        if progress.is_scanning then picker_ui.update_status(progress) end
+        vim.defer_fn(poll, 50)
+      end
+
+      poll()
+      return true
+    end
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "fff_*",
+      callback = function()
+        vim.keymap.set({ "n", "v", "i", "c" }, "<A-c>", function()
+          local next_root = search_cwd and search_root or vim.fn.getcwd()
+          if change_picker_root(vim.fs.normalize(next_root)) then
+            search_cwd = not search_cwd
+          end
+        end, { buffer = true, desc = "Toggle Root/CWD" })
+      end,
+    })
+
+    fff.setup({
+      prompt = "> "
+    })
+  end,
+}

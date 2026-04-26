@@ -1,20 +1,8 @@
 return {
   "mini.nvim",
-  for_cat = "general.mini",
   event = "DeferredUIEnter",
   after = function(plugin)
-    local ai = require("mini.ai")
-    local ts = ai.gen_spec.treesitter
-
-    ai.setup({
-      n_lines = 500,
-      custom_textobjects = {
-        F = ts({
-          a = "@function.outer",
-          i = "@function.inner",
-        }),
-      }
-    })
+    require("mini.ai").setup()
 
     require("mini.operators").setup({
       replace = {
@@ -24,27 +12,12 @@ return {
         prefix = "<leader>gm"
       }
     })
-
     vim.keymap.set({ "n", "x" }, "<leader>gR", function()
       return '"+' .. vim.api.nvim_replace_termcodes("<leader>gr", true, true, true)
     end, { expr = true, remap = true, desc = " Replace operator" })
-
     vim.keymap.set({ "n", "x" }, "<leader>gRr", function()
       return '"+' .. vim.api.nvim_replace_termcodes("<leader>grr", true, true, true)
     end, { expr = true, remap = true, desc = " Replace line" })
-
-    local gen_loader = require("mini.snippets").gen_loader
-
-    require("mini.snippets").setup({
-      snippets = {
-        gen_loader.from_lang(),
-      },
-      mappings = {
-        expand = "",
-        jump_next = "<Tab>",
-        jump_prev = "<S-Tab>"
-      }
-    })
 
     require("mini.surround").setup({
       mappings = {
@@ -62,41 +35,37 @@ return {
         options = { float = false }
       },
     })
+
     local miniclue = require("mini.clue")
     miniclue.setup({
       triggers = {
         -- Leader triggers
-        { mode = "n", keys = "<Leader>" },
-        { mode = "x", keys = "<Leader>" },
+        { mode = { "n", "x" }, keys = "<Leader>" },
 
-        -- Built-in completion
-        { mode = "i", keys = "<C-x>" },
+        -- `[` and `]` keys
+        { mode = "n",          keys = "[" },
+        { mode = "n",          keys = "]" },
 
         -- `g` key
-        { mode = "n", keys = "g" },
-        { mode = "x", keys = "g" },
+        { mode = { "n", "x" }, keys = "g" },
 
         -- Marks
-        { mode = "n", keys = "'" },
-        { mode = "n", keys = "`" },
-        { mode = "x", keys = "'" },
-        { mode = "x", keys = "`" },
+        { mode = { "n", "x" }, keys = "'" },
+        { mode = { "n", "x" }, keys = "`" },
 
         -- Registers
-        { mode = "n", keys = '"' },
-        { mode = "x", keys = '"' },
-        { mode = "i", keys = "<C-r>" },
-        { mode = "c", keys = "<C-r>" },
+        { mode = { "n", "x" }, keys = '"' },
+        { mode = { "i", "c" }, keys = "<C-r>" },
 
         -- Window commands
-        { mode = "n", keys = "<C-w>" },
+        { mode = "n",          keys = "<C-w>" },
 
         -- `z` key
-        { mode = "n", keys = "z" },
-        { mode = "x", keys = "z" },
+        { mode = { "n", "x" }, keys = "z" },
       },
       clues = {
         -- Enhance this by adding descriptions for <Leader> mapping groups
+        miniclue.gen_clues.square_brackets(),
         miniclue.gen_clues.builtin_completion(),
         miniclue.gen_clues.g(),
         miniclue.gen_clues.marks(),
@@ -105,45 +74,25 @@ return {
         miniclue.gen_clues.z(),
       },
     })
-    vim.keymap.set("n", "<leader>go", function()
-      MiniDiff.toggle_overlay(0)
-    end, { desc = "Toggle mini.diff Overlay" })
-    require("mini.diff").setup({
+
+    local minidiff = require("mini.diff")
+    minidiff.setup({
       view = {
         style = "sign",
         signs = { add = "▎", change = "▎", delete = "" },
         priority = 0,
       }
     })
-    require("mini.jump2d").setup({
-      view = {
-        dim = true,
-        n_steps_ahead = 10
-      },
-      mappings = {
-        start_jumping = "",
-      },
-    })
-
-    vim.keymap.set("n", "s", function()
-      MiniJump2d.start(MiniJump2d.builtin_opts.single_character)
-    end)
+    vim.keymap.set("n", "<leader>go", function()
+      minidiff.toggle_overlay(0)
+    end, { desc = "Toggle mini.diff Overlay" })
 
     require("mini.hipatterns").setup()
 
-    local icons = require("mini.icons")
-    icons.setup({
-      file = {
-        [".keep"]             = { glyph = "󰊢", hl = "MiniIconsGrey" },
-        ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
-      },
-      filetype = {
-        dotenv = { glyph = "", hl = "MiniIconsYellow" },
-      },
-    })
-    icons.mock_nvim_web_devicons()
+    require("mini.icons").setup()
 
     local statusline = require("mini.statusline")
+    statusline.setup()
     local function mode_or_recording(args)
       local rec = vim.fn.reg_recording()
       if rec ~= "" then
@@ -151,6 +100,11 @@ return {
       end
       return statusline.section_mode(args)
     end
+    vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+      callback = function()
+        vim.cmd("redrawstatus")
+      end,
+    })
     statusline.setup({
       content = {
         active = function()
@@ -167,19 +121,18 @@ return {
           return statusline.combine_groups({
             { hl = mode_hl,                 strings = { mode } },
             { hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics, lsp } },
-            "%<",
+            "%<", -- Mark general truncate point
             { hl = "MiniStatuslineFilename", strings = { filename } },
-            "%=",
+            "%=", -- End left alignment
             { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
             { hl = mode_hl,                  strings = { search, location } },
           })
         end,
       },
     })
-    vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
-      callback = function()
-        vim.cmd("redrawstatus")
-      end,
-    })
+
+    require("mini.tabline").setup()
+
+    require("mini.test").setup()
   end,
 }

@@ -10,7 +10,21 @@ vim.lsp.enable({
   "jsonls",
   "bashls",
   "biome",
-  "clangd"
+  "clangd",
+  "hls"
+})
+
+vim.lsp.config("emmylua_ls", {
+  settings = {
+    Lua = {
+      runtime = {
+        requirePattern = {
+          "?.lua",
+          "?/init.lua",
+        },
+      },
+    },
+  },
 })
 
 vim.diagnostic.config({

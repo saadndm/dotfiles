@@ -12,9 +12,8 @@ end, {})
 require("lze").load {
   {
     "nvim-lint",
-    for_cat = "lint",
     event = "FileType",
-    after = function(plugin)
+    after = function()
       require("lint").linters_by_ft = {
         fish = { "fish" },
         go = { "golangcilint" },

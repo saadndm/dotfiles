@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end
 })
 
-require("nixCatsUtils.catPacker").setup({
+vim.pack.add({
   { src = gh("BirdeeHub/lze"),      load = true },
   { src = gh("BirdeeHub/lzextras"), load = true },
 

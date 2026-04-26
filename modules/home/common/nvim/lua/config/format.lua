@@ -1,14 +1,11 @@
 require("lze").load {
   {
     "conform.nvim",
-    for_cat = "format",
-    event = "DeferredUIEnter",
-    after = function(plugin)
+    event = "BufWritePre",
+    after = function()
       require("conform").setup({
         formatters = {
-          biome = {
-            command = vim.fn.exepath("biome"),
-          },
+          biome = { command = vim.fn.exepath("biome") },
           injected = { options = { ignore_errors = true } },
         },
         formatters_by_ft = {
@@ -23,7 +20,8 @@ require("lze").load {
           javascriptreact = { "biome" },
           typescriptreact = { "biome" },
           jsonc = { "biome" },
-          css = { "biome" }
+          css = { "biome" },
+          haskell = { "ormolu" }
         },
         format_on_save = {
           timeout_ms = 500,

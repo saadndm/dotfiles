@@ -4,11 +4,10 @@ vim.keymap.set("n", "<leader>ts", "<cmd>TypstPreviewStop<cr>", { desc = "Stop Ty
 return {
   {
     "typst-preview.nvim",
-    for_cat = "general.typst-preview",
     event = "DeferredUIEnter",
     ft = "typst",
     after = function()
-      require("typst-preview").setup {}
+      require("typst-preview").setup()
     end,
   },
 }

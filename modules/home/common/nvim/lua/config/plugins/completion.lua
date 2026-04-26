@@ -1,12 +1,10 @@
 return {
   {
     "colorful-menu.nvim",
-    for_cat = "general.blink",
     on_plugin = { "blink.cmp" },
   },
   {
     "blink.cmp",
-    for_cat = "general.blink",
     event = "DeferredUIEnter",
     after = function(_)
       require("blink.cmp").setup({
@@ -18,33 +16,15 @@ return {
           ["<S-d>"] = { "scroll_documentation_down", "fallback" },
         },
         cmdline = {
-          enabled = true,
-          completion = {
-            menu = {
-              auto_show = true,
-            },
-            ghost_text = {
-              enabled = true,
-            },
-          },
-        },
-        fuzzy = {
-          sorts = {
-            "exact",
-            "score",
-            "sort_text",
-          },
+          completion = { menu = { auto_show = true } },
         },
         signature = {
           enabled = true,
-          window = {
-            show_documentation = true,
-          },
         },
         completion = {
           menu = {
             draw = {
-              treesitter = { "lsp" },
+              columns = { { "kind_icon" }, { "label", gap = 1 } },
               components = {
                 label = {
                   text = function(ctx)
@@ -61,26 +41,14 @@ return {
             auto_show = true,
           },
         },
-        snippets = { preset = "mini_snippets" },
         sources = {
-          default = { "lsp", "path", "snippets", "buffer", "omni" },
+          default = { "lazydev", "lsp", "buffer", "snippets", "path", "omni" },
           providers = {
-            path = {
-              score_offset = 50,
-            },
-            lsp = {
-              score_offset = 40,
-            },
-            snippets = {
-              score_offset = 40,
-            },
-            cmp_cmdline = {
-              name = "cmp_cmdline",
-              module = "blink.compat.source",
-              score_offset = -100,
-              opts = {
-                cmp_name = "cmdline",
-              },
+            lazydev = {
+              name = "LazyDev",
+              module = "lazydev.integrations.blink",
+              -- make lazydev completions top priority (see `:h blink.cmp`)
+              score_offset = 100,
             },
           },
         },

@@ -5,7 +5,6 @@ vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end, {
 return {
   {
     "todo-comments.nvim",
-    for_cat = "general.todo-comments",
     event = "DeferredUIEnter",
     after = function(plugin)
       require("todo-comments").setup()
