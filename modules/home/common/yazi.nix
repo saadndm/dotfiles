@@ -59,10 +59,10 @@
             for = "unix";
           }
         ];
-        zathura = [
+        sioyek = [
           {
-            run = "zathura \"$@\"";
-            desc = "Zathura";
+            run = "sioyek \"$@\"";
+            desc = "Sioyek";
             orphan = true;
             for = "unix";
           }
@@ -91,7 +91,7 @@
         {
           mime = "application/pdf";
           use = [
-            "zathura"
+            "sioyek"
             "xournalpp"
           ];
         }

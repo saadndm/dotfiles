@@ -19,7 +19,7 @@
       enable = true;
       defaultApplications = {
         "x-scheme-handler/discord" = [ "vesktop.desktop" ];
-        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "application/pdf" = [ "sioyek.desktop" ];
         "text/plain" = [ "nvim.desktop" ];
 
         "application/zip" = [ "yazi.desktop" ];

@@ -16,6 +16,6 @@
     eza.enable = true;
     obs.enable = true;
     mpv.enable = true;
-    zathura.enable = true;
+    sioyek.enable = true;
   };
 }

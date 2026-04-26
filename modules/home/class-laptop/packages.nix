@@ -1,6 +1,5 @@
 {
   lib,
-  inputs,
   pkgs,
   perSystem,
   ...
@@ -34,12 +33,8 @@
         hdr-compute-peak = "no";
       };
     };
-    zathura = {
+    sioyek = {
       enable = true;
-      options = {
-        selection-clipboard = "clipboard";
-        recolor-keephue = true;
-      };
     };
     obs-studio = {
       enable = true;
