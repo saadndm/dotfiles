@@ -53,7 +53,11 @@
 
       device = [
         {
-          name = "glorious-model-o-wireless";
+          name = "endgame-gear-endgame-gear-hs-dongle";
+          accel_profile = "flat";
+        }
+        {
+          name = "endgame-gear-xm2w-4k-v2-wireless-gaming-mouse";
           accel_profile = "flat";
         }
       ];

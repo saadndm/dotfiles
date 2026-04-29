@@ -35,8 +35,8 @@
   };
 
   environment.etc."libinput/local-overrides.quirks".text = ''
-    [Glorious Model O Wireless NoDebounce]
-    MatchName=Glorious Model O Wireless
+    [Disable Mouse Debounce]
+    MatchUdevType=mouse
     ModelBouncingKeys=1
   '';
 }
