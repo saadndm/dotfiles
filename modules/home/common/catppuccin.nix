@@ -5,6 +5,7 @@
   ];
 
   catppuccin = {
+    cache.enable = true;
     flavor = "mocha";
     accent = "blue";
     fish.enable = true;
