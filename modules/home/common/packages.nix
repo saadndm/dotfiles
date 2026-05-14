@@ -98,5 +98,6 @@
     gnumake
     man-pages
     hydra-check
+    cloc
   ];
 }
