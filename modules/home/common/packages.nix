@@ -97,5 +97,6 @@
     kopia
     gnumake
     man-pages
+    hydra-check
   ];
 }
