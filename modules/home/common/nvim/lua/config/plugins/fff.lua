@@ -1,7 +1,7 @@
 return {
   "fff.nvim",
   event = "DeferredUIEnter",
-  after = function()
+  after = function ()
     local fff = require("fff")
 
     local search_cwd = false
@@ -29,19 +29,19 @@ return {
       return root or vim.fn.getcwd()
     end
 
-    vim.keymap.set("n", "<leader><leader>",
-      function()
-        search_root = get_search_root()
-        search_cwd = false
-        fff.find_files({ cwd = search_root })
-      end, { desc = "FFF" })
+    vim.keymap.set("n", "<leader><leader>", function ()
+      search_root = get_search_root()
+      search_cwd = false
+      fff.find_files({ cwd = search_root })
+    end, { desc = "FFF" }
+    )
 
-    vim.keymap.set("n", "<leader>/",
-      function()
-        search_root = get_search_root()
-        search_cwd = false
-        fff.live_grep({ cwd = search_root })
-      end, { desc = "FFF" })
+    vim.keymap.set("n", "<leader>/", function ()
+      search_root = get_search_root()
+      search_cwd = false
+      fff.live_grep({ cwd = search_root })
+    end, { desc = "FFF" }
+    )
 
     local function change_picker_root(root)
       local picker_ui = require("fff.picker_ui")
@@ -77,18 +77,19 @@ return {
 
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "fff_*",
-      callback = function()
-        vim.keymap.set({ "n", "v", "i", "c" }, "<A-c>", function()
+      callback = function ()
+        vim.keymap.set({ "n", "v", "i", "c" }, "<A-c>", function ()
           local next_root = search_cwd and search_root or vim.fn.getcwd()
           if change_picker_root(vim.fs.normalize(next_root)) then
             search_cwd = not search_cwd
           end
-        end, { buffer = true, desc = "Toggle Root/CWD" })
-      end,
+        end, { buffer = true, desc = "Toggle Root/CWD" }
+        )
+      end
     })
 
     fff.setup({
       prompt = "> "
     })
-  end,
+  end
 }

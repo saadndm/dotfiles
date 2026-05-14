@@ -679,7 +679,8 @@ function args() {
       ;;
 
     --) # Marks the end of options
-      shift && break ;;
+      shift && break
+      ;;
     esac
     shift
   done
@@ -805,8 +806,9 @@ function prompt_selection() {
 }
 
 function solve_filetype() {
-  case "$FILENAME" in *.*)                  # If the filename has an dot in it
-    DETECTED_EXTENSION="${FILENAME##*.}" ;; # Extension of the filename
+  case "$FILENAME" in *.*) # If the filename has an dot in it
+    DETECTED_EXTENSION="${FILENAME##*.}"
+    ;; # Extension of the filename
   esac
   Print -2 "Detected extension: '$DETECTED_EXTENSION'\n"
 

@@ -1,7 +1,7 @@
 return {
   "catppuccin-nvim",
   lazy = false,
-  after = function()
+  after = function ()
     require("catppuccin").setup({
       float = {
         transparent = true
@@ -9,5 +9,5 @@ return {
     })
 
     vim.cmd.colorscheme("catppuccin")
-  end,
+  end
 }

@@ -5,9 +5,9 @@ vim.o.conceallevel = 2
 vim.o.concealcursor = "nvic"
 
 -- Incremental selection
-local map_lsp_selection = function(lhs, desc)
+local map_lsp_selection = function (lhs, desc)
   local step = vim.startswith(desc, "Increase") and 1 or -1
-  local rhs = function()
+  local rhs = function ()
     if vim.fn.mode() == "n" then
       vim.cmd.normal({ args = { "v" }, bang = true })
     end
@@ -29,15 +29,18 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y', { desc = " y$" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d', { desc = " d" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { desc = " p" })
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
+  callback = function ()
     vim.hl.on_yank()
   end,
   group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
-  pattern = "*",
+  pattern = "*"
 })
 
 -- General Keymaps
-vim.keymap.set({ "n", "v", "x" }, "<leader>w", function() vim.cmd.w() end, { desc = "Write file" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>w", function ()
+  vim.cmd.w()
+end, { desc = "Write file" }
+)
 vim.keymap.set({ "n", "v", "x" }, "<leader>bd", ":bd<CR>")
 
 -- Center scrolling
@@ -46,11 +49,12 @@ vim.keymap.set({ "n", "v", "x" }, "<C-u>", "M<C-u>")
 
 -- undotree
 vim.cmd.packadd("nvim.undotree")
-vim.keymap.set("n", "<leader>u", function()
+vim.keymap.set("n", "<leader>u", function ()
   require("undotree").open({
-    command = "botright " .. math.floor(vim.api.nvim_win_get_width(0) / 3) .. "vnew",
+    command = "botright " .. math.floor(vim.api.nvim_win_get_width(0) / 3) .. "vnew"
   })
-end, { desc = "Undotree" })
+end, { desc = "Undotree" }
+)
 
 -- Options
 vim.loader.enable()
@@ -112,37 +116,41 @@ require("vim._core.ui2").enable({
       verbose = "pager",
       wildlist = "cmd",
       wmsg = "msg",
-      typed_cmd = "cmd",
+      typed_cmd = "cmd"
     },
     msg = {
       height = 0.3,
-      timeout = 5000,
+      timeout = 5000
     },
     pager = {
-      height = 0.5,
-    },
-  },
+      height = 0.5
+    }
+  }
 })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "msg",
-  callback = function()
+  callback = function ()
     local ui2 = require("vim._core.ui2")
     local win = ui2.wins and ui2.wins.msg
     if win and vim.api.nvim_win_is_valid(win) then
-      vim.api.nvim_set_option_value(
-        "winhighlight",
-        "Normal:NormalFloat,FloatBorder:FloatBorder",
-        { scope = "local", win = win }
-      )
+      vim
+        .api
+        .nvim_set_option_value(
+          "winhighlight", "Normal:NormalFloat,FloatBorder:FloatBorder",
+          {
+            scope = "local",
+            win = win
+          }
+        )
     end
-  end,
+  end
 })
 
 local ui2 = require("vim._core.ui2")
 local msgs = require("vim._core.ui2.messages")
 local orig_set_pos = msgs.set_pos
-msgs.set_pos = function(tgt)
+msgs.set_pos = function (tgt)
   orig_set_pos(tgt)
   local win = ui2.wins and ui2.wins.msg
   if (tgt == "msg" or tgt == nil) and win and vim.api.nvim_win_is_valid(win) then
@@ -151,13 +159,13 @@ msgs.set_pos = function(tgt)
       anchor = "NE",
       row = 1,
       col = vim.o.columns - 1,
-      border = "rounded",
+      border = "rounded"
     })
   end
 end
 
 vim.api.nvim_create_autocmd("LspProgress", {
-  callback = function(ev)
+  callback = function (ev)
     local value = ev.data.params.value
     vim.api.nvim_echo({ { value.message or "done" } }, false, {
       id = "lsp." .. ev.data.client_id,
@@ -165,7 +173,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
       source = "vim.lsp",
       title = value.title,
       status = value.kind ~= "end" and "running" or "success",
-      percent = value.percentage,
+      percent = value.percentage
     })
-  end,
+  end
 })

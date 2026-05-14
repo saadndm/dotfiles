@@ -4,7 +4,7 @@ return {
   {
     "trouble.nvim",
     event = "DeferredUIEnter",
-    after = function(plugin)
+    after = function (plugin)
       require("trouble").setup()
     end
   }

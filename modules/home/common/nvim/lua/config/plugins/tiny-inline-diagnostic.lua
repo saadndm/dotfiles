@@ -2,13 +2,13 @@ return {
   {
     "tiny-inline-diagnostic.nvim",
     event = "LspAttach",
-    after = function(plugin)
+    after = function (plugin)
       require("tiny-inline-diagnostic").setup({
         hi = {
-          background = "None",
+          background = "None"
         },
         options = {
-          override_open_float = true,
+          override_open_float = true
         }
       })
     end

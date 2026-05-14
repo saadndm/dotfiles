@@ -1,7 +1,7 @@
 local scooter_term = nil
 
 -- Called by scooter to open the selected file at the correct line from the scooter search list
-_G.EditLineFromScooter = function(file_path, line)
+_G.EditLineFromScooter = function (file_path, line)
   if scooter_term and scooter_term:buf_valid() then
     scooter_term:hide()
   end
@@ -34,7 +34,7 @@ local function open_scooter()
         style = {
           border = "rounded"
         }
-      },
+      }
     })
   end
 end
@@ -46,16 +46,15 @@ local function open_scooter_with_text(search_text)
 
   local escaped_text = vim.fn.shellescape(search_text:gsub("\r?\n", " "))
   scooter_term = require("snacks").terminal.open("scooter --fixed-strings --search-text " .. escaped_text, {
-    win = { position = "float" },
+    win = { position = "float" }
   })
 end
 
 vim.keymap.set("n", "<leader>ss", open_scooter, { desc = "Open scooter" })
-vim.keymap.set("v", "<leader>ss",
-  function()
-    local selection = vim.fn.getreg('"')
-    vim.cmd('normal! "ay')
-    open_scooter_with_text(vim.fn.getreg("a"))
-    vim.fn.setreg('"', selection)
-  end,
-  { desc = "Search selected text in scooter" })
+vim.keymap.set("v", "<leader>ss", function ()
+  local selection = vim.fn.getreg('"')
+  vim.cmd('normal! "ay')
+  open_scooter_with_text(vim.fn.getreg("a"))
+  vim.fn.setreg('"', selection)
+end, { desc = "Search selected text in scooter" }
+)

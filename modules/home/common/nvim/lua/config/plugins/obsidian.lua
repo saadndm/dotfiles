@@ -2,17 +2,17 @@ return {
   {
     "obsidian.nvim",
     ft = "markdown",
-    after = function(plugin)
+    after = function (plugin)
       require("obsidian").setup({
         legacy_commands = false,
         workspaces = {
           {
             name = "personal",
-            path = "~/Documents/Obsidian/Saad",
+            path = "~/Documents/Obsidian/Saad"
           }
         },
         frontmatter = {
-          func = function(note)
+          func = function (note)
             local out = {}
             if note.metadata then
               for k, v in pairs(note.metadata) do

@@ -6,8 +6,8 @@ return {
     "typst-preview.nvim",
     event = "DeferredUIEnter",
     ft = "typst",
-    after = function()
+    after = function ()
       require("typst-preview").setup()
-    end,
-  },
+    end
+  }
 }

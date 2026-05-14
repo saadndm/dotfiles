@@ -1,4 +1,4 @@
-vim.api.nvim_create_user_command("LintInfo", function()
+vim.api.nvim_create_user_command("LintInfo", function ()
   local filetype = vim.bo.filetype
   local linters = require("lint").linters_by_ft[filetype]
 
@@ -7,23 +7,21 @@ vim.api.nvim_create_user_command("LintInfo", function()
   else
     print("No linters configured for filetype: " .. filetype)
   end
-end, {})
+end, {}
+)
 
 require("lze").load {
   {
     "nvim-lint",
     event = "FileType",
-    after = function()
-      require("lint").linters_by_ft = {
-        fish = { "fish" },
-        go = { "golangcilint" },
-      }
+    after = function ()
+      require("lint").linters_by_ft = { fish = { "fish" }, go = { "golangcilint" } }
 
       vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
+        callback = function ()
           require("lint").try_lint()
-        end,
+        end
       })
-    end,
-  },
+    end
+  }
 }

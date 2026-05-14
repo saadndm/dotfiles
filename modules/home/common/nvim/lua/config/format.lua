@@ -2,11 +2,11 @@ require("lze").load {
   {
     "conform.nvim",
     event = "BufWritePre",
-    after = function()
+    after = function ()
       require("conform").setup({
         formatters = {
           biome = { command = vim.fn.exepath("biome") },
-          injected = { options = { ignore_errors = true } },
+          injected = { options = { ignore_errors = true } }
         },
         formatters_by_ft = {
           nix = { "nixfmt" },
@@ -25,9 +25,9 @@ require("lze").load {
         },
         format_on_save = {
           timeout_ms = 500,
-          lsp_format = "fallback",
-        },
+          lsp_format = "fallback"
+        }
       })
-    end,
+    end
   }
 }

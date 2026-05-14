@@ -12,9 +12,7 @@
     "temperature#cpu",
     "power-profiles-daemon"
   ],
-  "modules-center": [
-    "clock"
-  ],
+  "modules-center": ["clock"],
   "modules-right": [
     "tray",
     "idle_inhibitor",
@@ -106,25 +104,19 @@
     "interval": 10,
     "format-wifi": "<span font='Font Awesome 6 Pro Solid'>{icon}</span>",
     "format-ethernet": "<span font='Font Awesome 6 Pro Solid'></span>",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", ""],
     "format-disconnected": "<span font='Font Awesome 6 Pro Solid'></span>",
     "format-disabled": "<span font='Font Awesome 6 Pro Solid'></span>",
     "tooltip-format-wifi": " {bandwidthDownBytes} |  {bandwidthUpBytes} | {essid} | {signalStrength}%",
     "tooltip-format-disconnected": "Disconnected",
     "tooltip-format-disabled": "Disabled",
     "on-click": "kitty --class Impala -e impala",
-    "on-click-right": "bash -c \"rfkill list wifi | grep -q 'Soft blocked: yes' && rfkill unblock wifi || rfkill block wifi\"",
+    "on-click-right": "bash -c \"rfkill list wifi | grep -q 'Soft blocked: yes' && rfkill unblock wifi || rfkill block wifi\""
   },
   "bluetooth": {
     "interval": 120,
     "format": "<span font='Font Awesome 6 Pro Solid'>{icon}</span>",
-    "format-icons": [
-      ""
-    ],
+    "format-icons": [""],
     "tooltip-format-off": "Bluetooth is off",
     "tooltip-format-on": "Bluetooth is on",
     "format-connected": "<span font='Font Awesome 6 Pro Solid'>{icon}</span> {num_connections}",
@@ -134,16 +126,13 @@
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
     "tooltip-format-disabled": "Bluetooth is off",
     "on-click": "kitty --class Bluetui -e bluetui",
-    "on-click-right": "bash -c \"rfkill list bluetooth | grep -q 'Soft blocked: yes' && rfkill unblock bluetooth || rfkill block bluetooth\"",
+    "on-click-right": "bash -c \"rfkill list bluetooth | grep -q 'Soft blocked: yes' && rfkill unblock bluetooth || rfkill block bluetooth\""
   },
   "backlight": {
     "interval": "once",
     "device": "intel_backlight",
     "format": "{percent}% <span font='Font Awesome 6 Pro Solid'>{icon}</span>",
-    "format-icons": [
-      "",
-      ""
-    ],
+    "format-icons": ["", ""],
     "tooltip": false,
     "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
     "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
@@ -153,12 +142,8 @@
     "format-muted": " {volume}%",
     "on-click": "kitty --class Wiremix -e wiremix -v output",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ],
-    "scroll-step": 5.0,
+    "format-icons": ["", "", ""],
+    "scroll-step": 5.0
   },
   "upower": {
     "interval": "once",
