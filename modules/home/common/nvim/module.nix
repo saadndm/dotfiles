@@ -86,7 +86,7 @@ inputs:
       SchemaStore-nvim
 
       typst-preview-nvim
-      markview-nvim
+      # markview-nvim
       obsidian-nvim
     ];
   };

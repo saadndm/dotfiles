@@ -1,13 +1,25 @@
-require
-  ("lze")
-  .load {
-    { import = "config.plugins.catppuccin" }, { import = "config.plugins.oil" }, { import = "config.plugins.fff" },
-    { import = "config.plugins.snacks" }, { import = "config.plugins.pairs" }, { import = "config.plugins.nvim-jump" },
-    { import = "config.plugins.lazygit" }, { import = "config.plugins.tiny-cmdline" },
-    { import = "config.plugins.treesitter" }, { import = "config.plugins.completion" },
-    { import = "config.plugins.mini" }, { import = "config.plugins.typst-preview" },
-    { import = "config.plugins.trouble" }, { import = "config.plugins.todo-comments" },
-    { import = "config.plugins.tiny-inline-diagnostic" }, { import = "config.plugins.markview" },
-    { import = "config.plugins.mathlive" }, { import = "config.plugins.obsidian" },
-    { import = "config.plugins.lazydev" }
-  }
+require("lze").load {
+  { import = "config.plugins.catppuccin" },
+  { import = "config.plugins.oil" },
+  {
+    import = "config.plugins.fff",
+  },
+  { import = "config.plugins.snacks" },
+  { import = "config.plugins.pairs" },
+  {
+    import = "config.plugins.nvim-jump",
+  },
+  { import = "config.plugins.lazygit" },
+  { import = "config.plugins.tiny-cmdline" },
+  { import = "config.plugins.treesitter" },
+  { import = "config.plugins.completion" },
+  { import = "config.plugins.mini" },
+  { import = "config.plugins.typst-preview" },
+  { import = "config.plugins.trouble" },
+  { import = "config.plugins.todo-comments" },
+  { import = "config.plugins.tiny-inline-diagnostic" },
+  -- { import = "config.plugins.markview" },
+  { import = "config.plugins.mathlive" },
+  { import = "config.plugins.obsidian" },
+  { import = "config.plugins.lazydev" },
+}
