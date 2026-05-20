@@ -12,7 +12,7 @@ inputs:
     config_directory = lib.generators.mkLuaInline "os.getenv('HOME') .. '/dotfiles/modules/home/common/nvim'";
   };
 
-  extraPackages = with pkgs; [
+  runtimePkgs = with pkgs; [
     tree-sitter
 
     emmylua-ls

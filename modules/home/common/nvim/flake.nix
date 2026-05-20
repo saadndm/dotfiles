@@ -23,10 +23,6 @@
       wrapper = wrappers.lib.evalModule module;
     in
     {
-      overlays = {
-        neovim = final: prev: { neovim = wrapper.config.wrap { pkgs = final; }; };
-        default = self.overlays.neovim;
-      };
       wrapperModules = {
         neovim = module;
         default = self.wrapperModules.neovim;
@@ -34,6 +30,10 @@
       wrappers = {
         neovim = wrapper.config;
         default = self.wrappers.neovim;
+      };
+      overlays = {
+        neovim = final: prev: { neovim = self.wrappers.neovim.wrap { pkgs = final; }; };
+        default = self.overlays.neovim;
       };
       packages = forAllSystems (
         system:
@@ -44,27 +44,25 @@
           };
         in
         {
-          neovim = wrapper.config.wrap { inherit pkgs; };
+          neovim = self.wrappers.neovim.wrap { inherit pkgs; };
           default = self.packages.${system}.neovim;
         }
       );
+      # home manager and nixos modules
+      # `wrappers.nvim.enable = true`
+      # You can set any of the options.
+      # But that is how you enable it.
       nixosModules = {
         default = self.nixosModules.neovim;
-        neovim = wrappers.lib.mkInstallModule {
+        neovim = wrappers.lib.getInstallModule {
           name = "nvim";
           value = module;
         };
       };
       homeModules = {
         default = self.homeModules.neovim;
-        neovim = wrappers.lib.mkInstallModule {
-          name = "nvim";
-          value = module;
-          loc = [
-            "home"
-            "packages"
-          ];
-        };
+        # they produce generically importable modules
+        neovim = self.nixosModules.neovim;
       };
     };
 }

@@ -28,12 +28,11 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>Y", '"+y$', { desc = " y" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y', { desc = " y$" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d', { desc = " d" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { desc = " p" })
-vim.api.nvim_create_autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd({ "TextYankPost", "TextPutPost" }, {
   callback = function ()
-    vim.hl.on_yank()
+    vim.hl.hl_op()
   end,
   group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
-  pattern = "*",
 })
 
 -- General Keymaps
