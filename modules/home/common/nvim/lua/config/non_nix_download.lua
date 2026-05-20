@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
         end
       end)
     end
-  end
+  end,
 })
 
 vim.pack.add({
@@ -48,5 +48,5 @@ vim.pack.add({
   gh("rachartier/tiny-inline-diagnostic.nvim"),
   gh("kdheepak/lazygit.nvim"),
   gh("stevearc/conform.nvim"),
-  gh("mfussenegger/nvim-lint")
+  gh("mfussenegger/nvim-lint"),
 })

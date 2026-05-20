@@ -16,19 +16,19 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         callback = function (args)
           start(args.buf)
-        end
+        end,
       })
 
       for _, buf in ipairs(vim.api.nvim_list_bufs()) do
         if vim.bo[buf].filetype ~= "" then start(buf) end
       end
-    end
+    end,
   },
   {
     "nvim-treesitter-context",
     lazy = false,
     after = function ()
       require("treesitter-context").setup { max_lines = 3, mode = "topline" }
-    end
-  }
+    end,
+  },
 }

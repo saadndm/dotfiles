@@ -11,7 +11,7 @@ vim.lsp.enable({
   "bashls",
   "biome",
   "clangd",
-  "hls"
+  "hls",
 })
 
 vim.lsp.config("emmylua_ls", {
@@ -22,11 +22,11 @@ vim.lsp.config("emmylua_ls", {
           "?.lua",
           "?/init.lua",
           "lua/?.lua",
-          "lua/?/init.lua"
-        }
-      }
-    }
-  }
+          "lua/?/init.lua",
+        },
+      },
+    },
+  },
 })
 
 vim.diagnostic.config({
@@ -35,18 +35,18 @@ vim.diagnostic.config({
   severity_sort = true,
   float = {
     border = "rounded",
-    source = true
+    source = true,
   },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "",
       [vim.diagnostic.severity.WARN] = "",
       [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "󰌵"
+      [vim.diagnostic.severity.HINT] = "󰌵",
     },
     numhl = {
       [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-      [vim.diagnostic.severity.WARN] = "WarningMsg"
-    }
-  }
+      [vim.diagnostic.severity.WARN] = "WarningMsg",
+    },
+  },
 })

@@ -14,6 +14,6 @@ return {
     event = "DeferredUIEnter",
     after = function (plugin)
       require("todo-comments").setup()
-    end
-  }
+    end,
+  },
 }

@@ -10,7 +10,7 @@ return {
         enabled = true,
         cmdline = true,
         tabout = "<Tab>",
-        back_tabout = "<S-Tab>"
+        back_tabout = "<S-Tab>",
       },
       highlights = {
         enabled = true,
@@ -18,7 +18,7 @@ return {
         groups = {
           "BlinkPairsOrange",
           "BlinkPairsPurple",
-          "BlinkPairsBlue"
+          "BlinkPairsBlue",
         },
         unmatched_group = "BlinkPairsUnmatched",
         matchparen = {
@@ -26,9 +26,9 @@ return {
           cmdline = false,
           include_surrounding = false,
           group = "BlinkPairsMatchParen",
-          priority = 250
-        }
-      }
+          priority = 250,
+        },
+      },
     })
-  end
+  end,
 }

@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   networking.useNetworkd = true;
 
   services.resolved = {

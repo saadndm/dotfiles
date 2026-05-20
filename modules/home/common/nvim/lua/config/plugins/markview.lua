@@ -5,9 +5,6 @@ return {
     after = function (plugin)
       require("markview").setup({
         preview = {
-          filetypes = { "markdown", "quarto", "rmd", "typst" },
-          enable_hybrid_mode = true,
-          linewise_hybrid_mode = false,
           debounce = 1,
           modes = { "n", "i", "v", "c" },
           hybrid_modes = { "n", "i", "v", "c" },
@@ -23,8 +20,8 @@ return {
             on_hybrid_enable = function (_, win)
               vim.wo[win].conceallevel = 3
               vim.wo[win].concealcursor = "nvic"
-            end
-          }
+            end,
+          },
         },
         typst = {
           math_blocks = { enable = false },
@@ -32,7 +29,7 @@ return {
           symbols = { enable = false },
           code_blocks = { enable = false },
           superscripts = { enable = false },
-          subscripts = { enable = false }
+          subscripts = { enable = false },
         },
         latex = {
           blocks = { enable = false },
@@ -41,9 +38,9 @@ return {
           superscripts = { enable = false },
           subscripts = { enable = false },
           commands = { enable = false },
-          fonts = { enable = false }
-        }
+          fonts = { enable = false },
+        },
       })
-    end
-  }
+    end,
+  },
 }

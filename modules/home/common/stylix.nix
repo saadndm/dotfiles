@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   stylix = {
     targets = {
       fzf.enable = false;

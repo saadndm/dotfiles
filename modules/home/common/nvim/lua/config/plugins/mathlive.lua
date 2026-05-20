@@ -7,8 +7,12 @@ return {
     end,
     after = function ()
       require("mathlive").setup({
-        color_hex = "#ffffff"
+        color_hex = "#ffffff",
+        preamble = [[
+          #set math.mat(delim: "[")
+          #set math.vec(delim: "[")
+        ]],
       })
-    end
-  }
+    end,
+  },
 }

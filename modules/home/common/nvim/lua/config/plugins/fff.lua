@@ -85,11 +85,11 @@ return {
           end
         end, { buffer = true, desc = "Toggle Root/CWD" }
         )
-      end
+      end,
     })
 
     fff.setup({
-      prompt = "> "
+      prompt = "> ",
     })
-  end
+  end,
 }

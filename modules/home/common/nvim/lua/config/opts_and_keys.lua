@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.hl.on_yank()
   end,
   group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
-  pattern = "*"
+  pattern = "*",
 })
 
 -- General Keymaps
@@ -51,7 +51,7 @@ vim.keymap.set({ "n", "v", "x" }, "<C-u>", "M<C-u>")
 vim.cmd.packadd("nvim.undotree")
 vim.keymap.set("n", "<leader>u", function ()
   require("undotree").open({
-    command = "botright " .. math.floor(vim.api.nvim_win_get_width(0) / 3) .. "vnew"
+    command = "botright " .. math.floor(vim.api.nvim_win_get_width(0) / 3) .. "vnew",
   })
 end, { desc = "Undotree" }
 )
@@ -116,16 +116,16 @@ require("vim._core.ui2").enable({
       verbose = "pager",
       wildlist = "cmd",
       wmsg = "msg",
-      typed_cmd = "cmd"
+      typed_cmd = "cmd",
     },
     msg = {
       height = 0.3,
-      timeout = 5000
+      timeout = 5000,
     },
     pager = {
-      height = 0.5
-    }
-  }
+      height = 0.5,
+    },
+  },
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -136,15 +136,12 @@ vim.api.nvim_create_autocmd("FileType", {
     if win and vim.api.nvim_win_is_valid(win) then
       vim
         .api
-        .nvim_set_option_value(
-          "winhighlight", "Normal:NormalFloat,FloatBorder:FloatBorder",
-          {
-            scope = "local",
-            win = win
-          }
-        )
+        .nvim_set_option_value("winhighlight", "Normal:NormalFloat,FloatBorder:FloatBorder", {
+          scope = "local",
+          win = win,
+        })
     end
-  end
+  end,
 })
 
 local ui2 = require("vim._core.ui2")
@@ -159,7 +156,7 @@ msgs.set_pos = function (tgt)
       anchor = "NE",
       row = 1,
       col = vim.o.columns - 1,
-      border = "rounded"
+      border = "rounded",
     })
   end
 end
@@ -173,7 +170,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
       source = "vim.lsp",
       title = value.title,
       status = value.kind ~= "end" and "running" or "success",
-      percent = value.percentage
+      percent = value.percentage,
     })
-  end
+  end,
 })

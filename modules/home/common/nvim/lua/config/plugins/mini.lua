@@ -6,11 +6,11 @@ return {
 
     require("mini.operators").setup({
       replace = {
-        prefix = "<leader>gr"
+        prefix = "<leader>gr",
       },
       multiply = {
-        prefix = "<leader>gm"
-      }
+        prefix = "<leader>gm",
+      },
     })
     vim.keymap.set({ "n", "x" }, "<leader>gR", function ()
       return '"+' .. vim.api.nvim_replace_termcodes("<leader>gr", true, true, true)
@@ -28,14 +28,14 @@ return {
         find = "<leader>sf",
         find_left = "<leader>sF",
         highlight = "",
-        replace = "<leader>sr"
-      }
+        replace = "<leader>sr",
+      },
     })
 
     require("mini.bracketed").setup({
       diagnostic = {
-        options = { float = false }
-      }
+        options = { float = false },
+      },
     })
 
     local miniclue = require("mini.clue")
@@ -57,7 +57,7 @@ return {
         -- Window commands
         { mode = "n", keys = "<C-w>" },
         -- `z` key
-        { mode = { "n", "x" }, keys = "z" }
+        { mode = { "n", "x" }, keys = "z" },
       },
       clues = {
         -- Enhance this by adding descriptions for <Leader> mapping groups
@@ -67,8 +67,8 @@ return {
         miniclue.gen_clues.marks(),
         miniclue.gen_clues.registers(),
         miniclue.gen_clues.windows(),
-        miniclue.gen_clues.z()
-      }
+        miniclue.gen_clues.z(),
+      },
     })
 
     local minidiff = require("mini.diff")
@@ -76,8 +76,8 @@ return {
       view = {
         style = "sign",
         signs = { add = "▎", change = "▎", delete = "" },
-        priority = 0
-      }
+        priority = 0,
+      },
     })
     vim.keymap.set("n", "<leader>go", function ()
       minidiff.toggle_overlay(0)
@@ -100,7 +100,7 @@ return {
     vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
       callback = function ()
         vim.cmd("redrawstatus")
-      end
+      end,
     })
     statusline.setup({
       content = {
@@ -118,18 +118,18 @@ return {
           return statusline.combine_groups({
             { hl = mode_hl, strings = { mode } },
             { hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics, lsp } },
-            "%<", -- Mark general truncate point
+            "%<",  -- Mark general truncate point
             { hl = "MiniStatuslineFilename", strings = { filename } },
-            "%=", -- End left alignment
+            "%=",  -- End left alignment
             { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-            { hl = mode_hl, strings = { search, location } }
+            { hl = mode_hl, strings = { search, location } },
           })
-        end
-      }
+        end,
+      },
     })
 
     require("mini.tabline").setup()
 
     require("mini.test").setup()
-  end
+  end,
 }

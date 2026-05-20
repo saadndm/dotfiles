@@ -5,9 +5,9 @@ return {
     after = function ()
       require("lazydev").setup({
         library = {
-          "~/Documents/Projects/mathlive.nvim"
-        }
+          "~/Documents/Projects/mathlive.nvim",
+        },
       })
-    end
-  }
+    end,
+  },
 }

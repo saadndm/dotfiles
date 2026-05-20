@@ -4,10 +4,10 @@ return {
   after = function ()
     require("catppuccin").setup({
       float = {
-        transparent = true
-      }
+        transparent = true,
+      },
     })
 
     vim.cmd.colorscheme("catppuccin")
-  end
+  end,
 }

@@ -8,8 +8,8 @@ return {
         workspaces = {
           {
             name = "personal",
-            path = "~/Documents/Obsidian/Saad"
-          }
+            path = "~/Documents/Obsidian/Saad",
+          },
         },
         frontmatter = {
           func = function (note)
@@ -20,9 +20,9 @@ return {
               end
             end
             return out
-          end
-        }
+          end,
+        },
       })
-    end
-  }
+    end,
+  },
 }

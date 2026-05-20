@@ -8,7 +8,7 @@ return {
   end,
   after = function ()
     require("jump").setup({
-      label = "MiniJump2dSpotUnique"
+      label = "MiniJump2dSpotUnique",
     })
-  end
+  end,
 }

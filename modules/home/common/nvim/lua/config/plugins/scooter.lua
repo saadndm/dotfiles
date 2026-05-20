@@ -32,9 +32,9 @@ local function open_scooter()
       win = {
         position = "float",
         style = {
-          border = "rounded"
-        }
-      }
+          border = "rounded",
+        },
+      },
     })
   end
 end
@@ -46,7 +46,7 @@ local function open_scooter_with_text(search_text)
 
   local escaped_text = vim.fn.shellescape(search_text:gsub("\r?\n", " "))
   scooter_term = require("snacks").terminal.open("scooter --fixed-strings --search-text " .. escaped_text, {
-    win = { position = "float" }
+    win = { position = "float" },
   })
 end
 

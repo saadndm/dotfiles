@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   services.actual = {
     enable = true;
     settings = {

@@ -6,6 +6,6 @@ return {
     event = "DeferredUIEnter",
     after = function (plugin)
       require("trouble").setup()
-    end
-  }
+    end,
+  },
 }

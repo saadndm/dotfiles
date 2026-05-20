@@ -8,6 +8,6 @@ return {
     ft = "typst",
     after = function ()
       require("typst-preview").setup()
-    end
-  }
+    end,
+  },
 }
