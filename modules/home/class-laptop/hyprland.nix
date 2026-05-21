@@ -24,7 +24,7 @@
         "HYPRCURSOR_SIZE,16"
       ];
 
-      render.cm_fs_passthrough = true;
+      render.cm_auto_hdr = true;
 
       xwayland.force_zero_scaling = true;
 
@@ -71,7 +71,7 @@
       bind = [
         "$mainmod, f, togglefloating,"
         "$mainmod, f11, fullscreen,"
-        "$mainmod, backslash, togglesplit,"
+        "$mainmod, backslash, layoutmsg, togglesplit"
         "$mainmod, w, killactive,"
         "$mainmod, return, exec, $terminal"
         "$mainmod, space, exec, nc -U /run/user/1000/walker/walker.sock"
@@ -234,7 +234,6 @@
       };
 
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
         force_split = 2;
       };
