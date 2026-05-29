@@ -6,7 +6,7 @@ _: {
         name = "Saad Nadeem";
         email = "saadndm.sn@gmail.com";
       };
-      init.defaultBranch = "master";
+      init.defaultBranch = "main";
       rerere.enabled = true;
       diff = {
         algorithm = "histogram";
@@ -18,6 +18,12 @@ _: {
         prune = true;
         pruneTags = true;
         all = true;
+      };
+      pull = {
+        rebase = true;
+      };
+      rebase = {
+        autoStash = true;
       };
       url."ssh://git@github.com/".insteadOf = "https://github.com/";
     };

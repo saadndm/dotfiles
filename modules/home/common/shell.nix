@@ -12,7 +12,6 @@
       ld = "DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock sudo lazydocker";
       nrs = "sudo -v && nh os switch";
       hrs = "nh home switch";
-      y = "yazi";
       ts = "tailscale";
       fzf = "fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\"";
       lsn = "command ls";

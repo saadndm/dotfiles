@@ -41,7 +41,7 @@
     };
     java = {
       enable = true;
-      package = pkgs.temurin-bin-21;
+      package = pkgs.temurin-bin-25;
     };
     eza = {
       enable = true;
@@ -54,12 +54,23 @@
       enable = true;
       tui = {
         theme = "catppuccin";
+        keybinds = {
+          app_exit = "ctrl+c";
+          messages_half_page_down = "ctrl+d";
+          messages_half_page_up = "ctrl+u";
+          input_delete = "delete,shift+delete";
+          session_timeline = "<leader>h";
+          input_delete_to_line_start = "none";
+          messages_toggle_conceal = "none";
+        };
       };
+    };
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
     };
   };
 
-  home.file.".jdks/temurin-bin-21".source = pkgs.temurin-bin-21;
-  home.file.".jdks/temurin-bin-17".source = pkgs.temurin-bin-17;
   home.file.".jdks/temurin-bin-8".source = pkgs.temurin-bin-8;
 
   home.packages = with pkgs; [
@@ -72,6 +83,10 @@
     clang
     clang-tools
     ghc
+    cargo
+    rustc
+    rustPlatform.bindgenHook
+    pkg-config
 
     jq
     uv

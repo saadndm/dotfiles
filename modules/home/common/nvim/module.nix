@@ -44,6 +44,9 @@ inputs:
 
     haskell-language-server
     ormolu
+
+    rust-analyzer
+    rustfmt
   ];
 
   specs.plugins = {

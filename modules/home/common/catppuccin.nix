@@ -5,6 +5,8 @@
   ];
 
   catppuccin = {
+    enable = true;
+    autoEnable = false;
     cache.enable = true;
     flavor = "mocha";
     accent = "blue";

@@ -83,12 +83,11 @@
     imv
     (prismlauncher.override {
       jdks = [
-        temurin-jre-bin-8
-        temurin-jre-bin-21
+        temurin-bin-8
+        temurin-bin-21
       ];
     })
     dragon-drop
-    xsetroot
     racket
     upower
     intel-gpu-tools
@@ -110,8 +109,8 @@
       src = fetchFromGitHub {
         owner = "gnif";
         repo = "LookingGlass";
-        rev = "53bfb6547f2b7abd6c183192e13a57068c1677ea";
-        hash = "sha256-SakFCEXPsJW3zmNpmklK8ZCGpcJzJ/4v7TJDpjWqVeA=";
+        rev = "fc6a728bb775f47733b2d7919047de3a1bf116ba";
+        hash = "sha256-zgZBjevnJX/syZytyft//0HO8sx/vVYfOe9SkUZztJ4=";
         fetchSubmodules = true;
       };
     }))

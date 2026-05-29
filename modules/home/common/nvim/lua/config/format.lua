@@ -22,6 +22,7 @@ require("lze").load {
           jsonc = { "biome" },
           css = { "biome" },
           haskell = { "ormolu" },
+          rust = { "rustfmt" },
         },
         format_on_save = {
           timeout_ms = 500,

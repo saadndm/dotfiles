@@ -12,6 +12,7 @@ vim.lsp.enable({
   "biome",
   "clangd",
   "hls",
+  "rust_analyzer",
 })
 
 vim.lsp.config("emmylua_ls", {
