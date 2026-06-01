@@ -10,7 +10,6 @@
     cache.enable = true;
     flavor = "mocha";
     accent = "blue";
-    fish.enable = true;
     btop.enable = true;
     fzf.enable = true;
     bat.enable = true;

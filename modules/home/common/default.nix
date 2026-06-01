@@ -21,6 +21,7 @@
     stateVersion = "26.05";
     sessionVariables = {
       EDITOR = "nvim";
+      VISUAL = "nvim";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
     };
   };

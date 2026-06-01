@@ -31,6 +31,7 @@
     ];
     interactiveShellInit = ''
       set fish_greeting ""
+      fish_config theme choose catppuccin-mocha --color-theme=dark
 
       bind -M visual ' 'y fish_clipboard_copy
       set fish_cursor_external line

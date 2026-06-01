@@ -20,6 +20,8 @@
       ];
 
       env = [
+        "EDITOR,nvim"
+        "VISUAL,nvim"
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         "HYPRCURSOR_SIZE,16"
       ];
@@ -32,6 +34,7 @@
         "sunsetr"
         "waybar"
         "clipse -listen"
+        "ghostty --gtk-single-instance=true --initial-window=false"
         "walker --gapplication-service"
         "hypridle"
         "xsetroot -xcf ~/.local/share/icons/catppuccin-mocha-blue-cursors/cursors/left_ptr 16"
@@ -65,7 +68,7 @@
       gesture = "3, horizontal, workspace";
 
       "$mainmod" = "SUPER";
-      "$terminal" = "ghostty +new-window";
+      "$terminal" = "ghostty --gtk-single-instance=true +new-window";
       "$browser" = "zen-twilight";
 
       bind = [
@@ -244,6 +247,7 @@
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
         focus_on_activate = true;
+        initial_workspace_tracking = 0;
       };
     };
   };

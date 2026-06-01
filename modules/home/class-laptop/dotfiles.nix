@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  pkgs,
+  perSystem,
+  ...
+}:
 {
   xdg.configFile."waybar".source = "${inputs.self}/home/.config/waybar";
   xdg.configFile."walker".source = "${inputs.self}/home/.config/walker";
@@ -17,4 +22,6 @@
   home.file.".wakatime.cfg".source = "${inputs.self}/home/.wakatime.cfg";
   xdg.configFile."looking-glass/client.ini".source =
     "${inputs.self}/home/.config/looking-glass/client.ini";
+  xdg.configFile."systemd/user/graphical-session.target.wants/app-com.mitchellh.ghostty.service".source =
+    "${perSystem.ghostty.default}/share/systemd/user/app-com.mitchellh.ghostty.service";
 }
