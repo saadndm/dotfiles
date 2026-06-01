@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+_: {
   virtualisation.waydroid.enable = true;
 
   virtualisation.libvirtd = {
@@ -36,16 +35,4 @@
   '';
 
   users.users.bridgesense.extraGroups = [ "libvirtd" ];
-
-  systemd.services.libvirt-default-network = {
-    description = "Start libvirt default network";
-    after = [ "libvirtd.service" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.libvirt}/bin/virsh net-start default || :'";
-      User = "root";
-    };
-  };
 }
