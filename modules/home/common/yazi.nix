@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ perSystem, pkgs, ... }:
 {
   programs.yazi = {
     enable = true;
-    package = pkgs.yazi.override { _7zz = pkgs._7zz-rar; };
+    package = perSystem.yazi.default.override {
+      _7zz = pkgs._7zz-rar;
+    };
     enableFishIntegration = true;
     settings = {
       mgr = {
@@ -116,10 +118,6 @@
           {
             on = "-";
             run = "plugin zoom -1";
-          }
-          {
-            on = "<C-n>";
-            run = "shell -- dragon-drop -k -T \"$@\"";
           }
           {
             on = [

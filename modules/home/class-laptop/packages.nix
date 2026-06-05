@@ -87,7 +87,6 @@
         temurin-bin-21
       ];
     })
-    dragon-drop
     racket
     upower
     intel-gpu-tools
