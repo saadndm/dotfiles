@@ -1,4 +1,4 @@
-_: {
+{ lib, ... }: {
   virtualisation.waydroid.enable = true;
 
   virtualisation.libvirtd = {
@@ -19,6 +19,16 @@ _: {
   };
 
   virtualisation.spiceUSBRedirection.enable = true;
+
+  systemd.services = let
+    cleanupLibvirtService = {
+      serviceConfig.KillMode = lib.mkForce "mixed";
+    };
+  in {
+    libvirtd = cleanupLibvirtService;
+    virtqemud = cleanupLibvirtService;
+    virtnetworkd = cleanupLibvirtService;
+  };
 
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
