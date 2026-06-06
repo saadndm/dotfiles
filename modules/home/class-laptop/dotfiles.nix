@@ -25,6 +25,12 @@
   xdg.configFile."hypr/monitors.lua".source = "${inputs.self}/home/.config/hypr/monitors.lua";
   xdg.configFile."hypr/animations.lua".source = "${inputs.self}/home/.config/hypr/animations.lua";
   xdg.configFile."hypr/windowrules.lua".source = "${inputs.self}/home/.config/hypr/windowrules.lua";
+  xdg.configFile."kdeglobals".source = "${
+    pkgs.catppuccin-kde.override {
+      flavour = [ "mocha" ];
+      accents = [ "blue" ];
+    }
+  }/share/color-schemes/CatppuccinMochaBlue.colors";
   xdg.configFile."devauth/config.toml".source = "${inputs.self}/home/.config/devauth/config.toml";
   home.file.".wakatime.cfg".source = "${inputs.self}/home/.wakatime.cfg";
   xdg.configFile."looking-glass/client.ini".source =
