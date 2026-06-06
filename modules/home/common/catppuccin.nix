@@ -19,5 +19,7 @@
     obs.enable = true;
     mpv.enable = true;
     sioyek.enable = true;
+    ghostty.enable = true;
+    kitty.enable = true;
   };
 }

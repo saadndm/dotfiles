@@ -8,6 +8,8 @@
   programs = {
     kitty = {
       enable = true;
+      font.name = "JetBrainsMono Nerd Font Mono";
+      shellIntegration.enableFishIntegration = true;
       settings = {
         confirm_os_window_close = 0;
         dynamic_background_opacity = true;
@@ -39,6 +41,28 @@
     obs-studio = {
       enable = true;
     };
+    ghostty = {
+      enable = true;
+      package = perSystem.ghostty.default;
+      enableFishIntegration = true;
+      settings = {
+        custom-shader = "./shaders/cursor_warp.glsl";
+        font-family = "JetBrainsMono Nerd Font Mono";
+        confirm-close-surface = false;
+        quit-after-last-window-closed = false;
+        window-padding-balance = true;
+        window-padding-color = "background";
+        clipboard-paste-protection = false;
+        cursor-style = "bar";
+        background-opacity = 0.8;
+        background-blur = true;
+        shell-integration-features = "cursor,no-sudo,title,ssh-env,ssh-terminfo,path";
+        keybind = [
+          "ctrl+backspace=text:\\x17"
+          "ctrl+enter=unbind"
+        ];
+      };
+    };
   };
 
   services = {
@@ -59,8 +83,6 @@
   };
 
   home.packages = with pkgs; [
-    perSystem.ghostty.default
-
     jmtpfs
     impala
     clipse

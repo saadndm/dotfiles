@@ -10,6 +10,8 @@ _: {
       sioyek.enable = false;
       mpv.enable = false;
       hyprland.enable = false;
+      ghostty.enable = false;
+      kitty.enable = false;
       zen-browser.profileNames = [ "BridgeSense" ];
     };
   };
