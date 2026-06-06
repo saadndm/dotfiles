@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+makoctl dismiss --all
+makoctl mode -t do-not-disturb
+
+if makoctl mode | grep -q 'do-not-disturb'; then
+  notify-send -u low "󰂛    Silenced notifications"
+else
+  notify-send -u low "󰂚    Enabled notifications"
+fi

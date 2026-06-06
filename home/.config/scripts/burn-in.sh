@@ -12,21 +12,18 @@ switch() {
 
   ~/.config/scripts/hyproled.sh -a 0:0:2880:67 -s -m 0
 
-  current_in=$(hyprctl -j getoption general:gaps_in | jq -r '.custom' | awk '{print $1}')
-  current_out=$(hyprctl -j getoption general:gaps_out | jq -r '.custom' | awk '{print $1}')
+  current_in=$(hyprctl -j getoption general:gaps_in | jq -r '.css' | awk '{print $1}')
+  current_out=$(hyprctl -j getoption general:gaps_out | jq -r '.css' | awk '{print $1}')
 
   if [[ "$current_in" -eq $GAPS_IN_SMALL && "$current_out" -eq $GAPS_OUT_SMALL ]]; then
-    hyprctl keyword general:gaps_in $GAPS_IN_LARGE
-    hyprctl keyword general:gaps_out $GAPS_OUT_LARGE
+    hyprctl eval "hl.config({ general = { gaps_in = $GAPS_IN_LARGE, gaps_out = $GAPS_OUT_LARGE } })"
   else
-    hyprctl keyword general:gaps_in $GAPS_IN_SMALL
-    hyprctl keyword general:gaps_out $GAPS_OUT_SMALL
+    hyprctl eval "hl.config({ general = { gaps_in = $GAPS_IN_SMALL, gaps_out = $GAPS_OUT_SMALL } })"
   fi
 }
 
 disable() {
-  hyprctl keyword general:gaps_in $GAPS_IN_LARGE
-  hyprctl keyword general:gaps_out $GAPS_OUT_LARGE
+  hyprctl eval "hl.config({ general = { gaps_in = $GAPS_IN_LARGE, gaps_out = $GAPS_OUT_LARGE } })"
 }
 
 case "$1" in

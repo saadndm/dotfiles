@@ -9,6 +9,7 @@ _: {
       opencode.enable = false;
       sioyek.enable = false;
       mpv.enable = false;
+      hyprland.enable = false;
       zen-browser.profileNames = [ "BridgeSense" ];
     };
   };

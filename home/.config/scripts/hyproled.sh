@@ -13,7 +13,7 @@ Usage: $(basename "$0") [OPTION]... [off]
 
 Hyprland shader utility to prevent OLED burn in.
 
-version: 0.1.3
+version: 0.1.5
 
 Options:
   -a x:y:w:h  The effective area. Useful for bars. [Default: The entire screen]
@@ -33,7 +33,7 @@ is_fullscreen() {
 }
 
 if [[ $1 == off ]]; then
-  hyprctl keyword decoration:screen_shader ""
+  hyprctl eval 'hl.config({ decoration = { screen_shader = "" } })'
   exit 0
 fi
 
@@ -71,7 +71,7 @@ done
 shift $((OPTIND - 1))
 
 if [[ $(is_fullscreen) -eq 0 ]]; then
-  hyprctl keyword decoration:screen_shader ""
+  hyprctl eval "hl.config({ decoration = { screen_shader = \"\" } })"
   exit 0
 fi
 
@@ -126,4 +126,4 @@ fi
 
 echo "$shader_code" >"$SHADER_FILE"
 
-hyprctl keyword decoration:screen_shader "$SHADER_FILE"
+hyprctl eval "hl.config({ decoration = { screen_shader = [[${SHADER_FILE}]] } })"

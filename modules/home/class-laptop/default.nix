@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+_: {
   imports = [
     ./packages.nix
     ./dotfiles.nix
@@ -9,6 +6,5 @@
     ./hyprland.nix
     ./system.nix
     ./zen-browser.nix
-    ./kanshi.nix
   ];
 }

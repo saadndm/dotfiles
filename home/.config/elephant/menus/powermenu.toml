@@ -28,4 +28,4 @@ actions = { default = "systemctl reboot" }
 [[entries]]
 text = "Relaunch"
 icon = "\uf2d2"
-actions = { default = "hyprctl dispatch exit" }
+actions = { default = "hyprctl dispatch 'hl.dsp.exit()'" }

@@ -44,9 +44,15 @@
 
   security.sudo.extraConfig = "Defaults passwd_tries=10";
 
-  environment.etc."security/faillock.conf".text = ''
-    deny = 10
-  '';
+  environment = {
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+    etc."security/faillock.conf".text = ''
+      deny = 10
+    '';
+  };
 
   boot = {
     loader = {

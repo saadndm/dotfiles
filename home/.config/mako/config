@@ -10,3 +10,13 @@ default-timeout=10000
 
 [urgency=high]
 border-color=#fab387
+
+[mode=do-not-disturb]
+invisible=1
+
+[app-name=notify-send]
+border-color=#a6e3a1
+
+[mode=do-not-disturb app-name=notify-send]
+invisible=false
+border-color=#f38ba8
