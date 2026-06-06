@@ -6,7 +6,7 @@ _: {
     ./steam.nix
     ./system.nix
     ./fonts.nix
-    ./sddm.nix
+    ./greetd.nix
     ./virtualisation.nix
     ./elephant.nix
   ];
