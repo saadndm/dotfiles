@@ -12,7 +12,6 @@
   xdg.configFile."scripts".source = "${inputs.self}/home/.config/scripts";
   xdg.configFile."ghostty/shaders/cursor_warp.glsl".source =
     "${inputs.self}/home/.config/ghostty/shaders/cursor_warp.glsl";
-  xdg.configFile."oama/config.yaml".source = "${inputs.self}/home/.config/oama/config.yaml";
   xdg.configFile."clipse/config.json".source = "${inputs.self}/home/.config/clipse/config.json";
   xdg.configFile."clipse/custom_theme.json".source =
     "${inputs.self}/home/.config/clipse/custom_theme.json";

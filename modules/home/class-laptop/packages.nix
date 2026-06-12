@@ -107,7 +107,6 @@
     pinta
     typst
     vesktop
-    oama
     hyprlock
     hypridle
     imv

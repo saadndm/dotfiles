@@ -21,5 +21,9 @@
     sioyek.enable = true;
     ghostty.enable = true;
     kitty.enable = true;
+    thunderbird = {
+      enable = true;
+      profile = "default";
+    };
   };
 }

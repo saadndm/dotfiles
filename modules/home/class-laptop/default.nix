@@ -6,5 +6,6 @@ _: {
     ./hyprland.nix
     ./system.nix
     ./zen-browser.nix
+    ./thunderbird.nix
   ];
 }
