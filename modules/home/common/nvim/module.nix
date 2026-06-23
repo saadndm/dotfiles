@@ -67,9 +67,18 @@ inputs:
       blink-cmp
       colorful-menu-nvim
       blink-indent
+      blink-pairs
 
       snacks-nvim
-      lazydev-nvim
+      # TODO: Remove once lazydev fixes emmylua-ls support
+      (lazydev-nvim.overrideAttrs (finalAttrs: {
+        patches = [
+          (pkgs.fetchpatch {
+            url = "https://github.com/folke/lazydev.nvim/pull/141.patch";
+            hash = "sha256-r8YZvYAT5OaY5rRdMwknaedfeWWl5PM2MRRZ9/2q51g=";
+          })
+        ];
+      }))
       trouble-nvim
       todo-comments-nvim
 
@@ -85,6 +94,7 @@ inputs:
       nvim-jump
 
       lazygit-nvim
+      diffs-nvim
 
       SchemaStore-nvim
 

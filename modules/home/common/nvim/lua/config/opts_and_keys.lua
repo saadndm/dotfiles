@@ -37,10 +37,18 @@ vim.api.nvim_create_autocmd({ "TextYankPost", "TextPutPost" }, {
 
 -- General Keymaps
 vim.keymap.set({ "n", "v", "x" }, "<leader>w", function ()
-  vim.cmd.w()
+  vim.cmd("silent write")
 end, { desc = "Write file" }
 )
-vim.keymap.set({ "n", "v", "x" }, "<leader>bd", ":bd<CR>")
+vim.keymap.set({ "n", "v", "x" }, "<leader>c", ":bd<CR>")
+vim.keymap.set("n", "<leader>[", function ()
+  vim.cmd("bprevious")
+end, { desc = "Previous buffer" }
+)
+vim.keymap.set("n", "<leader>]", function ()
+  vim.cmd("bnext")
+end, { desc = "Next buffer" }
+)
 
 -- Center scrolling
 vim.keymap.set({ "n", "v", "x" }, "<C-d>", "M<C-d>")
@@ -84,6 +92,10 @@ o.spelllang = "en"
 
 o.ignorecase = true
 
+o.shortmess = o.shortmess .. "u"
+
+o.report = 40
+
 -- ui2
 o.cmdheight = 0
 require("vim._core.ui2").enable({
@@ -91,31 +103,18 @@ require("vim._core.ui2").enable({
   msg = {
     targets = {
       [""] = "msg",
-      empty = "cmd",
-      bufwrite = "msg",
-      confirm = "cmd",
-      emsg = "pager",
-      echo = "msg",
-      echomsg = "msg",
-      echoerr = "pager",
-      completion = "cmd",
-      list_cmd = "pager",
+      default = "msg",
+      emsg = "msg",
+      echo = "cmd",
+      echoerr = "msg",
+      list_cmd = "msg",
       lua_error = "pager",
-      lua_print = "msg",
       progress = "pager",
       rpc_error = "pager",
-      quickfix = "msg",
-      search_cmd = "cmd",
-      search_count = "cmd",
       shell_cmd = "pager",
       shell_err = "pager",
       shell_out = "pager",
-      shell_ret = "msg",
-      undo = "msg",
       verbose = "pager",
-      wildlist = "cmd",
-      wmsg = "msg",
-      typed_cmd = "cmd",
     },
     msg = {
       height = 0.3,
@@ -127,18 +126,23 @@ require("vim._core.ui2").enable({
   },
 })
 
+vim.keymap.set("n", "<leader>,", function ()
+  require("vim._core.ui2.messages").msg_clear()
+end, { desc = "Clear notifications" }
+)
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "msg",
   callback = function ()
     local ui2 = require("vim._core.ui2")
     local win = ui2.wins and ui2.wins.msg
+
     if win and vim.api.nvim_win_is_valid(win) then
-      vim
-        .api
-        .nvim_set_option_value("winhighlight", "Normal:NormalFloat,FloatBorder:FloatBorder", {
-          scope = "local",
-          win = win,
-        })
+      vim.api.nvim_set_option_value(
+        "winhighlight", "Normal:NormalFloat,FloatBorder:FloatBorder", { scope = "local", win = win }
+      )
+      vim.api.nvim_set_option_value("wrap", true, { scope = "local", win = win })
+      vim.api.nvim_set_option_value("linebreak", true, { scope = "local", win = win })
     end
   end,
 })
@@ -146,30 +150,29 @@ vim.api.nvim_create_autocmd("FileType", {
 local ui2 = require("vim._core.ui2")
 local msgs = require("vim._core.ui2.messages")
 local orig_set_pos = msgs.set_pos
+
+local function msg_width(buf, max_width)
+  local width = 1
+
+  for _, line in ipairs(vim.api.nvim_buf_get_lines(buf, 0, -1, false)) do
+    width = math.max(width, vim.fn.strdisplaywidth(line))
+  end
+
+  return math.min(width, max_width)
+end
+
 msgs.set_pos = function (tgt)
   orig_set_pos(tgt)
+
   local win = ui2.wins and ui2.wins.msg
   if (tgt == "msg" or tgt == nil) and win and vim.api.nvim_win_is_valid(win) then
     pcall(vim.api.nvim_win_set_config, ui2.wins.msg, {
       relative = "editor",
       anchor = "NE",
       row = 1,
-      col = vim.o.columns - 1,
+      col = o.columns - 1,
+      width = msg_width(vim.api.nvim_win_get_buf(win), math.floor(o.columns * 0.5)),
       border = "rounded",
     })
   end
 end
-
-vim.api.nvim_create_autocmd("LspProgress", {
-  callback = function (ev)
-    local value = ev.data.params.value
-    vim.api.nvim_echo({ { value.message or "done" } }, false, {
-      id = "lsp." .. ev.data.client_id,
-      kind = "progress",
-      source = "vim.lsp",
-      title = value.title,
-      status = value.kind ~= "end" and "running" or "success",
-      percent = value.percentage,
-    })
-  end,
-})

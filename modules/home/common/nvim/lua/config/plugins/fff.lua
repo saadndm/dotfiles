@@ -90,6 +90,9 @@ return {
 
     fff.setup({
       prompt = "> ",
+      grep = {
+        modes = { "plain", "fuzzy", "regex" },
+      },
     })
   end,
 }

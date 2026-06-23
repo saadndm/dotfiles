@@ -4,6 +4,9 @@ return {
   after = function ()
     require("tiny-cmdline").setup({
       on_reposition = require("tiny-cmdline").adapters.blink,
+      title = {
+        enabled = true,
+      },
     })
   end,
 }

@@ -1,16 +1,11 @@
 return {
   "blink.pairs",
   event = "InsertEnter",
-  load = function ()
-    vim.opt.rtp:append("~/Documents/Tools/blink.pairs/")
-  end,
   after = function ()
     require("blink.pairs").setup({
       mappings = {
         enabled = true,
         cmdline = true,
-        tabout = "<Tab>",
-        back_tabout = "<S-Tab>",
       },
       highlights = {
         enabled = true,
