@@ -33,7 +33,10 @@
     lazygit = {
       enable = true;
       settings = {
-        git.log.order = "default";
+        git = {
+          log.order = "default";
+          pagers = [ { pager = "delta --dark --paging=never"; } ];
+        };
       };
     };
     lazydocker = {
