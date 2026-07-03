@@ -8,33 +8,12 @@
     enableFishIntegration = true;
     settings = {
       mgr = {
-        ratio = [
-          1
-          4
-          3
-        ];
         sort_by = "mtime";
-        sort_sensitive = false;
         sort_reverse = true;
-        sort_dir_first = true;
-        linemode = "none";
-        show_hidden = true;
-        show_symlink = true;
       };
       preview = {
-        image_filter = "triangle";
-        image_quality = 75;
-        tab_size = 2;
         max_width = 1200;
         max_height = 1000;
-        cache_dir = "";
-        ueberzug_scale = 1;
-        ueberzug_offset = [
-          0
-          0
-          0
-          0
-        ];
       };
       opener = {
         mpv = [
@@ -98,10 +77,35 @@
           ];
         }
       ];
+      plugin.prepend_fetchers = [
+        {
+          url = "*";
+          run = "git";
+          group = "git";
+        }
+        {
+          url = "*/";
+          run = "git";
+          group = "git";
+        }
+      ];
     };
     keymap = {
       mgr = {
         prepend_keymap = [
+          {
+            on = "?";
+            run = "help";
+            desc = "Open help";
+          }
+          {
+            on = "~";
+            run = "noop";
+          }
+          {
+            on = "<F1>";
+            run = "noop";
+          }
           {
             on = "l";
             run = "plugin smart-enter";
@@ -112,7 +116,7 @@
             run = "plugin mount";
           }
           {
-            on = "+";
+            on = "=";
             run = "plugin zoom 1";
           }
           {
@@ -151,7 +155,7 @@
               "g"
               "p"
             ];
-            run = "cd ~/Documents/Projects/";
+            run = "cd ~/Projects/";
             desc = "Go to projects";
           }
           {
@@ -167,25 +171,18 @@
     };
     plugins = {
       inherit (pkgs.yaziPlugins)
-        git
         sudo
         mount
         smart-enter
         ;
-      zoom = pkgs.stdenv.mkDerivation {
-        name = "yazi-plugin-zoom";
-
-        src = pkgs.fetchFromGitHub {
-          owner = "yazi-rs";
-          repo = "plugins";
-          rev = "d7588f6d29b5998733d5a71ec312c7248ba14555";
-          sha256 = "sha256-9+58QhdM4HVOAfEC224TrPEx1N7F2VLGMxKVLAM4nJw=";
+      # TODO: Switch back once cached
+      zoom = pkgs.master.yaziPlugins.zoom;
+      git = {
+        package = pkgs.yaziPlugins.git;
+        setup = true;
+        settings = {
+          order = 1500;
         };
-
-        installPhase = ''
-          mkdir -p $out
-          cp -rL zoom.yazi/* $out/
-        '';
       };
     };
   };
