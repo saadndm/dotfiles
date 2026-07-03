@@ -117,5 +117,6 @@
     man-pages
     hydra-check
     cloc
+    sshfs
   ];
 }

@@ -124,8 +124,11 @@
               "g"
               "P"
             ];
-            run = "cd /run/user/1000/045d328dfcc24422a0ae0117d55865b1/storage/emulated/0";
-            desc = "Go to phone storage";
+            run = [
+              "shell '$HOME/.config/scripts/kdeconnect-mount.sh -n \"OnePlus 12\" /mnt/phone' --block"
+              "cd /mnt/phone"
+            ];
+            desc = "Mount & go to phone";
           }
           {
             on = [
