@@ -32,8 +32,6 @@
 
   programs.nix-ld.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   networking = {
     nftables.enable = true;
     nameservers = [

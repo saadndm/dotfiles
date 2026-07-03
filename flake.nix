@@ -2,13 +2,11 @@
   description = "Simple flake with a devshell";
 
   inputs = {
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://flakehub.com/f/DeterminateSystems/nixpkgs-weekly/0.1";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    determinate = {
-      url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    };
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     blueprint = {
       url = "github:numtide/blueprint";
@@ -66,7 +64,7 @@
     };
 
     i915-sriov = {
-      url = "github:strongtz/i915-sriov-dkms";
+      url = "github:strongtz/i915-sriov-dkms/kernel-v7.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -94,5 +92,14 @@
     inputs:
     inputs.blueprint {
       inherit inputs;
+      nixpkgs = {
+        config.allowUnfree = true;
+        overlays = [
+          (_: prev: {
+            master = inputs.nixpkgs-master.legacyPackages.${prev.system};
+            stable = inputs.nixpkgs-stable.legacyPackages.${prev.system};
+          })
+        ];
+      };
     };
 }
