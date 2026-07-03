@@ -1,5 +1,4 @@
 {
-  pkgs,
   perSystem,
   ...
 }:
@@ -7,6 +6,8 @@
 {
   programs.hyprland = {
     enable = true;
+    package = perSystem.hyprland.hyprland;
+    portalPackage = perSystem.hyprland.xdg-desktop-portal-hyprland;
     systemd.setPath.enable = true;
   };
 
@@ -16,8 +17,8 @@
       default = [ "hyprland" ];
       "org.freedesktop.impl.portal.FileChooser" = [ "termfilepickers" ];
     };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
+    extraPortals = [
+      perSystem.hyprland.xdg-desktop-portal-hyprland
       perSystem.xdp-termfilepickers.default
     ];
   };
