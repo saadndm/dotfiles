@@ -80,12 +80,31 @@
         any.path = "~/dotfiles/wallpapers";
       };
     };
+    clipse = {
+      enable = true;
+      settings = {
+        maxHistory = 1000;
+        keyBindings = {
+          up = "k";
+          down = "j";
+          nextPage = "l";
+          prevPage = "h";
+          remove = "x";
+          quit = "q,esc";
+        };
+        imageDisplay = {
+          type = "kitty";
+          scaleX = 25;
+          scaleY = 30;
+          heightCut = 4;
+        };
+      };
+    };
   };
 
   home.packages = with pkgs; [
     jmtpfs
     impala
-    clipse
     # TODO: Remove once waybar releases version containing hyprland workspaces fix
     ((waybar.override { cavaSupport = false; }).overrideAttrs (finalAttrs: {
       src = fetchFromGitHub {

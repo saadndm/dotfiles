@@ -22,6 +22,7 @@
     ghostty.enable = true;
     kitty.enable = true;
     delta.enable = true;
+    clipse.enable = true;
     thunderbird = {
       enable = true;
       profile = "default";

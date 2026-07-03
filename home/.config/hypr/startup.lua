@@ -1,7 +1,6 @@
 hl.on("hyprland.start", function ()
   hl.exec_cmd("sunsetr")
   hl.exec_cmd("waybar")
-  hl.exec_cmd("clipse -listen")
   hl.exec_cmd("walker --gapplication-service")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("hyprctl setcursor rose-pine-hyprcursor 16")
