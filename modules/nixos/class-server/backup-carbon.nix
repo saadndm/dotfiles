@@ -4,10 +4,25 @@
   inputs,
   ...
 }:
+let
+  kopiaModulePath = "${inputs.kopia}/nixos/modules/services/backup/kopia";
 
+  mkSnapshot = path: {
+    inherit path;
+    timer.enable = true;
+    timer.options = {
+      OnCalendar = "daily";
+      Persistent = true;
+    };
+  };
+in
 {
   imports = [
-    "${inputs.kopia}/nixos/modules/services/backup/kopia"
+    "${kopiaModulePath}"
+    "${kopiaModulePath}/repository-service.nix"
+    "${kopiaModulePath}/snapshot-service.nix"
+    "${kopiaModulePath}/policy-service.nix"
+    "${kopiaModulePath}/web-service.nix"
   ];
 
   config = lib.mkIf (config.networking.hostName == "carbon") {
@@ -21,19 +36,25 @@
 
       passwordFile = config.age.secrets.password.path;
 
-      paths = [
-        "/var/lib/immich"
-        "/var/lib/dawarich"
-        "/var/lib/papra"
-        "/var/lib/postgresql"
-        "/var/lib/wakapi"
-        "/var/lib/actual"
-        "/var/lib/vaultwarden"
-        "/home/bridgesense/dotfiles"
-        "/home/bridgesense/Projects"
-      ];
+      snapshots = lib.mapAttrs (_: path: mkSnapshot path) {
+        immich = "/var/lib/immich";
+        dawarich = "/var/lib/dawarich";
+        papra = "/var/lib/papra";
+        postgresql = "/var/lib/postgresql";
+        wakapi = "/var/lib/wakapi";
+        actual = "/var/lib/actual";
+        vaultwarden = "/var/lib/vaultwarden";
+        dotfiles = "/home/bridgesense/dotfiles";
+        projects = "/home/bridgesense/Projects";
+      };
 
-      policy = {
+      policies.entries."(global)" = {
+        retention = {
+          keepDaily = 7;
+          keepWeekly = 4;
+          keepMonthly = 6;
+        };
+
         files = {
           ignore = [
             "!*.db"
@@ -42,11 +63,6 @@
           ];
           ignoreDotFiles = [ ".gitignore" ];
         };
-        retention = {
-          keepDaily = 7;
-          keepWeekly = 4;
-          keepMonthly = 6;
-        };
       };
 
       web = {
@@ -54,11 +70,6 @@
         address = "0.0.0.0:51515";
         serverUsername = "kopia";
         serverPasswordFile = config.age.secrets.password.path;
-      };
-
-      timerConfig = {
-        OnCalendar = "daily";
-        Persistent = true;
       };
     };
   };

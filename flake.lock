@@ -993,11 +993,11 @@
     },
     "kopia": {
       "locked": {
-        "lastModified": 1782799060,
+        "lastModified": 1782814451,
         "narHash": "sha256-DuOgXKNov08r/4fj+EmmVLqzwQgv2dZafpx1cwEWBRA=",
         "owner": "efficacy38",
         "repo": "nixpkgs",
-        "rev": "e19011b04477bcab123ad772f1cedfcac9bbc2d9",
+        "rev": "24d2f4ec2deb98bc1ec5b3f59b6e669178d552fd",
         "type": "github"
       },
       "original": {
