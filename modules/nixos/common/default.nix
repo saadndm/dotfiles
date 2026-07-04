@@ -43,6 +43,7 @@
   security.sudo.extraConfig = "Defaults passwd_tries=10";
 
   environment = {
+    enableAllTerminfo = true;
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
