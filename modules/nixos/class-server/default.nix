@@ -10,8 +10,10 @@ _: {
     ./dawarich.nix
     ./beszel.nix
     ./rustfs.nix
+    ./reposilite.nix
 
     ./backup-carbon.nix
+    ./cloudflared-carbon.nix
 
     ./dominance-link.nix
     ./hypixel-duels-discord-bot.nix
