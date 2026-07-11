@@ -38,7 +38,6 @@ inputs:
 
     gotools
     gopls
-    golangci-lint
 
     clang-tools
 
@@ -62,7 +61,6 @@ inputs:
       oil-nvim
       nvim-lspconfig
       conform-nvim
-      nvim-lint
 
       blink-cmp
       colorful-menu-nvim
