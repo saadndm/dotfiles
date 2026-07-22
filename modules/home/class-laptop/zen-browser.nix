@@ -9,20 +9,56 @@
     profiles.BridgeSense = {
       isDefault = true;
       name = "BridgeSense";
-      settings = {
-        browser = {
-          urlbar.maxRichResults = 10;
-          urlbar.maxHistoricalSearchSuggestions = 4;
-          ctrlTab.sortByRecentlyUsed = true;
+
+      spacesForce = true;
+      spaces = {
+        "Personal" = {
+          id = "4d276e5c-73af-4748-ae43-afcc16cf1dac";
+          position = 1000;
+          icon = "chrome://browser/skin/zen-icons/selectable/rocket.svg";
+          liveFolders = {
+            "Pull Requests" = {
+              id = "1780796719814-35";
+              kind = "github:pull-requests";
+              position = 401;
+              folderIcon = "chrome://browser/skin/zen-icons/selectable/logo-github.svg";
+              github = {
+                authorMe = true;
+                assignedMe = true;
+                reviewRequested = true;
+              };
+            };
+            "Issues" = {
+              id = "1780796723036-59";
+              kind = "github:issues";
+              position = 402;
+              folderIcon = "chrome://browser/skin/zen-icons/selectable/logo-github.svg";
+              github = {
+                authorMe = true;
+                assignedMe = true;
+              };
+            };
+          };
         };
-        zen = {
-          workspaces.continue-where-left-off = true;
-          theme.gradient.show-custom-colors = true;
-          pinned-tab-manager.restore-pinned-tabs-to-pinned-url = true;
+        "School" = {
+          id = "e07a9d92-7656-4355-a370-50d4abf3094b";
+          position = 2000;
+          icon = "chrome://browser/skin/zen-icons/selectable/school.svg";
         };
-        gfx.webrender.all = true;
-        widget.use-xdg-desktop-portal.file-picker = 1;
       };
+
+      settings = {
+        "browser.ctrlTab.sortByRecentlyUsed" = true;
+        "browser.urlbar.maxRichResults" = 10;
+        "browser.urlbar.maxHistoricalSearchSuggestions" = 4;
+        "zen.workspaces.continue-where-left-off" = true;
+        "zen.theme.gradient.show-custom-colors" = true;
+        "zen.pinned-tab-manager.restore-pinned-tabs-to-pinned-url" = true;
+        "zen.urlbar.single-toolbar-show-copy-url" = false;
+        "gfx.webrender.all" = true;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
+
       userChrome = ''
         #urlbar-results {
           max-height: min(65vh, 520px) !important;
@@ -32,6 +68,7 @@
           top: 15.6vh !important;
         }
       '';
+
       keyboardShortcuts = [
         {
           id = "zen-compact-mode-show-sidebar";
@@ -71,6 +108,7 @@
         }
       ];
     };
+
     policies = {
       AutofillCreditCardEnabled = false;
       DisableAppUpdate = true;
