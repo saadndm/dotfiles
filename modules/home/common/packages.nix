@@ -117,5 +117,7 @@
     hydra-check
     cloc
     sshfs
+    hyperfine
+    dua
   ];
 }
