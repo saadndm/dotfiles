@@ -105,7 +105,6 @@
     ghostscript
     fd
     sqlite
-    scooter
     compose2nix
     ffmpeg
     zip

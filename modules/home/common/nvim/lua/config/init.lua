@@ -1,7 +1,18 @@
-require("config.opts_and_keys")
+Config.now(function ()
+  require("config.options")
+  require("config.keymaps")
+  require("config.plugins")
+end)
 
-require("lze").register_handlers(require("lzextras").lsp)
+Config.now_if_args(function ()
+  require("config.lsp")
+end)
 
-require("config.plugins")
-require("config.lsp")
-require("config.format")
+Config.later(function ()
+  require("config.ui2")
+end)
+
+-- Auto format on save
+Config.new_autocmd("BufWritePre", nil, function ()
+  vim.lsp.buf.format()
+end)

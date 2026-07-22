@@ -17,6 +17,8 @@ inputs:
 
     emmylua-ls
 
+    harper
+
     nixd
     nixfmt
 
@@ -24,20 +26,14 @@ inputs:
     ty
 
     typescript-go
-    biome
-
-    hyprls
-
-    bash-language-server
-    shfmt
+    oxfmt
+    oxlint
 
     tinymist
     typstyle
 
-    vscode-json-languageserver
-
-    gotools
     gopls
+    gotools
 
     clang-tools
 
@@ -46,28 +42,30 @@ inputs:
 
     rust-analyzer
     rustfmt
+
+    vscode-json-languageserver
+
+    bash-language-server
+    shfmt
+
+    yaml-language-server
   ];
 
-  specs.plugins = {
+  specs.startup = {
+    # Plugins here need to be on runtimepath at startup or have no plugin/ directory
     data = with pkgs.vimPlugins; [
-      lze
-      lzextras
-
-      nvim-treesitter.withAllGrammars
-      nvim-treesitter-context
-
       catppuccin-nvim
 
-      oil-nvim
-      nvim-lspconfig
-      conform-nvim
+      mini-nvim
 
-      blink-cmp
+      tiny-inline-diagnostic-nvim
+
       colorful-menu-nvim
-      blink-indent
-      blink-pairs
 
-      snacks-nvim
+      lspkind-nvim
+
+      SchemaStore-nvim
+
       # TODO: Remove once lazydev fixes emmylua-ls support
       (lazydev-nvim.overrideAttrs (finalAttrs: {
         patches = [
@@ -77,27 +75,42 @@ inputs:
           })
         ];
       }))
-      trouble-nvim
-      todo-comments-nvim
+    ];
+  };
 
-      mini-nvim
+  specs.plugins = {
+    lazy = true;
+    data = with pkgs.vimPlugins; [
+      nvim-treesitter.withAllGrammars
+      nvim-treesitter-context
+
+      nvim-lspconfig
+
+      blink-cmp
+
+      blink-indent
+
+      tiny-cmdline-nvim
+
+      pkgs.master.vimPlugins.canola-nvim
 
       fff-nvim
 
+      snacks-nvim
+
+      gitsigns-nvim
+      diffview-plus-nvim
+
+      nvim-colorizer-lua
+
+      faster-nvim
+
+      grug-far-nvim
+
       vim-wakatime
 
-      tiny-cmdline-nvim
-      tiny-inline-diagnostic-nvim
-
-      nvim-jump
-
-      lazygit-nvim
-      diffs-nvim
-
-      SchemaStore-nvim
-
       typst-preview-nvim
-      # markview-nvim
+      markview-nvim
       obsidian-nvim
     ];
   };

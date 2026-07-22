@@ -1,53 +1,26 @@
+vim.lsp.config("jsonls", {
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+    },
+  },
+})
+
 vim.lsp.enable({
   "emmylua_ls",
+  "harper_ls",
   "nixd",
-  "gopls",
+  "ruff",
   "ty",
   "tsgo",
-  "hyprls",
-  "ruff",
+  "oxfmt",
+  "oxlint",
   "tinymist",
-  "jsonls",
-  "bashls",
-  "biome",
+  "gopls",
   "clangd",
   "hls",
   "rust_analyzer",
-})
-
-vim.lsp.config("emmylua_ls", {
-  settings = {
-    Lua = {
-      runtime = {
-        requirePattern = {
-          "?.lua",
-          "?/init.lua",
-          "lua/?.lua",
-          "lua/?/init.lua",
-        },
-      },
-    },
-  },
-})
-
-vim.diagnostic.config({
-  virtual_lines = false,
-  underline = true,
-  severity_sort = true,
-  float = {
-    border = "rounded",
-    source = true,
-  },
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "󰌵",
-    },
-    numhl = {
-      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-      [vim.diagnostic.severity.WARN] = "WarningMsg",
-    },
-  },
+  "jsonls",
+  "bashls",
+  "yamlls",
 })

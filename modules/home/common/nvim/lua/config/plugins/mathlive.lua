@@ -1,18 +1,9 @@
-return {
-  {
-    "mathlive.nvim",
-    ft = { "typst", "markdown" },
-    load = function (name)
-      vim.opt.rtp:append("~/Projects/mathlive.nvim/")
-    end,
-    after = function ()
-      require("mathlive").setup({
-        color_hex = "#ffffff",
-        preamble = [[
-          #set math.mat(delim: "[")
-          #set math.vec(delim: "[")
-        ]],
-      })
-    end,
-  },
-}
+vim.opt.rtp:append("~/Projects/mathlive.nvim/")
+
+require("mathlive").setup({
+  color_hex = "#ffffff",
+  preamble = [[
+    #set math.mat(delim: "[")
+    #set math.vec(delim: "[")
+  ]],
+})

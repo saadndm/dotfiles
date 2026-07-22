@@ -1,29 +1,20 @@
-return {
-  "blink.pairs",
-  event = "InsertEnter",
-  after = function ()
-    require("blink.pairs").setup({
-      mappings = {
-        enabled = true,
-        cmdline = true,
-      },
-      highlights = {
-        enabled = true,
-        cmdline = true,
-        groups = {
-          "BlinkPairsOrange",
-          "BlinkPairsPurple",
-          "BlinkPairsBlue",
-        },
-        unmatched_group = "BlinkPairsUnmatched",
-        matchparen = {
-          enabled = true,
-          cmdline = false,
-          include_surrounding = false,
-          group = "BlinkPairsMatchParen",
-          priority = 250,
-        },
-      },
-    })
-  end,
-}
+vim.opt.rtp:append("~/Documents/Tools/blink.lib/")
+vim.opt.rtp:append("~/Documents/Tools/blink.pairs/")
+
+require("blink.pairs").setup({
+  mappings = {
+    tabout = {
+      ["<Tab>"] = "forward",
+      ["<S-Tab>"] = "backward",
+    },
+  },
+  highlights = {
+    groups = {
+      "BlinkPairsOrange",
+      "BlinkPairsPurple",
+      "BlinkPairsBlue",
+      "BlinkPairsRed",
+      "BlinkPairsYellow",
+    },
+  },
+})

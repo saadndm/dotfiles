@@ -1,12 +1,8 @@
-return {
-  "tiny-cmdline.nvim",
-  lazy = false,
-  after = function ()
-    require("tiny-cmdline").setup({
-      on_reposition = require("tiny-cmdline").adapters.blink,
-      title = {
-        enabled = true,
-      },
-    })
-  end,
-}
+vim.cmd.packadd("tiny-cmdline.nvim")
+
+require("tiny-cmdline").setup({
+  on_reposition = require("tiny-cmdline").adapters.blink,
+  title = {
+    enabled = true,
+  },
+})
