@@ -58,11 +58,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:vaxerski/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     i915-sriov = {
       url = "github:strongtz/i915-sriov-dkms/kernel-v7.1";
       inputs.nixpkgs.follows = "nixpkgs";
