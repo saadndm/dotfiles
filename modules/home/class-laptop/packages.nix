@@ -132,7 +132,10 @@
     (prismlauncher.override {
       jdks = [
         temurin-bin-8
-        temurin-bin-21
+        temurin-bin-25
+      ];
+      additionalLibs = with pkgs; [
+        libxkbcommon
       ];
     })
     racket

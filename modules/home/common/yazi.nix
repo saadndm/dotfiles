@@ -174,9 +174,8 @@
         sudo
         mount
         smart-enter
+        zoom
         ;
-      # TODO: Switch back once cached
-      zoom = pkgs.master.yaziPlugins.zoom;
       git = {
         package = pkgs.yaziPlugins.git;
         setup = true;
