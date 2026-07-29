@@ -103,7 +103,6 @@
   };
 
   home.packages = with pkgs; [
-    jmtpfs
     impala
     # TODO: Remove once waybar releases version containing hyprland workspaces fix
     ((waybar.override { cavaSupport = false; }).overrideAttrs (finalAttrs: {
