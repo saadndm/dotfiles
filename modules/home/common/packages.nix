@@ -37,6 +37,9 @@
           log.order = "default";
           pagers = [ { pager = "delta --dark --paging=never"; } ];
         };
+        gui = {
+          shrinkSidePanelsToContent = true;
+        };
       };
     };
     lazydocker = {
