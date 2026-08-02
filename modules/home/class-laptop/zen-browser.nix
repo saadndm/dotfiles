@@ -48,6 +48,7 @@
       };
 
       settings = {
+        "browser.shell.checkDefaultBrowser" = false;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "browser.urlbar.maxRichResults" = 10;
         "browser.urlbar.maxHistoricalSearchSuggestions" = 4;
