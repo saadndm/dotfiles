@@ -92,7 +92,7 @@ inputs:
 
       tiny-cmdline-nvim
 
-      pkgs.master.vimPlugins.canola-nvim
+      canola-nvim
 
       fff-nvim
 

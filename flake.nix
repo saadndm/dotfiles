@@ -59,7 +59,7 @@
     };
 
     i915-sriov = {
-      url = "github:strongtz/i915-sriov-dkms/kernel-v7.1";
+      url = "github:strongtz/i915-sriov-dkms";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
