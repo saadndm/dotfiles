@@ -65,6 +65,7 @@
         efiSysMountPoint = "/boot";
       };
     };
+    kernel.sysctl."vm.swappiness" = 10;
     initrd.systemd.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
