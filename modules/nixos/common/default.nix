@@ -8,7 +8,6 @@
   imports = [
     inputs.determinate.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
-    ./bash.nix
     ./tailscale.nix
     ./agenix.nix
     ./stylix.nix
@@ -31,6 +30,7 @@
   };
 
   programs.nix-ld.enable = true;
+  programs.fish.enable = true;
 
   networking = {
     nftables.enable = true;
@@ -85,6 +85,7 @@
     mutableUsers = false;
     users.bridgesense = {
       isNormalUser = true;
+      shell = pkgs.fish;
       extraGroups = [ "wheel" ];
       linger = true;
       # Initial password: temp
