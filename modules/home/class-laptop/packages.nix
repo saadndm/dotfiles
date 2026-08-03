@@ -135,6 +135,7 @@
       ];
       additionalLibs = with pkgs; [
         libxkbcommon
+        fontconfig
       ];
     })
     racket
