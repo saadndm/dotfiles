@@ -27,4 +27,5 @@ in
   "password.age".publicKeys = users ++ systems;
   "beszel-env.age".publicKeys = users ++ systems;
   "kopia.age".publicKeys = users ++ systems;
+  "rustfs-env.age".publicKeys = users ++ systems;
 }

@@ -22,6 +22,7 @@
       };
       beszel-env.file = ../../../secrets/beszel-env.age;
       kopia.file = ../../../secrets/kopia.age;
+      rustfs-env.file = ../../../secrets/rustfs-env.age;
     };
   };
 }

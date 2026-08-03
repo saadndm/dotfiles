@@ -933,7 +933,6 @@
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvim": "nvim",
-        "rustfs": "rustfs",
         "stylix": "stylix",
         "xdp-termfilepickers": "xdp-termfilepickers",
         "yazi": "yazi",
@@ -958,26 +957,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rustfs": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1784874492,
-        "narHash": "sha256-E4kC+rya1KfPpDGWtq+E3Ka4HoJGVIo5f9ZsHzYivUs=",
-        "owner": "rustfs",
-        "repo": "rustfs-flake",
-        "rev": "7dedccc7160410a325f922ed8591d90152a261b7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rustfs",
-        "repo": "rustfs-flake",
         "type": "github"
       }
     },

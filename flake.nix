@@ -72,11 +72,6 @@
       url = "github:efficacy38/nixpkgs";
     };
 
-    rustfs = {
-      url = "github:rustfs/rustfs-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     yazi = {
       url = "github:sxyazi/yazi";
       inputs.nixpkgs.follows = "nixpkgs";
