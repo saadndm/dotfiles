@@ -1,0 +1,46 @@
+name: Build carbon
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v7
+      - uses: cachix/install-nix-action@v31
+      - uses: DeterminateSystems/magic-nix-cache-action@v14
+        with:
+          use-gha-cache: enabled
+          use-flakehub: disabled
+      - name: Build carbon system
+        run: nix build .#nixosConfigurations.carbon.config.system.build.toplevel
+      - name: Export carbon closure
+        run: |
+          mkdir carbon-cache
+
+          echo "Closure size:"
+          nix path-info -Sh ./result
+          df -h /
+
+          nix copy \
+            --to "file://$PWD/carbon-cache?compression=zstd&compression-level=3&parallel-compression=true" \
+            ./result
+
+          readlink -f result > carbon-cache/system-path
+
+          echo "Exported cache size:"
+          du -sh carbon-cache
+          df -h /
+      - uses: actions/upload-artifact@v7
+        with:
+          name: carbon-system
+          path: carbon-cache/
+          compression-level: 0
+          retention-days: 7
