@@ -107,7 +107,15 @@ inputs:
 
       grug-far-nvim
 
-      vim-wakatime
+      # TODO: Remove once vim-wakatime releases new version
+      (vim-wakatime.overrideAttrs (_: {
+        src = pkgs.fetchFromGitHub {
+          owner = "wakatime";
+          repo = "vim-wakatime";
+          rev = "master";
+          hash = "sha256-rGEEF7LrsZM+KlHSdsJJqWbuOfN/w/M9LygafNWIVTE=";
+        };
+      }))
 
       typst-preview-nvim
       markview-nvim

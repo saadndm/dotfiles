@@ -39,8 +39,9 @@ Config.later(function ()
 end)
 
 Config.on_event("InsertEnter,CursorHold,CursorHoldI,BufWritePost", function ()
+  vim.g.loaded_wakatime = 1
   vim.cmd.packadd("vim-wakatime")
-  vim.cmd.doautocmd("<nomodeline> Wakatime VimEnter")
+  require("wakatime").setup()
 end)
 
 Config.on_event("InsertEnter,CmdlineEnter", function ()
