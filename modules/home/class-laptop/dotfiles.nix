@@ -28,9 +28,11 @@
     }
   }/share/color-schemes/CatppuccinMochaBlue.colors";
   xdg.configFile."devauth/config.toml".source = "${inputs.self}/home/.config/devauth/config.toml";
-  home.file.".wakatime.cfg".source = "${inputs.self}/home/.wakatime.cfg";
   xdg.configFile."looking-glass/client.ini".source =
     "${inputs.self}/home/.config/looking-glass/client.ini";
   xdg.configFile."systemd/user/graphical-session.target.wants/app-com.mitchellh.ghostty.service".source =
     "${perSystem.ghostty.default}/share/systemd/user/app-com.mitchellh.ghostty.service";
+
+  home.file.".wakatime.cfg".source = "${inputs.self}/home/.wakatime.cfg";
+  home.file.".clang-format".source = "${inputs.self}/home/.clang-format";
 }
