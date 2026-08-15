@@ -6,6 +6,11 @@
       _7zz = pkgs._7zz-rar;
     };
     enableFishIntegration = true;
+    initLua = ''
+      require("zoxide"):setup {
+        update_db = true,
+      }
+    '';
     settings = {
       mgr = {
         sort_by = "mtime";
