@@ -20,7 +20,7 @@
             "Pull Requests" = {
               id = "1780796719814-35";
               kind = "github:pull-requests";
-              position = 401;
+              position = 403;
               folderIcon = "chrome://browser/skin/zen-icons/selectable/logo-github.svg";
               github = {
                 authorMe = true;
