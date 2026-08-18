@@ -10,6 +10,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
     targets = {
+      console.enable = false;
       fish.enable = false;
       plymouth.enable = false;
     };
