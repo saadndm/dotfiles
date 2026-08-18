@@ -26,10 +26,6 @@
         users = [ "bridgesense" ];
         commands = [
           {
-            command = "/run/current-system/sw/bin/tee /sys/class/leds/platform\\:\\:mute/brightness";
-            options = [ "NOPASSWD" ];
-          }
-          {
             command = "/run/current-system/sw/bin/tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004\\:00/conservation_mode";
             options = [ "NOPASSWD" ];
           }
@@ -51,6 +47,19 @@
       };
     };
   };
+
+  systemd.services.mute-led = {
+    serviceConfig.Type = "oneshot";
+    script = ''
+      card=$(basename "$(readlink -f /proc/asound/sofhdadsp)")
+      printf %s 'name=Master Playback Switch' \
+        > "/sys/class/sound/ctl-led/speaker/$card/attach"
+    '';
+  };
+
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="sound", KERNEL=="controlC*", ATTRS{id}=="sofhdadsp", TAG+="systemd", ENV{SYSTEMD_WANTS}+="mute-led.service"
+  '';
 
   systemd.services.sriov-setup = {
     description = "Configure SR-IOV";
