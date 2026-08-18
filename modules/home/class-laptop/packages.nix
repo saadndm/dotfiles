@@ -148,7 +148,7 @@
     wayfreeze
     slurp
     grim
-    libreoffice-qt6-fresh
+    libreoffice-fresh
     hunspell
     hunspellDicts.uk_UA
     sunsetr
