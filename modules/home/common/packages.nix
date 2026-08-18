@@ -35,7 +35,7 @@
       settings = {
         git = {
           log.order = "default";
-          pagers = [ { pager = "delta --dark --paging=never"; } ];
+          diffRenderers = [ { command = "delta --dark --paging=never"; } ];
         };
         gui = {
           shrinkSidePanelsToContent = true;

@@ -159,10 +159,16 @@
       src = fetchFromGitHub {
         owner = "gnif";
         repo = "LookingGlass";
-        rev = "fc6a728bb775f47733b2d7919047de3a1bf116ba";
-        hash = "sha256-zgZBjevnJX/syZytyft//0HO8sx/vVYfOe9SkUZztJ4=";
+        rev = "86b83f3e23a62a2a44f41a8a1fb919d3598a2d5b";
+        hash = "sha256-1hJZ7i6EOnS5HbxH5nCxogkDMzCUxOihX01LqHCgFoA=";
         fetchSubmodules = true;
       };
+      patches = [ ];
+      buildInputs = oldAttrs.buildInputs ++ [
+        elfutils
+        fuse3
+        libunwind
+      ];
     }))
     kdePackages.kdenlive
     seahorse
