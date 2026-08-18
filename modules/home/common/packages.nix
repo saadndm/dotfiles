@@ -112,13 +112,13 @@
     ffmpeg
     zip
     gh
+    gh-stack
     delta
     bat-extras.core
     kopia
     gnumake
     man-pages
     hydra-check
-    cloc
     sshfs
     hyperfine
     dua
