@@ -1,0 +1,30 @@
+From: Suraj Kandpal <suraj.kandpal@intel.com>
+Subject: [PATCH] drm/i915/backlight: Use default/max brightness for VESA AUX backlight init
+
+If the brightness fetched from VBT/previous state is 0 on backlight
+initialization, set the brightness to the maximum value so that early boot
+does not leave the internal panel black.
+
+Source: https://patchwork.freedesktop.org/patch/708016/
+Closes: https://gitlab.freedesktop.org/drm/i915/kernel/-/issues/15671
+
+diff --git a/drivers/gpu/drm/i915/display/intel_dp_aux_backlight.c b/drivers/gpu/drm/i915/display/intel_dp_aux_backlight.c
+--- a/drivers/gpu/drm/i915/display/intel_dp_aux_backlight.c
++++ b/drivers/gpu/drm/i915/display/intel_dp_aux_backlight.c
+@@ -584,12 +584,16 @@
+ 		}
+ 		panel->backlight.level = intel_dp_aux_vesa_get_backlight(connector, 0);
+ 		panel->backlight.enabled = panel->backlight.level != 0;
++		if (!panel->backlight.level)
++			panel->backlight.level = panel->backlight.max;
+ 	} else if (panel->backlight.edp.vesa.info.aux_set) {
+ 		panel->backlight.max = panel->backlight.edp.vesa.info.max;
+ 		panel->backlight.min = 0;
+ 		if (current_mode == DP_EDP_BACKLIGHT_CONTROL_MODE_DPCD) {
+ 			panel->backlight.level = current_level;
+ 			panel->backlight.enabled = panel->backlight.level != 0;
++			if (!panel->backlight.level)
++				panel->backlight.level = panel->backlight.max;
+ 		} else {
+ 			panel->backlight.level = panel->backlight.max;
+ 			panel->backlight.enabled = false;

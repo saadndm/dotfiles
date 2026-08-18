@@ -48,7 +48,12 @@
       "module_blacklist=xe"
     ];
 
-    extraModulePackages = [ pkgs.i915-sriov ] ++ (with config.boot.kernelPackages; [ kvmfr ]);
+    extraModulePackages = [
+      (pkgs.i915-sriov.overrideAttrs (oldAttrs: {
+        patches = (oldAttrs.patches or [ ]) ++ [ ../../patches/i915-aux-backlight-default.patch ];
+      }))
+    ]
+    ++ (with config.boot.kernelPackages; [ kvmfr ]);
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
