@@ -11,10 +11,12 @@ let
   carbon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB1oEpy8yhDJbBkozmjjN/HO2oGxnxwZqXlXFlSpwnHW root@carbon";
   boron = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINpuVFaaTOyk33lJYrFDiTr3oODr2VoZ750Y7K2fVdwu root@boron";
   helium = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAbTIYV6LKWD8Gp/Mxav3jXs/WLxgnHmGXQTurNSXt3u root@helium";
+  nitrogen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEMJ+buPXUiUfjfy2bQiMxUKOVb7kM9Wp9uMjAxmgu5U root@nitrogen";
   systems = [
     carbon
     boron
     helium
+    nitrogen
   ];
 in
 {
