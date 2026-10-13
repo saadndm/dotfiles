@@ -81,7 +81,6 @@
 
   home.packages = with pkgs; [
     perSystem.agenix.default
-    typescript
     go
     bun
     nodejs
@@ -93,6 +92,7 @@
     rustc
     rustPlatform.bindgenHook
     pkg-config
+    python3
 
     jq
     uv

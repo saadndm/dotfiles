@@ -25,7 +25,7 @@ inputs:
     ruff
     ty
 
-    typescript-go
+    typescript
     oxfmt
     oxlint
 
@@ -112,8 +112,8 @@ inputs:
         src = pkgs.fetchFromGitHub {
           owner = "wakatime";
           repo = "vim-wakatime";
-          rev = "master";
-          hash = "sha256-rGEEF7LrsZM+KlHSdsJJqWbuOfN/w/M9LygafNWIVTE=";
+          rev = "9f8a1d3b9c6f3a948988a0896b3227c1e1f74a58";
+          hash = "sha256-49ckAWTbDEIb0fyTpCpTot5weG861k0le9MmdJiPoSU=";
         };
       }))
 

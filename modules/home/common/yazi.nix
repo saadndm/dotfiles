@@ -1,8 +1,8 @@
-{ perSystem, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.yazi = {
     enable = true;
-    package = perSystem.yazi.default.override {
+    package = pkgs.yazi.override {
       _7zz = pkgs._7zz-rar;
     };
     enableFishIntegration = true;
@@ -162,14 +162,6 @@
             ];
             run = "cd ~/Projects/";
             desc = "Go to projects";
-          }
-          {
-            on = [
-              "g"
-              "t"
-            ];
-            run = "cd ~/Documents/Tools/";
-            desc = "Go to tools";
           }
         ];
       };
