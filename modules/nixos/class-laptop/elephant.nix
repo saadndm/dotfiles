@@ -14,5 +14,5 @@
     };
   };
   systemd.user.services.elephant.serviceConfig.Environment =
-    "PATH=%h/.nix-profile/bin:/run/current-system/sw/bin:/etc/profiles/per-user/%u/bin";
+    "PATH=/run/wrappers/bin:%h/.nix-profile/bin:/run/current-system/sw/bin:/etc/profiles/per-user/%u/bin";
 }

@@ -18,13 +18,14 @@ require("vim._core.ui2").enable({
     },
     msg = {
       height = 0.3,
-      timeout = 4000,
     },
     pager = {
       height = 0.5,
     },
   },
 })
+
+vim.opt.messagesopt:append("timeout:4000")
 
 local f = function ()
   local ui2 = require("vim._core.ui2")

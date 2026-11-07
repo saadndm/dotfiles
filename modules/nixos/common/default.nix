@@ -49,7 +49,10 @@
   security.sudo.extraConfig = "Defaults passwd_tries=10";
 
   environment = {
-    enableAllTerminfo = true;
+    systemPackages = [
+      pkgs.ghostty.terminfo
+      pkgs.kitty.terminfo
+    ];
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -79,7 +82,6 @@
       };
     };
     kernel.sysctl."vm.swappiness" = 10;
-    initrd.systemd.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
 

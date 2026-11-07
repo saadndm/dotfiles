@@ -104,15 +104,7 @@
 
   home.packages = with pkgs; [
     impala
-    # TODO: Remove once waybar releases version containing hyprland workspaces fix
-    ((waybar.override { cavaSupport = false; }).overrideAttrs (finalAttrs: {
-      src = fetchFromGitHub {
-        owner = "Alexays";
-        repo = "Waybar";
-        rev = "05945748dccce28bf96d26d8f64a9e69a8dd49ba";
-        hash = "sha256-51R3mIt8cLNvh/X5qe9vOqeJCj0U9KRyemVE5y+OhiU=";
-      };
-    }))
+    waybar
     mako
     wiremix
     hyprpicker
@@ -175,5 +167,9 @@
     heroic
     android-tools
     qbittorrent
+    pkgs.master.claude-code
+    pkgs.master.codex
+    pkgs.master.t3code
+    zed-editor
   ];
 }
